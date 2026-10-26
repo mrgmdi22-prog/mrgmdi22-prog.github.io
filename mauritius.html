@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مرفأ السكر: موريشيوس | مرافئ العربية</title>
+<meta name="description" content="مرافئ العربية، الوحدة الأولى: مرفأ السكر، موريشيوس. مفردات وقصة وحوار وألعاب للطالب، ودليل درس للمعلم.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --page:#FAFCFB;
+    --lagoon:#D9F0EE;
+    --lagoon-deep:#2E8C85;
+    --sand:#F6EEDC;
+    --cane:#7FA65A;
+    --cane-soft:#E8F1DD;
+    --ink:#24302F;
+    --muted:#5D6B6A;
+    --line:#E1E8E6;
+    --good:#2F8F5B;
+    --bad:#C0573F;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{font-size:20px;scroll-behavior:smooth}
+  body{font-family:'IBM Plex Sans Arabic',sans-serif;background:var(--page);color:var(--ink);line-height:1.8;-webkit-font-smoothing:antialiased}
+  button{font:inherit;color:inherit;cursor:pointer}
+  :focus-visible{outline:3px solid var(--lagoon-deep);outline-offset:3px;border-radius:8px}
+  .wrap{max-width:900px;margin:0 auto;padding:0 18px}
+  .ar{font-family:'Amiri',serif}
+
+  /* Header */
+  header{
+    background:linear-gradient(180deg,var(--lagoon) 0%,#EDF8F6 70%,var(--page) 100%);
+    padding:36px 0 0;position:relative;overflow:hidden;
+  }
+  .series{font-weight:600;color:var(--lagoon-deep);font-size:1rem}
+  h1{font-family:'Amiri',serif;font-weight:700;font-size:clamp(2.6rem,8vw,3.8rem);line-height:1.25;margin-top:4px}
+  .sub{color:var(--muted);font-size:1.1rem;margin-top:6px;max-width:38ch}
+  .sub [dir=ltr]{display:block;font-style:italic;text-align:right}
+  header svg{display:block;width:100%;height:70px;margin-top:24px}
+
+  /* Tabs */
+  .tabs{display:flex;gap:10px;margin:22px 0 8px}
+  .tab{
+    flex:1;padding:14px 10px;border-radius:16px;border:2px solid var(--line);background:#fff;
+    font-weight:700;font-size:1.05rem;
+  }
+  .tab[aria-selected=true]{background:var(--lagoon-deep);border-color:var(--lagoon-deep);color:#fff}
+  .panel[hidden]{display:none}
+
+  /* Section nav for student */
+  .jump{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 6px}
+  .jump a{font-size:.92rem;font-weight:600;text-decoration:none;color:var(--lagoon-deep);background:var(--lagoon);padding:6px 16px;border-radius:999px}
+
+  section{padding:34px 0 10px}
+  h2{font-family:'Amiri',serif;font-size:2rem;line-height:1.3;display:flex;align-items:center;gap:12px}
+  h2 .ico{font-size:1.6rem}
+  .hint{color:var(--muted);font-size:1rem;margin:4px 0 18px}
+
+  /* Word cards */
+  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:14px}
+  .card{
+    position:relative;display:block;width:100%;height:190px;perspective:800px;border:none;background:none;padding:0;text-align:center;
+  }
+  .card .in{position:absolute;inset:0;transition:transform .5s;transform-style:preserve-3d}
+  .card.flip .in{transform:rotateY(180deg)}
+  .face{
+    position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;
+    border-radius:20px;border:2px solid var(--line);background:#fff;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:10px;
+  }
+  .face .emo{font-size:3rem;line-height:1.2}
+  .face .w{font-family:'Amiri',serif;font-size:1.75rem;font-weight:700;line-height:1.5}
+  .back{transform:rotateY(180deg);background:var(--sand);border-color:#EADFC6}
+  .back .en{direction:ltr;font-size:1.3rem;font-weight:600}
+  .say{
+    position:absolute;top:8px;left:8px;z-index:2;width:40px;height:40px;border-radius:50%;
+    border:2px solid var(--line);background:#fff;font-size:1.1rem;display:grid;place-items:center;
+  }
+  @media (prefers-reduced-motion:reduce){.card .in{transition:none}}
+
+  /* Story */
+  .story{background:#fff;border:2px solid var(--line);border-radius:24px;padding:26px 24px}
+  .story p{font-family:'Amiri',serif;font-size:1.75rem;line-height:2.2}
+  .story .line{display:block}
+  .tf{display:grid;gap:12px;margin-top:22px}
+  .q{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;background:#fff;border:2px solid var(--line);border-radius:18px;padding:14px 18px}
+  .q span{font-size:1.15rem;font-weight:500}
+  .q .btns{display:flex;gap:8px}
+  .q button{min-width:74px;padding:8px 14px;border-radius:12px;border:2px solid var(--line);background:var(--page);font-weight:700}
+  .q.ok{border-color:var(--good);background:#EEF7F1}
+  .q.no{border-color:var(--bad);background:#FBEFEC}
+  .q .mark{width:100%;font-size:.95rem;font-weight:600}
+  .q.ok .mark{color:var(--good)} .q.no .mark{color:var(--bad)}
+
+  /* Dialogue */
+  .chat{display:grid;gap:12px}
+  .bubble{max-width:82%;padding:12px 18px;border-radius:20px;font-family:'Amiri',serif;font-size:1.6rem;line-height:1.9;position:relative}
+  .bubble small{display:block;font-family:'IBM Plex Sans Arabic',sans-serif;font-size:.85rem;font-weight:700;color:var(--muted);line-height:1.4}
+  .b-adam{background:var(--lagoon);justify-self:start;border-bottom-right-radius:6px}
+  .b-sell{background:var(--sand);justify-self:end;border-bottom-left-radius:6px}
+
+  /* Games */
+  .game{background:#fff;border:2px solid var(--line);border-radius:24px;padding:22px 20px;margin-bottom:20px}
+  .game h3{font-size:1.2rem;margin-bottom:6px}
+  .match{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+  .col{display:grid;gap:10px}
+  .tile{padding:12px;border-radius:14px;border:2px solid var(--line);background:var(--page);min-height:64px}
+  .tile.w{font-family:'Amiri',serif;font-size:1.5rem;font-weight:700}
+  .tile.e{font-size:2rem}
+  .tile.sel{border-color:var(--lagoon-deep);background:var(--lagoon)}
+  .tile.done{border-color:var(--good);background:#EEF7F1;opacity:.6;pointer-events:none}
+  .tile.shake{animation:shake .35s}
+  @keyframes shake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+  .status{margin-top:12px;font-weight:700;color:var(--good);min-height:1.8em}
+  .slot{min-height:72px;border:2px dashed #BFD3D0;border-radius:16px;padding:10px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;background:var(--page)}
+  .bank{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+  .chip{font-family:'Amiri',serif;font-size:1.5rem;font-weight:700;padding:4px 16px;border-radius:12px;border:2px solid var(--line);background:#fff}
+  .row-btns{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+  .act{padding:10px 22px;border-radius:12px;border:2px solid var(--lagoon-deep);background:var(--lagoon-deep);color:#fff;font-weight:700}
+  .act.ghost{background:#fff;color:var(--lagoon-deep)}
+
+  /* Teacher */
+  .t-block{background:#fff;border:2px solid var(--line);border-radius:22px;padding:22px 22px;margin-bottom:16px}
+  .t-block h3{font-size:1.25rem;margin-bottom:8px;color:var(--lagoon-deep)}
+  .t-block ul{padding-right:22px}
+  .t-block li{margin-bottom:6px;font-size:1.05rem}
+  .step{display:grid;grid-template-columns:86px 1fr;gap:14px;padding:14px 0;border-top:1px solid var(--line)}
+  .step:first-of-type{border-top:none}
+  .min{font-weight:700;color:var(--lagoon-deep);background:var(--lagoon);border-radius:12px;text-align:center;padding:6px 0;height:max-content}
+  .step b{display:block;font-size:1.1rem}
+  .step p{color:var(--muted);font-size:1.02rem}
+  .print{margin:6px 0 20px}
+
+  footer{text-align:center;color:var(--muted);font-size:.95rem;padding:40px 0 46px}
+  footer b{color:var(--ink)}
+
+  @media (max-width:560px){
+    html{font-size:19px}
+    .cards{grid-template-columns:repeat(2,1fr)}
+    .card{height:170px}
+    .bubble{max-width:92%}
+    .step{grid-template-columns:1fr;gap:6px}
+    .min{width:110px}
+  }
+  @media print{
+    header svg,.tabs,.jump,.say,.print,#play{display:none!important}
+    .panel[hidden]{display:block!important}
+    .card .in{transform:none!important}.back{display:none}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="series">مرافئ العربية · الوحدة الأولى</div>
+    <h1>مرفأ السكر: موريشيوس</h1>
+    <p class="sub">جزيرة القصب والبحر الأزرق. <span dir="ltr">The Sugar Port: Mauritius</span></p>
+  </div>
+  <svg viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 40 Q120 15 240 40 T480 40 T720 40 T960 40 T1200 40 T1440 40 V70 H0Z" fill="#BFE5E1"/>
+    <path d="M0 52 Q120 32 240 52 T480 52 T720 52 T960 52 T1200 52 T1440 52 V70 H0Z" fill="#FAFCFB"/>
+  </svg>
+</header>
+
+<main class="wrap">
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" aria-selected="true" aria-controls="student" id="t-s">للطالب</button>
+    <button class="tab" role="tab" aria-selected="false" aria-controls="teacher" id="t-t">للمعلم</button>
+  </div>
+
+  <!-- ================= STUDENT ================= -->
+  <div class="panel" id="student" role="tabpanel" aria-labelledby="t-s">
+    <nav class="jump">
+      <a href="#words">الكلمات</a><a href="#story">القصة</a><a href="#dialog">في السوق</a><a href="#play">العب</a>
+    </nav>
+
+    <section id="words">
+      <h2><span class="ico">🏝️</span>كلمات المرفأ</h2>
+      <p class="hint">اضغط على البطاقة لترى المعنى بالإنجليزية، واضغط 🔊 لتسمع الكلمة.</p>
+      <div class="cards" id="cards"></div>
+    </section>
+
+    <section id="story">
+      <h2><span class="ico">📖</span>آدمُ من موريشيوس</h2>
+      <p class="hint">اقرأ القصة بصوت عالٍ، ثم أجب عن الأسئلة.</p>
+      <div class="story">
+        <p>
+          <span class="line">اِسْمِي آدَمُ. أَنَا مِنْ مُورِيشْيُوس.</span>
+          <span class="line">مُورِيشْيُوس جَزِيرَةٌ جَمِيلَةٌ فِي المُحِيطِ الهِنْدِيِّ.</span>
+          <span class="line">فِي جَزِيرَتِي بَحْرٌ أَزْرَقُ، وَشَاطِئٌ أَبْيَضُ.</span>
+          <span class="line">أَبِي يَزْرَعُ قَصَبَ السُّكَّرِ.</span>
+          <span class="line">قَصَبُ السُّكَّرِ طَوِيلٌ وَحُلْوٌ.</span>
+          <span class="line">فِي الصَّبَاحِ، أَذْهَبُ مَعَ أُمِّي إِلَى السُّوقِ.</span>
+          <span class="line">نَشْتَرِي سَمَكاً وَمَوْزاً.</span>
+          <span class="line">فِي المَسَاءِ، أَجْلِسُ عَلَى الشَّاطِئِ، وَأَنْظُرُ إِلَى القَوَارِبِ.</span>
+          <span class="line">أُحِبُّ جَزِيرَتِي كَثِيراً!</span>
+        </p>
+      </div>
+      <div class="tf" id="tf"></div>
+    </section>
+
+    <section id="dialog">
+      <h2><span class="ico">🐟</span>في سوق بورت لويس</h2>
+      <p class="hint">مثّل الحوار مع زميلك: واحد يكون آدم، والآخر البائع.</p>
+      <div class="chat">
+        <div class="bubble b-sell"><small>البائع</small>أَهْلاً وَسَهْلاً!</div>
+        <div class="bubble b-adam"><small>آدم</small>أَهْلاً بِكَ. بِكَمِ السَّمَكُ؟</div>
+        <div class="bubble b-sell"><small>البائع</small>مِئَةُ رُوبِيَّةٍ.</div>
+        <div class="bubble b-adam"><small>آدم</small>وَبِكَمِ المَوْزُ؟</div>
+        <div class="bubble b-sell"><small>البائع</small>خَمْسُونَ رُوبِيَّةً.</div>
+        <div class="bubble b-adam"><small>آدم</small>أُرِيدُ سَمَكَةً وَمَوْزاً، مِنْ فَضْلِكَ.</div>
+        <div class="bubble b-sell"><small>البائع</small>تَفَضَّلْ.</div>
+        <div class="bubble b-adam"><small>آدم</small>شُكْراً.</div>
+        <div class="bubble b-sell"><small>البائع</small>عَفْواً، مَعَ السَّلَامَةِ.</div>
+      </div>
+    </section>
+
+    <section id="play">
+      <h2><span class="ico">🎮</span>العب وتعلّم</h2>
+      <div class="game">
+        <h3>صِل الكلمة بصورتها</h3>
+        <p class="hint">اضغط على كلمة، ثم على الصورة المناسبة.</p>
+        <div class="match"><div class="col" id="mw"></div><div class="col" id="me"></div></div>
+        <div class="status" id="mstatus"></div>
+        <div class="row-btns"><button class="act ghost" id="mreset">لعبة جديدة</button></div>
+      </div>
+      <div class="game">
+        <h3>رتّب الجملة</h3>
+        <p class="hint">اضغط على الكلمات بالترتيب الصحيح.</p>
+        <div class="slot" id="slot"></div>
+        <div class="bank" id="bank"></div>
+        <div class="status" id="ostatus"></div>
+        <div class="row-btns">
+          <button class="act" id="ocheck">تحقّق</button>
+          <button class="act ghost" id="oclear">امسح</button>
+          <button class="act ghost" id="onext">الجملة التالية</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ================= TEACHER ================= -->
+  <div class="panel" id="teacher" role="tabpanel" aria-labelledby="t-t" hidden>
+    <section>
+      <h2><span class="ico">🧭</span>دليل المعلم</h2>
+      <p class="hint">حصة واحدة مدتها ٤٥ دقيقة، للمبتدئين في تعلّم العربية لغةً ثانية.</p>
+      <button class="act ghost print" onclick="window.print()">اطبع الوحدة كاملة</button>
+
+      <div class="t-block">
+        <h3>أهداف الوحدة</h3>
+        <ul>
+          <li>أن يتعرّف الطالب اثنتي عشرة كلمة من بيئة الجزيرة، وينطقها نطقاً صحيحاً.</li>
+          <li>أن يقرأ القصة القصيرة مشكولة، ويفهم معناها العام.</li>
+          <li>أن يستخدم عبارات الشراء والسؤال عن السعر في موقف حقيقي.</li>
+          <li>أن يكتب جملاً بسيطة عن جزيرته.</li>
+        </ul>
+      </div>
+
+      <div class="t-block">
+        <h3>خطوات الحصة</h3>
+        <div class="step"><span class="min">٥ دقائق</span><div><b>التهيئة</b><p>اعرض خريطة المحيط الهندي، واسأل: أين موريشيوس؟ ماذا يُزرع فيها؟ اربط الإجابة بقصب السكر الذي يعرفه الطلاب.</p></div></div>
+        <div class="step"><span class="min">١٠ دقائق</span><div><b>المفردات بالاستجابة الجسدية الكاملة</b><p>قل الكلمة مع حركة: موجة باليد لـ"بحر"، وتجديف لـ"قارب"، ووضع اليد فوق العين لـ"شمس". يكرر الطلاب الكلمة والحركة، ثم تقول الكلمة وحدها فيؤدون الحركة.</p></div></div>
+        <div class="step"><span class="min">١٠ دقائق</span><div><b>القصة</b><p>قراءة نموذجية منك، ثم قراءة جماعية، ثم فردية. بعدها يجيب الطلاب عن أسئلة الصواب والخطأ في الصفحة.</p></div></div>
+        <div class="step"><span class="min">١٠ دقائق</span><div><b>لعب الأدوار في السوق</b><p>أحضر مجسمات أو صوراً لسمك وموز، وأوراقاً كتب عليها أسعار بالروبية. يتبادل الطلاب دوري آدم والبائع، ثم يغيّرون السلعة والسعر.</p></div></div>
+        <div class="step"><span class="min">٥ دقائق</span><div><b>التقويم</b><p>لعبة "صِل الكلمة بصورتها" و"رتّب الجملة" على الشاشة، فرادى أو في مجموعات.</p></div></div>
+        <div class="step"><span class="min">٥ دقائق</span><div><b>الختام والواجب</b><p>يكتب كل طالب ثلاث جمل عن جزيرته، مثل: فِي جَزِيرَتِي بَحْرٌ أَزْرَقُ.</p></div></div>
+      </div>
+
+      <div class="t-block">
+        <h3>مراعاة الفروق</h3>
+        <ul>
+          <li><b>للمتعثر:</b> ابدأ بست كلمات فقط، واسمح له بالاستعانة بالترجمة الإنجليزية في البطاقات.</li>
+          <li><b>للمتقدم:</b> اطلب منه أن يغيّر في القصة اسم الجزيرة والمحصول، فيكتب قصة عن بلده.</li>
+        </ul>
+      </div>
+
+      <div class="t-block">
+        <h3>لمسة ثقافية</h3>
+        <ul>
+          <li>اربط الدرس بحياة الطلاب: ماذا يزرع أهلك؟ ماذا تشتري من السوق؟</li>
+          <li>شجّع الطلاب على ذكر أسماء أماكن من جزيرتهم بالعربية، فهذا يقرّب اللغة منهم.</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">مرافئ العربية، إعداد <b>أحمد آل سالم</b> · ahmedchoices.com</div>
+</footer>
+
+<script>
+(function(){
+  /* Tabs */
+  var tabs=[document.getElementById('t-s'),document.getElementById('t-t')];
+  tabs.forEach(function(t){
+    t.addEventListener('click',function(){
+      tabs.forEach(function(x){
+        var on=x===t;x.setAttribute('aria-selected',on);
+        document.getElementById(x.getAttribute('aria-controls')).hidden=!on;
+      });
+    });
+  });
+
+  /* Speech (shown only if an Arabic voice exists) */
+  var arVoice=null;
+  function pickVoice(){
+    if(!('speechSynthesis' in window))return;
+    var v=speechSynthesis.getVoices().filter(function(v){return /^ar/i.test(v.lang)});
+    arVoice=v[0]||null;
+    document.querySelectorAll('.say').forEach(function(b){b.hidden=!arVoice});
+  }
+  function speak(t){
+    if(!arVoice)return;
+    speechSynthesis.cancel();
+    var u=new SpeechSynthesisUtterance(t);u.voice=arVoice;u.lang=arVoice.lang;u.rate=.8;
+    speechSynthesis.speak(u);
+  }
+
+  /* Words */
+  var words=[
+    ['جَزِيرَةٌ','🏝️','island'],['بَحْرٌ','🌊','sea'],['شَاطِئٌ','🏖️','beach'],['شَمْسٌ','☀️','sun'],
+    ['قَصَبُ السُّكَّرِ','🎋','sugarcane'],['سُكَّرٌ','🍬','sugar'],['سُوقٌ','🧺','market'],['سَمَكَةٌ','🐟','fish'],
+    ['قَارِبٌ','⛵','boat'],['مَوْزٌ','🍌','bananas'],['جَبَلٌ','⛰️','mountain'],['مِينَاءٌ','⚓','port']
+  ];
+  var box=document.getElementById('cards');
+  words.forEach(function(w){
+    var wrap=document.createElement('div');wrap.style.position='relative';
+    var c=document.createElement('button');c.className='card';c.setAttribute('aria-label',w[0]);
+    c.innerHTML='<div class="in"><div class="face"><div class="emo">'+w[1]+'</div><div class="w">'+w[0]+'</div></div>'+
+      '<div class="face back"><div class="emo">'+w[1]+'</div><div class="en">'+w[2]+'</div></div></div>';
+    c.addEventListener('click',function(){c.classList.toggle('flip')});
+    var s=document.createElement('button');s.className='say';s.textContent='🔊';s.hidden=true;
+    s.setAttribute('aria-label','استمع إلى '+w[0]);
+    s.addEventListener('click',function(e){e.stopPropagation();speak(w[0])});
+    wrap.appendChild(c);wrap.appendChild(s);box.appendChild(wrap);
+  });
+  if('speechSynthesis' in window){pickVoice();speechSynthesis.onvoiceschanged=pickVoice;}
+
+  /* True / False */
+  var qs=[['آدم من سريلانكا.',false],['البحر في موريشيوس أزرق.',true],['أبو آدم يزرع قصب السكر.',true],
+          ['يذهب آدم إلى السوق مع أبيه.',false],['قصب السكر قصير.',false]];
+  var tf=document.getElementById('tf');
+  qs.forEach(function(q){
+    var d=document.createElement('div');d.className='q';
+    d.innerHTML='<span>'+q[0]+'</span><div class="btns"><button>صح</button><button>خطأ</button></div><div class="mark"></div>';
+    var b=d.querySelectorAll('button');
+    [true,false].forEach(function(val,i){
+      b[i].addEventListener('click',function(){
+        var right=val===q[1];
+        d.classList.remove('ok','no');d.classList.add(right?'ok':'no');
+        d.querySelector('.mark').textContent=right?'أحسنت!':'حاول مرة أخرى، وارجع إلى القصة.';
+      });
+    });
+    tf.appendChild(d);
+  });
+
+  /* Matching game */
+  function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t}return a}
+  var sel=null,left=0;
+  function newMatch(){
+    var set=shuffle(words).slice(0,5);left=set.length;sel=null;
+    var mw=document.getElementById('mw'),me=document.getElementById('me');
+    mw.innerHTML='';me.innerHTML='';document.getElementById('mstatus').textContent='';
+    set.forEach(function(w){
+      var b=document.createElement('button');b.className='tile w';b.textContent=w[0];b.dataset.k=w[1];
+      b.addEventListener('click',function(){
+        mw.querySelectorAll('.tile').forEach(function(x){x.classList.remove('sel')});
+        b.classList.add('sel');sel=b;
+      });
+      mw.appendChild(b);
+    });
+    shuffle(set).forEach(function(w){
+      var b=document.createElement('button');b.className='tile e';b.textContent=w[1];b.setAttribute('aria-label',w[2]);
+      b.addEventListener('click',function(){
+        if(!sel)return;
+        if(sel.dataset.k===w[1]){
+          sel.classList.remove('sel');sel.classList.add('done');b.classList.add('done');sel=null;left--;
+          if(!left)document.getElementById('mstatus').textContent='ممتاز! وصلت كل الكلمات 🎉';
+        }else{
+          b.classList.remove('shake');void b.offsetWidth;b.classList.add('shake');
+        }
+      });
+      me.appendChild(b);
+    });
+  }
+  document.getElementById('mreset').addEventListener('click',newMatch);
+  newMatch();
+
+  /* Order the sentence */
+  var sents=['أَبِي يَزْرَعُ قَصَبَ السُّكَّرِ','مُورِيشْيُوس جَزِيرَةٌ جَمِيلَةٌ','أَذْهَبُ مَعَ أُمِّي إِلَى السُّوقِ','قَصَبُ السُّكَّرِ طَوِيلٌ وَحُلْوٌ'];
+  var si=0,slot=document.getElementById('slot'),bank=document.getElementById('bank'),ost=document.getElementById('ostatus');
+  function loadSent(){
+    slot.innerHTML='';bank.innerHTML='';ost.textContent='';ost.style.color='';
+    var parts=sents[si].split(' '),mixed=shuffle(parts);
+    while(parts.length>1&&mixed.join(' ')===sents[si])mixed=shuffle(parts);
+    mixed.forEach(function(p){
+      var c=document.createElement('button');c.className='chip';c.textContent=p;
+      c.addEventListener('click',function(){(c.parentNode===bank?slot:bank).appendChild(c)});
+      bank.appendChild(c);
+    });
+  }
+  document.getElementById('ocheck').addEventListener('click',function(){
+    var got=Array.prototype.map.call(slot.children,function(c){return c.textContent}).join(' ');
+    if(got===sents[si]){ost.style.color='var(--good)';ost.textContent='صحيح! أحسنت 🌴';}
+    else{ost.style.color='var(--bad)';ost.textContent=bank.children.length?'استعمل كل الكلمات أولاً.':'ليس بعد، جرّب ترتيباً آخر.';}
+  });
+  document.getElementById('oclear').addEventListener('click',loadSent);
+  document.getElementById('onext').addEventListener('click',function(){si=(si+1)%sents.length;loadSent()});
+  loadSent();
+})();
+</script>
+</body>
+</html>

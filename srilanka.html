@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مرفأ الشاي والقرفة: سريلانكا | مرافئ العربية</title>
+<meta name="description" content="مرافئ العربية، الوحدة الثانية: مرفأ الشاي والقرفة، سريلانكا. مفردات وقصة وحوار ضيافة وألعاب للطالب، ودليل درس للمعلم.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --page:#F7F8F2;
+    --mist:#EEF2E8;
+    --tea:#4F7F4A;
+    --tea-soft:#E3EDDB;
+    --tea-pale:#F1F6EC;
+    --cin:#A9653A;
+    --cin-soft:#F6E8DA;
+    --ink:#2A2F27;
+    --muted:#5E6658;
+    --line:#E0E5D8;
+    --good:#2F8F5B;
+    --bad:#BE5B3E;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{font-size:20px;scroll-behavior:smooth}
+  body{font-family:'IBM Plex Sans Arabic',sans-serif;background:var(--page);color:var(--ink);line-height:1.8;-webkit-font-smoothing:antialiased}
+  button{font:inherit;color:inherit;cursor:pointer}
+  :focus-visible{outline:3px solid var(--cin);outline-offset:3px;border-radius:8px}
+  .wrap{max-width:900px;margin:0 auto;padding:0 18px}
+
+  /* ===== Header: misty tea terraces ===== */
+  header{position:relative;background:linear-gradient(180deg,#E6EEE4 0%,#F0F4EC 55%,var(--page) 100%);overflow:hidden}
+  .head-text{position:relative;z-index:3;padding-top:34px}
+  .series{display:inline-block;font-weight:600;font-size:.95rem;color:var(--cin);background:rgba(255,255,255,.7);padding:3px 16px;border-radius:999px}
+  h1{font-family:'Aref Ruqaa',serif;font-weight:700;font-size:clamp(2.7rem,9vw,4.4rem);line-height:1.35;margin-top:10px;color:var(--ink)}
+  .sub{color:var(--muted);font-size:1.12rem;max-width:36ch}
+  .sub .en{display:block;direction:ltr;text-align:right;font-style:italic;font-size:1rem}
+  .hills{position:relative;height:210px;margin-top:-10px}
+  .hills svg{position:absolute;inset:0;width:100%;height:100%}
+  .mist{
+    position:absolute;z-index:2;left:-30%;width:160%;height:70px;pointer-events:none;
+    background:radial-gradient(ellipse 30% 50% at 30% 50%,rgba(255,255,255,.9),transparent 70%),
+               radial-gradient(ellipse 25% 50% at 75% 50%,rgba(255,255,255,.8),transparent 70%);
+    filter:blur(5px);animation:drift 60s linear infinite alternate;
+  }
+  .mist.m1{top:40px}.mist.m2{top:100px;opacity:.7;animation-duration:85s;animation-direction:alternate-reverse}
+  @keyframes drift{from{transform:translateX(-10%)}to{transform:translateX(10%)}}
+  @media (prefers-reduced-motion:reduce){.mist{animation:none}}
+
+  /* ===== Tabs ===== */
+  .tabs{display:flex;gap:10px;margin:8px 0 6px}
+  .tab{flex:1;padding:14px 10px;border-radius:16px;border:2px solid var(--line);background:#fff;font-weight:700;font-size:1.05rem}
+  .tab[aria-selected=true]{background:var(--tea);border-color:var(--tea);color:#fff}
+  .panel[hidden]{display:none}
+  .jump{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 4px}
+  .jump a{font-size:.92rem;font-weight:600;text-decoration:none;color:var(--tea);background:var(--tea-soft);padding:6px 16px;border-radius:999px}
+
+  section{padding:34px 0 8px}
+  h2{font-family:'Aref Ruqaa',serif;font-weight:700;font-size:2.1rem;line-height:1.4;display:flex;align-items:center;gap:12px}
+  h2 .ico{font-size:1.5rem}
+  .hint{color:var(--muted);font-size:1rem;margin:2px 0 18px}
+
+  /* ===== Word cards: tea-leaf shape ===== */
+  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:14px}
+  .cw{position:relative}
+  .card{position:relative;display:block;width:100%;height:190px;perspective:800px;border:none;background:none;padding:0;text-align:center}
+  .card .in{position:absolute;inset:0;transition:transform .5s;transform-style:preserve-3d}
+  .card.flip .in{transform:rotateY(180deg)}
+  .face{
+    position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;
+    border-radius:60px 8px 60px 8px;border:2px solid var(--line);background:#fff;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:10px;
+  }
+  .face .emo{font-size:3rem;line-height:1.2}
+  .face .w{font-family:'Amiri',serif;font-size:1.75rem;font-weight:700;line-height:1.5}
+  .back{transform:rotateY(180deg);background:var(--cin-soft);border-color:#EBD5C0}
+  .back .en{direction:ltr;font-size:1.3rem;font-weight:600}
+  .say{position:absolute;top:10px;left:10px;z-index:2;width:40px;height:40px;border-radius:50%;border:2px solid var(--line);background:#fff;font-size:1.1rem;display:grid;place-items:center}
+  @media (prefers-reduced-motion:reduce){.card .in{transition:none}}
+
+  /* ===== Story ===== */
+  .story{
+    background:#fff;border:2px solid var(--line);border-radius:26px;padding:26px 24px;position:relative;overflow:hidden;
+  }
+  .story::before{content:"";position:absolute;inset:0 0 auto 0;height:10px;background:repeating-linear-gradient(90deg,var(--tea) 0 26px,var(--tea-soft) 26px 40px)}
+  .story p{font-family:'Amiri',serif;font-size:1.75rem;line-height:2.2;margin-top:6px}
+  .story .line{display:block}
+  .mcq{display:grid;gap:14px;margin-top:22px}
+  .mq{background:#fff;border:2px solid var(--line);border-radius:18px;padding:16px 18px}
+  .mq .qt{font-family:'Amiri',serif;font-size:1.5rem;font-weight:700}
+  .opts{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+  .opt{font-family:'Amiri',serif;font-size:1.35rem;padding:6px 18px;border-radius:12px;border:2px solid var(--line);background:var(--tea-pale)}
+  .opt.ok{border-color:var(--good);background:#E8F5EC}
+  .opt.no{border-color:var(--bad);background:#FBEDE8}
+
+  /* ===== Dialogue: tea glasses ===== */
+  .chat{display:grid;gap:12px}
+  .bubble{max-width:84%;padding:12px 18px;border-radius:22px;font-family:'Amiri',serif;font-size:1.6rem;line-height:1.9}
+  .bubble small{display:block;font-family:'IBM Plex Sans Arabic',sans-serif;font-size:.85rem;font-weight:700;color:var(--muted);line-height:1.4}
+  .b-host{background:var(--tea-soft);justify-self:start;border-bottom-right-radius:6px}
+  .b-guest{background:var(--cin-soft);justify-self:end;border-bottom-left-radius:6px}
+  .phrase{margin-top:18px;background:var(--mist);border-radius:18px;padding:14px 18px;font-size:1.02rem}
+  .phrase b{font-family:'Amiri',serif;font-size:1.3rem}
+
+  /* ===== Games ===== */
+  .game{background:#fff;border:2px solid var(--line);border-radius:24px;padding:22px 20px;margin-bottom:20px}
+  .game h3{font-size:1.2rem;margin-bottom:4px}
+  .status{margin-top:12px;font-weight:700;min-height:1.8em}
+  .row-btns{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+  .act{padding:10px 22px;border-radius:12px;border:2px solid var(--tea);background:var(--tea);color:#fff;font-weight:700}
+  .act.ghost{background:#fff;color:var(--tea)}
+
+  /* Tea journey: sequence */
+  .journey{display:grid;gap:10px;counter-reset:s}
+  .journey .slotrow{
+    display:flex;align-items:center;gap:12px;min-height:66px;border:2px dashed #C9D6BF;border-radius:16px;padding:8px 12px;background:var(--tea-pale);
+  }
+  .journey .slotrow::before{counter-increment:s;content:counter(s,arabic-indic);font-weight:700;color:var(--cin);width:34px;height:34px;border-radius:50%;background:#fff;display:grid;place-items:center;flex-shrink:0}
+  .stepcard{display:flex;align-items:center;gap:10px;font-family:'Amiri',serif;font-size:1.35rem;font-weight:700;padding:8px 14px;border-radius:14px;border:2px solid var(--line);background:#fff;text-align:right;width:100%}
+  .stepcard .em{font-size:1.6rem}
+  .pool{display:grid;gap:8px;margin-top:12px}
+
+  /* Fill in the blank */
+  .fb{padding:14px 0;border-top:1px solid var(--line)}
+  .fb:first-of-type{border-top:none}
+  .fb .s{font-family:'Amiri',serif;font-size:1.55rem;font-weight:700}
+  .blank{display:inline-block;min-width:90px;border-bottom:3px solid var(--cin);text-align:center;color:var(--cin)}
+
+  /* Matching */
+  .match{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+  .col{display:grid;gap:10px}
+  .tile{padding:12px;border-radius:14px;border:2px solid var(--line);background:var(--tea-pale);min-height:64px}
+  .tile.w{font-family:'Amiri',serif;font-size:1.5rem;font-weight:700}
+  .tile.e{font-size:2rem}
+  .tile.sel{border-color:var(--tea);background:var(--tea-soft)}
+  .tile.done{border-color:var(--good);background:#E8F5EC;opacity:.6;pointer-events:none}
+  .shake{animation:shake .35s}
+  @keyframes shake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+
+  /* ===== Teacher ===== */
+  .t-block{background:#fff;border:2px solid var(--line);border-radius:22px;padding:22px;margin-bottom:16px}
+  .t-block h3{font-size:1.25rem;margin-bottom:8px;color:var(--tea)}
+  .t-block ul{padding-right:22px}
+  .t-block li{margin-bottom:6px;font-size:1.05rem}
+  .step{display:grid;grid-template-columns:86px 1fr;gap:14px;padding:14px 0;border-top:1px solid var(--line)}
+  .step:first-of-type{border-top:none}
+  .min{font-weight:700;color:var(--cin);background:var(--cin-soft);border-radius:12px;text-align:center;padding:6px 0;height:max-content}
+  .step b{display:block;font-size:1.1rem}
+  .step p{color:var(--muted);font-size:1.02rem}
+  .print{margin:6px 0 20px}
+  .bridge{background:var(--cin-soft);border-color:#EBD5C0}
+
+  footer{text-align:center;color:var(--muted);font-size:.95rem;padding:40px 0 46px}
+  footer b{color:var(--ink)}
+  footer a{color:var(--tea);font-weight:600}
+
+  @media (max-width:560px){
+    html{font-size:19px}
+    .cards{grid-template-columns:repeat(2,1fr)}
+    .card{height:170px}
+    .hills{height:150px}
+    .bubble{max-width:92%}
+    .step{grid-template-columns:1fr;gap:6px}
+    .min{width:110px}
+  }
+  @media print{
+    .hills,.tabs,.jump,.say,.print,#play{display:none!important}
+    .panel[hidden]{display:block!important}
+    .card .in{transform:none!important}.back{display:none}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap head-text">
+    <span class="series">مرافئ العربية · الوحدة الثانية</span>
+    <h1>مرفأ الشاي والقرفة</h1>
+    <p class="sub">نوروليا في سريلانكا: تلال خضراء، وضباب، ومطر، ورائحة قرفة.<span class="en">The Tea &amp; Cinnamon Port: Nuwara Eliya, Sri Lanka</span></p>
+  </div>
+  <div class="hills" aria-hidden="true">
+    <svg viewBox="0 0 1440 210" preserveAspectRatio="none">
+      <defs>
+        <pattern id="rows" width="1440" height="12" patternUnits="userSpaceOnUse">
+          <path d="M0 6 Q60 2 120 6 T240 6 T360 6 T480 6 T600 6 T720 6 T840 6 T960 6 T1080 6 T1200 6 T1320 6 T1440 6" stroke="#8DB27E" stroke-width="3" fill="none"/>
+        </pattern>
+      </defs>
+      <path d="M0 90 Q240 30 520 80 T1040 60 T1440 70 V210 H0Z" fill="#CFDCC6"/>
+      <path d="M0 120 Q300 60 640 115 T1440 95 V210 H0Z" fill="#B9CFAC"/>
+      <path d="M0 120 Q300 60 640 115 T1440 95 V210 H0Z" fill="url(#rows)" opacity=".55"/>
+      <path d="M0 160 Q360 110 760 150 T1440 140 V210 H0Z" fill="#A6C496"/>
+      <path d="M0 160 Q360 110 760 150 T1440 140 V210 H0Z" fill="url(#rows)" opacity=".5"/>
+      <path d="M0 195 Q400 168 820 188 T1440 182 V210 H0Z" fill="#F7F8F2"/>
+    </svg>
+    <div class="mist m1"></div><div class="mist m2"></div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" aria-selected="true" aria-controls="student" id="t-s">للطالب</button>
+    <button class="tab" role="tab" aria-selected="false" aria-controls="teacher" id="t-t">للمعلم</button>
+  </div>
+
+  <!-- ================= STUDENT ================= -->
+  <div class="panel" id="student" role="tabpanel" aria-labelledby="t-s">
+    <nav class="jump">
+      <a href="#words">الكلمات</a><a href="#story">القصة</a><a href="#dialog">ضيافة</a><a href="#play">العب</a>
+    </nav>
+
+    <section id="words">
+      <h2><span class="ico">🍃</span>كلمات من التلال</h2>
+      <p class="hint">اضغط على الورقة لترى المعنى بالإنجليزية، واضغط 🔊 لتسمع الكلمة.</p>
+      <div class="cards" id="cards"></div>
+    </section>
+
+    <section id="story">
+      <h2><span class="ico">📖</span>زينب في نوروليا</h2>
+      <p class="hint">اقرأ القصة بصوت عالٍ، ثم اختر الإجابة الصحيحة.</p>
+      <div class="story">
+        <p>
+          <span class="line">اِسْمِي زَيْنَبُ. أَنَا مِنْ سِرِيلَانْكَا.</span>
+          <span class="line">أَسْكُنُ فِي مَدِينَةِ نُورُولِيَا، فَوْقَ الجِبَالِ.</span>
+          <span class="line">بَيْتِي صَغِيرٌ عَلَى تَلٍّ أَخْضَرَ.</span>
+          <span class="line">حَوْلَ بَيْتِي أَشْجَارُ الشَّايِ.</span>
+          <span class="line">تَقْطِفُ جَدَّتِي أَوْرَاقَ الشَّايِ، وَتَضَعُهَا فِي السَّلَّةِ.</span>
+          <span class="line">المَطَرُ يَنْزِلُ كَثِيراً، وَالجَوُّ بَارِدٌ.</span>
+          <span class="line">فِي المَطْبَخِ أَعْوَادُ قِرْفَةٍ، رَائِحَتُهَا طَيِّبَةٌ.</span>
+          <span class="line">فِي المَسَاءِ، أَشْرَبُ كُوباً مِنَ الشَّايِ بِالحَلِيبِ.</span>
+          <span class="line">سِرِيلَانْكَا جَمِيلَةٌ، وَشَايُهَا لَذِيذٌ!</span>
+        </p>
+      </div>
+      <div class="mcq" id="mcq"></div>
+    </section>
+
+    <section id="dialog">
+      <h2><span class="ico">🫖</span>ضيف في بيت زينب</h2>
+      <p class="hint">مثّل الحوار مع زميلك: واحد يكون زينب، والآخر الضيف.</p>
+      <div class="chat">
+        <div class="bubble b-host"><small>زينب</small>تَفَضَّلْ، أَهْلاً وَسَهْلاً!</div>
+        <div class="bubble b-guest"><small>الضيف</small>أَهْلاً بِكِ، شُكْراً.</div>
+        <div class="bubble b-host"><small>زينب</small>هَلْ تُحِبُّ الشَّايَ؟</div>
+        <div class="bubble b-guest"><small>الضيف</small>نَعَمْ، أُحِبُّهُ كَثِيراً.</div>
+        <div class="bubble b-host"><small>زينب</small>بِالحَلِيبِ أَمْ بِدُونِ حَلِيبٍ؟</div>
+        <div class="bubble b-guest"><small>الضيف</small>بِالحَلِيبِ، مِنْ فَضْلِكِ.</div>
+        <div class="bubble b-host"><small>زينب</small>وَهَلْ تُرِيدُ سُكَّراً؟</div>
+        <div class="bubble b-guest"><small>الضيف</small>قَلِيلاً، شُكْراً.</div>
+        <div class="bubble b-host"><small>زينب</small>تَفَضَّلْ، بِالهَنَاءِ وَالشِّفَاءِ.</div>
+        <div class="bubble b-guest"><small>الضيف</small>سَلِمَتْ يَدَاكِ!</div>
+      </div>
+      <div class="phrase">
+        <b>سَلِمَتْ يَدَاكِ</b> عبارة شكر نقولها لمن قدّم لنا طعاماً أو شراباً، ونقولها للرجل: <b>سَلِمَتْ يَدَاكَ</b>.
+      </div>
+    </section>
+
+    <section id="play">
+      <h2><span class="ico">🎮</span>العب وتعلّم</h2>
+
+      <div class="game">
+        <h3>رحلة الشاي: من الشجرة إلى الكوب</h3>
+        <p class="hint">اضغط على الخطوات بالترتيب الصحيح.</p>
+        <div class="journey" id="jslots"></div>
+        <div class="pool" id="jpool"></div>
+        <div class="status" id="jstatus"></div>
+        <div class="row-btns"><button class="act" id="jcheck">تحقّق</button><button class="act ghost" id="jreset">ابدأ من جديد</button></div>
+      </div>
+
+      <div class="game">
+        <h3>أكمل الجملة</h3>
+        <p class="hint">اختر الكلمة المناسبة للفراغ.</p>
+        <div id="fill"></div>
+      </div>
+
+      <div class="game">
+        <h3>صِل الكلمة بصورتها</h3>
+        <p class="hint">اضغط على كلمة، ثم على الصورة المناسبة.</p>
+        <div class="match"><div class="col" id="mw"></div><div class="col" id="me"></div></div>
+        <div class="status" id="mstatus" style="color:var(--good)"></div>
+        <div class="row-btns"><button class="act ghost" id="mreset">لعبة جديدة</button></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ================= TEACHER ================= -->
+  <div class="panel" id="teacher" role="tabpanel" aria-labelledby="t-t" hidden>
+    <section>
+      <h2><span class="ico">🧭</span>دليل المعلم</h2>
+      <p class="hint">حصة واحدة مدتها ٤٥ دقيقة، للمبتدئين في تعلّم العربية لغةً ثانية.</p>
+      <button class="act ghost print" onclick="window.print()">اطبع الوحدة كاملة</button>
+
+      <div class="t-block">
+        <h3>أهداف الوحدة</h3>
+        <ul>
+          <li>أن يتعرّف الطالب اثنتي عشرة كلمة عن الشاي والطبيعة والبيت، وينطقها نطقاً صحيحاً.</li>
+          <li>أن يفهم القصة ويجيب عن أسئلة: أين؟ مَن؟ ماذا؟ كيف؟</li>
+          <li>أن يرتّب مراحل عملية بسيطة، ويعبّر عنها بأفعال مضارعة.</li>
+          <li>أن يستخدم عبارات الضيافة والشكر في موقف حقيقي.</li>
+        </ul>
+      </div>
+
+      <div class="t-block">
+        <h3>خطوات الحصة</h3>
+        <div class="step"><span class="min">٥ دقائق</span><div><b>التهيئة بالحواس</b><p>اعرض صورة لمزارع الشاي في نوروليا، أعلى مدن سريلانكا وأبردها. أحضر أعواد قرفة وأوراق شاي. يشمّها الطلاب ويلمسونها، ثم تسأل: مَا هَذَا؟ التعلّم بالحواس يثبّت الكلمة أكثر من الصورة وحدها.</p></div></div>
+        <div class="step"><span class="min">١٠ دقائق</span><div><b>المفردات بالمحسوسات والحركة</b><p>اعرض الأشياء الحقيقية حين تتوفر: كوب، وإبريق، وسلة. ولغيرها حركات: أصابع تنزل كالمطر، وذراع ممدودة كخرطوم الفيل.</p></div></div>
+        <div class="step"><span class="min">١٠ دقائق</span><div><b>القصة وأسئلة الاستفهام</b><p>قراءة نموذجية ثم جماعية. ركّز على أدوات الاستفهام: أين، ومن، وماذا، وكيف، واجعل الطلاب يسألون بعضهم بها.</p></div></div>
+        <div class="step"><span class="min">١٠ دقائق</span><div><b>رحلة الشاي، ثم الضيافة</b><p>يرتّب الطلاب مراحل الشاي في لعبة الصفحة، ثم يمثّلون حوار الضيافة. إن أمكن، قدّم لهم شاياً حقيقياً، فيقولون: سَلِمَتْ يَدَاكَ.</p></div></div>
+        <div class="step"><span class="min">٥ دقائق</span><div><b>التقويم</b><p>لعبتا "أكمل الجملة" و"صِل الكلمة بصورتها"، فرادى أو في مجموعات.</p></div></div>
+        <div class="step"><span class="min">٥ دقائق</span><div><b>الختام والواجب</b><p>يكتب كل طالب خطوات صنع مشروب يحبه في بيته، في ثلاث جمل بالأفعال المضارعة.</p></div></div>
+      </div>
+
+      <div class="t-block">
+        <h3>ملاحظة لغوية</h3>
+        <ul>
+          <li>تتكرر في الوحدة صيغة المضارع للمتكلم: أَسْكُنُ، أَشْرَبُ، وللغائبة: تَقْطِفُ، تَضَعُ. لا تشرح القاعدة، بل نبّه الطلاب إلى الحرف الأول ودوره.</li>
+          <li>في الحوار يخاطب الضيفُ زينبَ بكسر الكاف: بِكِ، يَدَاكِ. وهي فرصة طبيعية لتقديم الفرق بين المذكر والمؤنث.</li>
+        </ul>
+      </div>
+
+      <div class="t-block">
+        <h3>مراعاة الفروق</h3>
+        <ul>
+          <li><b>للمتعثر:</b> اكتفِ بالبطاقات ولعبة رحلة الشاي، فالصور تساعده على الترتيب.</li>
+          <li><b>للمتقدم:</b> اطلب منه أن يحكي رحلة الشاي بكلماته دون النظر إلى الصفحة.</li>
+        </ul>
+      </div>
+
+      <div class="t-block bridge">
+        <h3>جسر بين المرفأين</h3>
+        <ul>
+          <li>في الحوار سؤال: هَلْ تُرِيدُ سُكَّراً؟ اربطه بكلمة "سُكَّر" من وحدة موريشيوس، وذكّر الطلاب بأن الشاي من سريلانكا والسكر من موريشيوس يلتقيان في كوب واحد.</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    الوحدة السابقة: <a href="mauritius.html">مرفأ السكر، موريشيوس</a><br>
+    مرافئ العربية، إعداد <b>أحمد آل سالم</b> · ahmedchoices.com
+  </div>
+</footer>
+
+<script>
+(function(){
+  function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t}return a}
+
+  /* Tabs */
+  var tabs=[document.getElementById('t-s'),document.getElementById('t-t')];
+  tabs.forEach(function(t){t.addEventListener('click',function(){
+    tabs.forEach(function(x){var on=x===t;x.setAttribute('aria-selected',on);document.getElementById(x.getAttribute('aria-controls')).hidden=!on;});
+  });});
+
+  /* Speech */
+  var arVoice=null;
+  function pickVoice(){
+    if(!('speechSynthesis' in window))return;
+    var v=speechSynthesis.getVoices().filter(function(v){return /^ar/i.test(v.lang)});
+    arVoice=v[0]||null;
+    document.querySelectorAll('.say').forEach(function(b){b.hidden=!arVoice});
+  }
+  function speak(t){if(!arVoice)return;speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t);u.voice=arVoice;u.lang=arVoice.lang;u.rate=.8;speechSynthesis.speak(u);}
+
+  /* Words */
+  var words=[
+    ['شَايٌ','🍵','tea'],['قِرْفَةٌ','🪵','cinnamon'],['وَرَقَةٌ','🍃','leaf'],['شَجَرَةٌ','🌳','tree'],
+    ['تَلٌّ','🏞️','hill'],['مَطَرٌ','🌧️','rain'],['فِيلٌ','🐘','elephant'],['كُوبٌ','☕','cup'],
+    ['إِبْرِيقٌ','🫖','teapot'],['حَلِيبٌ','🥛','milk'],['سَلَّةٌ','🧺','basket'],['بَيْتٌ','🏠','house']
+  ];
+  var box=document.getElementById('cards');
+  words.forEach(function(w){
+    var wrap=document.createElement('div');wrap.className='cw';
+    var c=document.createElement('button');c.className='card';c.setAttribute('aria-label',w[0]);
+    c.innerHTML='<div class="in"><div class="face"><div class="emo">'+w[1]+'</div><div class="w">'+w[0]+'</div></div>'+
+      '<div class="face back"><div class="emo">'+w[1]+'</div><div class="en">'+w[2]+'</div></div></div>';
+    c.addEventListener('click',function(){c.classList.toggle('flip')});
+    var s=document.createElement('button');s.className='say';s.textContent='🔊';s.hidden=true;s.setAttribute('aria-label','استمع إلى '+w[0]);
+    s.addEventListener('click',function(e){e.stopPropagation();speak(w[0])});
+    wrap.appendChild(c);wrap.appendChild(s);box.appendChild(wrap);
+  });
+  if('speechSynthesis' in window){pickVoice();speechSynthesis.onvoiceschanged=pickVoice;}
+
+  /* Multiple choice */
+  var mcq=[
+    ['أَيْنَ تَسْكُنُ زَيْنَبُ؟',['فِي نُورُولِيَا','فِي مُورِيشْيُوس','فِي الصَّحْرَاءِ'],0],
+    ['مَنْ يَقْطِفُ أَوْرَاقَ الشَّايِ؟',['جَدَّةُ زَيْنَبَ','أُمُّ زَيْنَبَ','أَخُو زَيْنَبَ'],0],
+    ['مَاذَا فِي المَطْبَخِ؟',['سَمَكٌ','أَعْوَادُ قِرْفَةٍ','قَصَبُ سُكَّرٍ'],1],
+    ['كَيْفَ تَشْرَبُ زَيْنَبُ الشَّايَ؟',['بِاللَّيْمُونِ','بِدُونِ شَيْءٍ','بِالحَلِيبِ'],2]
+  ];
+  var mbox=document.getElementById('mcq');
+  mcq.forEach(function(q){
+    var d=document.createElement('div');d.className='mq';
+    d.innerHTML='<div class="qt">'+q[0]+'</div><div class="opts"></div>';
+    var o=d.querySelector('.opts');
+    q[1].forEach(function(t,i){
+      var b=document.createElement('button');b.className='opt';b.textContent=t;
+      b.addEventListener('click',function(){
+        o.querySelectorAll('.opt').forEach(function(x){x.classList.remove('ok','no')});
+        b.classList.add(i===q[2]?'ok':'no');
+      });
+      o.appendChild(b);
+    });
+    mbox.appendChild(d);
+  });
+
+  /* Tea journey */
+  var steps=[
+    ['🌱','تَنْمُو أَشْجَارُ الشَّايِ عَلَى التِّلَالِ.'],
+    ['🍃','نَقْطِفُ الأَوْرَاقَ الخَضْرَاءَ.'],
+    ['☀️','نُجَفِّفُ الأَوْرَاقَ.'],
+    ['🫖','نَضَعُ الشَّايَ فِي الإِبْرِيقِ.'],
+    ['☕','نَشْرَبُ كُوباً مِنَ الشَّايِ.']
+  ];
+  var js=document.getElementById('jslots'),jp=document.getElementById('jpool'),jst=document.getElementById('jstatus');
+  function jload(){
+    js.innerHTML='';jp.innerHTML='';jst.textContent='';
+    steps.forEach(function(){var r=document.createElement('div');r.className='slotrow';js.appendChild(r)});
+    var mixed=shuffle(steps.map(function(s,i){return i}));
+    while(mixed.join()==='0,1,2,3,4')mixed=shuffle(mixed);
+    mixed.forEach(function(i){
+      var c=document.createElement('button');c.className='stepcard';c.dataset.i=i;
+      c.innerHTML='<span class="em">'+steps[i][0]+'</span><span>'+steps[i][1]+'</span>';
+      c.addEventListener('click',function(){
+        if(c.parentNode===jp){
+          var empty=Array.prototype.find.call(js.children,function(r){return !r.querySelector('.stepcard')});
+          if(empty)empty.appendChild(c);
+        }else{jp.appendChild(c)}
+        jst.textContent='';
+      });
+      jp.appendChild(c);
+    });
+  }
+  document.getElementById('jcheck').addEventListener('click',function(){
+    var rows=Array.prototype.slice.call(js.children);
+    if(rows.some(function(r){return !r.querySelector('.stepcard')})){jst.style.color='var(--bad)';jst.textContent='ضع كل الخطوات أولاً.';return}
+    var right=rows.every(function(r,i){return +r.querySelector('.stepcard').dataset.i===i});
+    jst.style.color=right?'var(--good)':'var(--bad)';
+    jst.textContent=right?'أحسنت! وصل الشاي إلى الكوب ☕':'ليس بعد. اضغط على خطوة لتعيدها، وجرّب مرة أخرى.';
+  });
+  document.getElementById('jreset').addEventListener('click',jload);
+  jload();
+
+  /* Fill in the blank */
+  var fills=[
+    ['أَشْرَبُ','بِالحَلِيبِ.',['الشَّايَ','الفِيلَ','المَطَرَ'],0],
+    ['تَقْطِفُ جَدَّتِي','الشَّايِ.',['بَيْتَ','أَوْرَاقَ','كُوبَ'],1],
+    ['البَيْتُ عَلَى','أَخْضَرَ.',['حَلِيبٍ','سَلَّةٍ','تَلٍّ'],2],
+    ['يَنْزِلُ','كَثِيراً.',['المَطَرُ','الإِبْرِيقُ','البَيْتُ'],0]
+  ];
+  var fbox=document.getElementById('fill');
+  fills.forEach(function(f){
+    var d=document.createElement('div');d.className='fb';
+    d.innerHTML='<div class="s">'+f[0]+' <span class="blank">؟</span> '+f[1]+'</div><div class="opts"></div>';
+    var o=d.querySelector('.opts'),bl=d.querySelector('.blank');
+    f[2].forEach(function(t,i){
+      var b=document.createElement('button');b.className='opt';b.textContent=t;
+      b.addEventListener('click',function(){
+        o.querySelectorAll('.opt').forEach(function(x){x.classList.remove('ok','no')});
+        if(i===f[3]){b.classList.add('ok');bl.textContent=t}else{b.classList.add('no');bl.textContent='؟'}
+      });
+      o.appendChild(b);
+    });
+    fbox.appendChild(d);
+  });
+
+  /* Matching */
+  var sel=null,left=0;
+  function newMatch(){
+    var set=shuffle(words).slice(0,5);left=set.length;sel=null;
+    var mw=document.getElementById('mw'),me=document.getElementById('me');
+    mw.innerHTML='';me.innerHTML='';document.getElementById('mstatus').textContent='';
+    set.forEach(function(w){
+      var b=document.createElement('button');b.className='tile w';b.textContent=w[0];b.dataset.k=w[1];
+      b.addEventListener('click',function(){mw.querySelectorAll('.tile').forEach(function(x){x.classList.remove('sel')});b.classList.add('sel');sel=b;});
+      mw.appendChild(b);
+    });
+    shuffle(set).forEach(function(w){
+      var b=document.createElement('button');b.className='tile e';b.textContent=w[1];b.setAttribute('aria-label',w[2]);
+      b.addEventListener('click',function(){
+        if(!sel)return;
+        if(sel.dataset.k===w[1]){sel.classList.remove('sel');sel.classList.add('done');b.classList.add('done');sel=null;left--;
+          if(!left)document.getElementById('mstatus').textContent='ممتاز! وصلت كل الكلمات 🍃';}
+        else{b.classList.remove('shake');void b.offsetWidth;b.classList.add('shake');}
+      });
+      me.appendChild(b);
+    });
+  }
+  document.getElementById('mreset').addEventListener('click',newMatch);
+  newMatch();
+})();
+</script>
+</body>
+</html>

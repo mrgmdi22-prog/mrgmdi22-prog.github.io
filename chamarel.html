@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مرفأ الألوان: شاماريل | مرافئ العربية</title>
+<meta name="description" content="مرافئ العربية، الوحدة الثالثة: مرفأ الألوان، وادي الألوان السبعة في شاماريل بموريشيوس. الألوان واختلاف الألسنة والألوان، وحكايات البحارة العرب.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@500;600;700&family=Amiri:wght@400;700&family=Amiri+Quran&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --page:#FBF8F4;
+    --ink:#2E2A27;
+    --muted:#665E57;
+    --line:#EAE1D7;
+    --rust:#B4643F;
+    --rust-soft:#F7E6DC;
+    --ochre:#D7A94B;
+    --violet:#8C6E8F;
+    --violet-soft:#EFE7F0;
+    --good:#2F8F5B;
+    --bad:#BE5B3E;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{font-size:20px;scroll-behavior:smooth}
+  body{font-family:'IBM Plex Sans Arabic',sans-serif;background:var(--page);color:var(--ink);line-height:1.8;-webkit-font-smoothing:antialiased}
+  button{font:inherit;color:inherit;cursor:pointer}
+  :focus-visible{outline:3px solid var(--rust);outline-offset:3px;border-radius:8px}
+  .wrap{max-width:900px;margin:0 auto;padding:0 18px}
+
+  /* ===== Header: the seven-coloured earth ===== */
+  header{position:relative;background:linear-gradient(180deg,#F3ECE6 0%,var(--page) 100%);overflow:hidden}
+  .head-text{position:relative;z-index:2;padding-top:34px}
+  .series{display:inline-block;font-weight:600;font-size:.95rem;color:var(--rust);background:#fff;padding:3px 16px;border-radius:999px;border:1px solid var(--line)}
+  h1{font-family:'Reem Kufi',sans-serif;font-weight:700;font-size:clamp(2.6rem,9vw,4.2rem);line-height:1.25;margin-top:10px}
+  .sub{color:var(--muted);font-size:1.12rem;max-width:36ch}
+  .sub .en{display:block;direction:ltr;text-align:right;font-style:italic;font-size:1rem}
+  .earth{display:block;width:100%;height:190px;margin-top:6px}
+
+  .tabs{display:flex;gap:10px;margin:8px 0 6px}
+  .tab{flex:1;padding:14px 10px;border-radius:16px;border:2px solid var(--line);background:#fff;font-weight:700;font-size:1.05rem}
+  .tab[aria-selected=true]{background:var(--rust);border-color:var(--rust);color:#fff}
+  .panel[hidden]{display:none}
+  .jump{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 4px}
+  .jump a{font-size:.92rem;font-weight:600;text-decoration:none;color:var(--rust);background:var(--rust-soft);padding:6px 16px;border-radius:999px}
+
+  section{padding:34px 0 8px}
+  h2{font-family:'Reem Kufi',sans-serif;font-weight:700;font-size:1.9rem;line-height:1.4;display:flex;align-items:center;gap:12px}
+  h2 .ico{font-size:1.5rem}
+  .hint{color:var(--muted);font-size:1rem;margin:2px 0 18px}
+
+  /* ===== Colour cards: little sand jars ===== */
+  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:14px}
+  .cw{position:relative}
+  .card{position:relative;display:block;width:100%;height:190px;perspective:800px;border:none;background:none;padding:0;text-align:center}
+  .card .in{position:absolute;inset:0;transition:transform .5s;transform-style:preserve-3d}
+  .card.flip .in{transform:rotateY(180deg)}
+  .face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:22px;border:2px solid var(--line);background:#fff;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:10px}
+  .sw{width:64px;height:64px;border-radius:50% 50% 18px 18px;border:2px solid rgba(0,0,0,.08)}
+  .face .emo{font-size:2.8rem;line-height:1.2}
+  .face .w{font-family:'Amiri',serif;font-size:1.75rem;font-weight:700;line-height:1.4}
+  .back{transform:rotateY(180deg);background:var(--rust-soft);border-color:#EED3C4}
+  .back .en{direction:ltr;font-size:1.3rem;font-weight:600}
+  .say{position:absolute;top:10px;left:10px;z-index:2;width:40px;height:40px;border-radius:50%;border:2px solid var(--line);background:#fff;font-size:1.1rem;display:grid;place-items:center}
+  @media (prefers-reduced-motion:reduce){.card .in{transition:none}}
+
+  /* ===== Story ===== */
+  .story{background:#fff;border:2px solid var(--line);border-radius:26px;padding:26px 24px;position:relative;overflow:hidden}
+  .story::before{content:"";position:absolute;inset:0 0 auto 0;height:10px;
+    background:linear-gradient(90deg,#C9735A 0 14.28%,#D99B5A 14.28% 28.56%,#E2C27A 28.56% 42.84%,#9DB08A 42.84% 57.12%,#8FAFC4 57.12% 71.4%,#A58DB0 71.4% 85.68%,#9C7F6B 85.68% 100%)}
+  .story p{font-family:'Amiri',serif;font-size:1.75rem;line-height:2.2;margin-top:6px}
+  .story .line{display:block}
+  .ayah{font-family:'Amiri Quran','Amiri',serif;color:#6F4A2F;display:block;background:var(--rust-soft);border-radius:16px;padding:10px 16px;margin:8px 0;font-size:1.65rem;line-height:2.3}
+
+  .mcq{display:grid;gap:14px;margin-top:22px}
+  .mq{background:#fff;border:2px solid var(--line);border-radius:18px;padding:16px 18px}
+  .mq .qt{font-family:'Amiri',serif;font-size:1.5rem;font-weight:700}
+  .opts{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+  .opt{font-family:'Amiri',serif;font-size:1.35rem;padding:6px 18px;border-radius:12px;border:2px solid var(--line);background:var(--page)}
+  .opt.ok{border-color:var(--good);background:#E8F5EC}
+  .opt.no{border-color:var(--bad);background:#FBEDE8}
+
+  /* ===== Sea tales ===== */
+  .tales{display:grid;gap:16px}
+  .tale{background:var(--violet-soft);border-radius:24px;padding:22px 22px;border:2px solid #E2D5E4}
+  .tale h3{font-family:'Reem Kufi',sans-serif;font-size:1.3rem;color:var(--violet);margin-bottom:6px;display:flex;gap:10px;align-items:center}
+  .tale p{font-family:'Amiri',serif;font-size:1.6rem;line-height:2.1}
+  .tale .src{font-family:'IBM Plex Sans Arabic',sans-serif;font-size:.92rem;color:var(--muted);margin-top:8px;line-height:1.7}
+  .level{display:inline-block;font-size:.85rem;font-weight:700;color:#fff;background:var(--violet);padding:2px 14px;border-radius:999px;margin-bottom:12px}
+
+  /* ===== Games ===== */
+  .game{background:#fff;border:2px solid var(--line);border-radius:24px;padding:22px 20px;margin-bottom:20px}
+  .game h3{font-size:1.2rem;margin-bottom:4px}
+  .status{margin-top:12px;font-weight:700;min-height:1.8em}
+  .row-btns{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+  .act{padding:10px 22px;border-radius:12px;border:2px solid var(--rust);background:var(--rust);color:#fff;font-weight:700}
+  .act.ghost{background:#fff;color:var(--rust)}
+  .big-sw{width:120px;height:120px;border-radius:50% 50% 26px 26px;margin:10px auto 6px;border:3px solid rgba(0,0,0,.08)}
+  .center{text-align:center}
+  .center .opts{justify-content:center}
+  .score{font-weight:700;color:var(--muted)}
+  .agree{padding:14px 0;border-top:1px solid var(--line)}
+  .agree:first-of-type{border-top:none}
+  .agree .s{font-family:'Amiri',serif;font-size:1.6rem;font-weight:700}
+  .blank{display:inline-block;min-width:90px;border-bottom:3px solid var(--rust);text-align:center;color:var(--rust)}
+
+  /* ===== Teacher ===== */
+  .t-block{background:#fff;border:2px solid var(--line);border-radius:22px;padding:22px;margin-bottom:16px}
+  .t-block h3{font-size:1.25rem;margin-bottom:8px;color:var(--rust)}
+  .t-block ul{padding-right:22px}
+  .t-block li{margin-bottom:6px;font-size:1.05rem}
+  .step{display:grid;grid-template-columns:86px 1fr;gap:14px;padding:14px 0;border-top:1px solid var(--line)}
+  .step:first-of-type{border-top:none}
+  .min{font-weight:700;color:var(--rust);background:var(--rust-soft);border-radius:12px;text-align:center;padding:6px 0;height:max-content}
+  .step b{display:block;font-size:1.1rem}
+  .step p{color:var(--muted);font-size:1.02rem}
+  .print{margin:6px 0 20px}
+  .care{background:var(--violet-soft);border-color:#E2D5E4}
+  .care h3{color:var(--violet)}
+
+  footer{text-align:center;color:var(--muted);font-size:.95rem;padding:40px 0 46px;line-height:2}
+  footer b{color:var(--ink)}
+  footer a{color:var(--rust);font-weight:600}
+
+  @media (max-width:560px){
+    html{font-size:19px}
+    .cards{grid-template-columns:repeat(2,1fr)}
+    .card{height:170px}
+    .earth{height:130px}
+    .step{grid-template-columns:1fr;gap:6px}
+    .min{width:110px}
+  }
+  @media print{
+    .earth,.tabs,.jump,.say,.print,#play{display:none!important}
+    .panel[hidden]{display:block!important}
+    .card .in{transform:none!important}.back{display:none}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap head-text">
+    <span class="series">مرافئ العربية · الوحدة الثالثة</span>
+    <h1>مرفأ الألوان</h1>
+    <p class="sub">وادي الألوان السبعة في شاماريل، موريشيوس.<span class="en">The Port of Colours: Chamarel, Mauritius</span></p>
+  </div>
+  <svg class="earth" viewBox="0 0 1440 190" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 70 Q180 30 360 64 T720 58 T1080 66 T1440 52 V190 H0Z" fill="#E7C3B0"/>
+    <path d="M0 88 Q200 52 400 84 T800 78 T1200 88 T1440 76 V190 H0Z" fill="#E9CB98"/>
+    <path d="M0 104 Q220 72 440 102 T880 96 T1280 106 T1440 96 V190 H0Z" fill="#D6C9DC"/>
+    <path d="M0 120 Q240 92 480 118 T960 112 T1440 116 V190 H0Z" fill="#E2B49C"/>
+    <path d="M0 136 Q260 110 520 134 T1040 128 T1440 132 V190 H0Z" fill="#CDB8A4"/>
+    <path d="M0 152 Q280 128 560 150 T1120 146 T1440 148 V190 H0Z" fill="#C8D3BE"/>
+    <path d="M0 168 Q300 148 600 166 T1200 162 T1440 164 V190 H0Z" fill="#E6CFA6"/>
+    <path d="M0 182 Q320 166 640 180 T1280 176 T1440 178 V190 H0Z" fill="#FBF8F4"/>
+  </svg>
+</header>
+
+<main class="wrap">
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" aria-selected="true" aria-controls="student" id="t-s">للطالب</button>
+    <button class="tab" role="tab" aria-selected="false" aria-controls="teacher" id="t-t">للمعلم</button>
+  </div>
+
+  <!-- ================= STUDENT ================= -->
+  <div class="panel" id="student" role="tabpanel" aria-labelledby="t-s">
+    <nav class="jump">
+      <a href="#words">الكلمات</a><a href="#story">القصة</a><a href="#tales">حكايات البحر</a><a href="#play">العب</a>
+    </nav>
+
+    <section id="words">
+      <h2><span class="ico">🎨</span>ألوان الوادي</h2>
+      <p class="hint">اضغط على البطاقة لترى المعنى بالإنجليزية، واضغط 🔊 لتسمع الكلمة.</p>
+      <div class="cards" id="cards"></div>
+    </section>
+
+    <section id="story">
+      <h2><span class="ico">📖</span>الألوان مثل وجوهنا</h2>
+      <p class="hint">اقرأ القصة بصوت عالٍ، ثم اختر الإجابة الصحيحة.</p>
+      <div class="story">
+        <p>
+          <span class="line">زُرْتُ مَعَ صَفِّي وَادِيَ الأَلْوَانِ السَّبْعَةِ فِي شَامَارِيل.</span>
+          <span class="line">رَأَيْتُ تُرَاباً أَحْمَرَ، وَتُرَاباً أَصْفَرَ، وَتُرَاباً بُنِّيّاً، وَتُرَاباً بَنَفْسَجِيّاً.</span>
+          <span class="line">قَالَ صَدِيقِي رَايَان: «الأَلْوَانُ مِثْلُ وُجُوهِنَا!»</span>
+          <span class="line">نَظَرْتُ إِلَى زُمَلَائِي، فَرَأَيْتُ أَلْوَاناً كَثِيرَةً، وَكُلُّهَا جَمِيلَةٌ.</span>
+          <span class="line">قَالَ المُعَلِّمُ: «اخْتِلَافُ الأَلْوَانِ آيَةٌ مِنْ آيَاتِ اللهِ.» ثُمَّ قَرَأَ:</span>
+          <span class="ayah">﴿وَمِنْ آيَاتِهِ خَلْقُ السَّمَاوَاتِ وَالْأَرْضِ وَاخْتِلَافُ أَلْسِنَتِكُمْ وَأَلْوَانِكُمْ﴾</span>
+          <span class="line">نَحْنُ أَلْوَانٌ كَثِيرَةٌ، وَلُغَاتٌ كَثِيرَةٌ، وَالعَرَبِيَّةُ تَجْمَعُنَا.</span>
+        </p>
+      </div>
+      <div class="mcq" id="mcq"></div>
+    </section>
+
+    <section id="tales">
+      <h2><span class="ico">⛵</span>حكايات من البحر</h2>
+      <span class="level">للمتقدمين</span>
+      <div class="tales">
+        <div class="tale">
+          <h3>🦴 البحّار العربي القديم</h3>
+          <p>يَرْوِي المُرْشِدُونَ فِي مُورِيشْيُوس أَنَّ أَقْدَمَ رُفَاتِ إِنْسَانٍ وُجِدَ فِي الجَزِيرَةِ فُحِصَ بِالحَمْضِ النَّوَوِيِّ، فَظَهَرَ أَنَّهُ لِرَجُلٍ عَرَبِيٍّ، يُرَجَّحُ أَنَّهُ مِنَ البَحَّارَةِ القُدَمَاءِ. وَفِي خَرِيطَةٍ بُرْتُغَالِيَّةٍ قَدِيمَةٍ اسْمٌ عَرَبِيٌّ لِلْجَزِيرَةِ: «دِينَا عَرُوبِي».</p>
+          <p class="src">حكاية يرويها مرشدو الجزيرة. أما اسم "دينا عروبي" فموثّق على خريطة كانتينو البرتغالية سنة ١٥٠٢م، وقد عرف البحارة العرب جزر المحيط الهندي قبل وصول الأوروبيين بقرون.</p>
+        </div>
+        <div class="tale">
+          <h3>📜 جزيرة حيّ بن يقظان</h3>
+          <p>كَتَبَ ابْنُ طُفَيْلٍ الأَنْدَلُسِيُّ عَنْ جَزِيرَةٍ مِنْ جُزُرِ الهِنْدِ تَحْتَ خَطِّ الاسْتِوَاءِ، هَوَاؤُهَا أَعْدَلُ الهَوَاءِ، وَجَعَلَهَا مَوْطِنَ بَطَلِ قِصَّتِهِ المَشْهُورَةِ «حَيِّ بْنِ يَقْظَانَ».</p>
+          <p class="src">من مقدمة رسالة "حي بن يقظان" لابن طفيل، القرن السادس الهجري.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="play">
+      <h2><span class="ico">🎮</span>العب وتعلّم</h2>
+
+      <div class="game center">
+        <h3>ما هذا اللون؟</h3>
+        <p class="hint">انظر إلى لون التراب، واختر اسمه.</p>
+        <div class="big-sw" id="csw"></div>
+        <div class="opts" id="copts"></div>
+        <div class="status" id="cstatus"></div>
+        <div class="score" id="cscore"></div>
+        <div class="row-btns" style="justify-content:center"><button class="act" id="cnext">لون آخر</button></div>
+      </div>
+
+      <div class="game">
+        <h3>المذكر والمؤنث في الألوان</h3>
+        <p class="hint">نقول: قَلَمٌ أَحْمَرُ، وَوَرْدَةٌ حَمْرَاءُ. اختر الكلمة المناسبة.</p>
+        <div id="agree"></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ================= TEACHER ================= -->
+  <div class="panel" id="teacher" role="tabpanel" aria-labelledby="t-t" hidden>
+    <section>
+      <h2><span class="ico">🧭</span>دليل المعلم</h2>
+      <p class="hint">حصة واحدة مدتها ٤٥ دقيقة، للمبتدئين، مع نصوص إثرائية للمتقدمين.</p>
+      <button class="act ghost print" onclick="window.print()">اطبع الوحدة كاملة</button>
+
+      <div class="t-block">
+        <h3>أهداف الوحدة</h3>
+        <ul>
+          <li>أن يتعرّف الطالب أسماء الألوان، ويصف بها الأشياء.</li>
+          <li>أن يطابق اللون مع الموصوف في التذكير والتأنيث: أَحْمَرُ وحَمْرَاءُ، بُنِّيٌّ وبُنِّيَّةٌ.</li>
+          <li>أن يفهم أن اختلاف الألوان واللغات آية من آيات الله، وأن العربية تجمع الناس على تنوعهم.</li>
+          <li>أن يتعرّف المتقدمون صلة العرب القديمة بجزر المحيط الهندي.</li>
+        </ul>
+      </div>
+
+      <div class="t-block">
+        <h3>خطوات الحصة</h3>
+        <div class="step"><span class="min">٥ دقائق</span><div><b>التهيئة</b><p>اعرض صورة لوادي الألوان السبعة في شاماريل، أو قوارير رمل ملوّن إن توفرت، واسأل: كم لوناً ترى؟</p></div></div>
+        <div class="step"><span class="min">١٠ دقائق</span><div><b>الألوان بالاستجابة الجسدية</b><p>أوامر قصيرة: "المس شيئاً أحمر"، "ارفع قلماً أزرق"، "قِف إذا كان قميصك أبيض". يتحرك الطلاب فيتعلمون اللون والفعل معاً.</p></div></div>
+        <div class="step"><span class="min">١٠ دقائق</span><div><b>القصة والآية</b><p>قراءة نموذجية ثم جماعية. اقرأ الآية بتأنٍّ، وبيّن أنها جمعت اختلاف الألسنة واختلاف الألوان، كحال الصف نفسه.</p></div></div>
+        <div class="step"><span class="min">١٠ دقائق</span><div><b>المذكر والمؤنث</b><p>اكتب على السبورة أزواجاً: أَحْمَرُ وحَمْرَاءُ، أَصْفَرُ وصَفْرَاءُ، أَزْرَقُ وزَرْقَاءُ. ثم لعبة الصفحة.</p></div></div>
+        <div class="step"><span class="min">٥ دقائق</span><div><b>التقويم</b><p>لعبة "ما هذا اللون؟" على الشاشة، فرادى أو في مجموعات.</p></div></div>
+        <div class="step"><span class="min">٥ دقائق</span><div><b>الختام والواجب</b><p>يكتب كل طالب ثلاث جمل يصف فيها أشياء من بيته بألوانها.</p></div></div>
+      </div>
+
+      <div class="t-block">
+        <h3>للمتقدمين: حكايات من البحر</h3>
+        <ul>
+          <li>اقرأ مع الطلاب حكاية البحّار العربي، واسألهم: هل سمعتم حكايات مثلها من أجدادكم؟ اجعلهم يحكونها بالعربية.</li>
+          <li>نص ابن طفيل مدخل لطيف إلى الأدب العربي القديم، يرى فيه الطالب أن جزر المحيط الهندي كانت حاضرة في خيال الكتّاب العرب.</li>
+        </ul>
+      </div>
+
+      <div class="t-block care">
+        <h3>بحساسية ولطف</h3>
+        <ul>
+          <li>ابدأ وصف الألوان بالأشياء قبل الناس، ولا تطلب من طالب بعينه أن يصف لونه أو لون زميله.</li>
+          <li>اجعل الحديث عن ألوان البشر في إطار الجمال والتنوع فقط، دون مقارنة أو تفضيل.</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    الوحدات السابقة: <a href="mauritius.html">مرفأ السكر</a> · <a href="srilanka.html">مرفأ الشاي والقرفة</a><br>
+    مرافئ العربية، إعداد <b>أحمد آل سالم</b> · ahmedchoices.com
+  </div>
+</footer>
+
+<script>
+(function(){
+  function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t}return a}
+
+  var tabs=[document.getElementById('t-s'),document.getElementById('t-t')];
+  tabs.forEach(function(t){t.addEventListener('click',function(){
+    tabs.forEach(function(x){var on=x===t;x.setAttribute('aria-selected',on);document.getElementById(x.getAttribute('aria-controls')).hidden=!on;});
+  });});
+
+  var arVoice=null;
+  function pickVoice(){
+    if(!('speechSynthesis' in window))return;
+    var v=speechSynthesis.getVoices().filter(function(v){return /^ar/i.test(v.lang)});
+    arVoice=v[0]||null;document.querySelectorAll('.say').forEach(function(b){b.hidden=!arVoice});
+  }
+  function speak(t){if(!arVoice)return;speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t);u.voice=arVoice;u.lang=arVoice.lang;u.rate=.8;speechSynthesis.speak(u);}
+
+  /* [word, english, swatch colour or null, emoji or null] */
+  var colours=[
+    ['أَحْمَرُ','red','#C9573F'],['أَصْفَرُ','yellow','#E8C24A'],['أَخْضَرُ','green','#6E9E5A'],['أَزْرَقُ','blue','#5D8FC0'],
+    ['بُنِّيٌّ','brown','#8A5A3C'],['بَنَفْسَجِيٌّ','purple','#8B6A9E'],['أَبْيَضُ','white','#FFFFFF'],['أَسْوَدُ','black','#2B2B2B']
+  ];
+  var nature=[['تُرَابٌ','soil','🟫'],['وَادٍ','valley','🏞️'],['شَلَّالٌ','waterfall','💦'],['وَجْهٌ','face','🙂']];
+  var box=document.getElementById('cards');
+  function addCard(word,en,inner){
+    var wrap=document.createElement('div');wrap.className='cw';
+    var c=document.createElement('button');c.className='card';c.setAttribute('aria-label',word);
+    c.innerHTML='<div class="in"><div class="face">'+inner+'<div class="w">'+word+'</div></div><div class="face back">'+inner+'<div class="en">'+en+'</div></div></div>';
+    c.addEventListener('click',function(){c.classList.toggle('flip')});
+    var s=document.createElement('button');s.className='say';s.textContent='🔊';s.hidden=true;s.setAttribute('aria-label','استمع إلى '+word);
+    s.addEventListener('click',function(e){e.stopPropagation();speak(word)});
+    wrap.appendChild(c);wrap.appendChild(s);box.appendChild(wrap);
+  }
+  colours.forEach(function(c){addCard(c[0],c[1],'<div class="sw" style="background:'+c[2]+'"></div>')});
+  nature.forEach(function(n){addCard(n[0],n[1],'<div class="emo">'+n[2]+'</div>')});
+  if('speechSynthesis' in window){pickVoice();speechSynthesis.onvoiceschanged=pickVoice;}
+
+  /* MCQ */
+  var mcq=[
+    ['أَيْنَ وَادِي الأَلْوَانِ السَّبْعَةِ؟',['فِي سِرِيلَانْكَا','فِي شَامَارِيل','فِي الصَّحْرَاءِ'],1],
+    ['مَنْ قَالَ: «الأَلْوَانُ مِثْلُ وُجُوهِنَا»؟',['المُعَلِّمُ','رَايَان','أُمِّي'],1],
+    ['اخْتِلَافُ الأَلْوَانِ ...',['آيَةٌ مِنْ آيَاتِ اللهِ','شَيْءٌ غَرِيبٌ','لَيْسَ جَمِيلاً'],0],
+    ['مَاذَا تَفْعَلُ العَرَبِيَّةُ؟',['تُفَرِّقُنَا','تَجْمَعُنَا','تُلَوِّنُنَا'],1]
+  ];
+  var mbox=document.getElementById('mcq');
+  mcq.forEach(function(q){
+    var d=document.createElement('div');d.className='mq';
+    d.innerHTML='<div class="qt">'+q[0]+'</div><div class="opts"></div>';
+    var o=d.querySelector('.opts');
+    q[1].forEach(function(t,i){
+      var b=document.createElement('button');b.className='opt';b.textContent=t;
+      b.addEventListener('click',function(){o.querySelectorAll('.opt').forEach(function(x){x.classList.remove('ok','no')});b.classList.add(i===q[2]?'ok':'no');});
+      o.appendChild(b);
+    });
+    mbox.appendChild(d);
+  });
+
+  /* What colour is this? */
+  var right=0,tries=0,cur=null,answered=false;
+  var csw=document.getElementById('csw'),copts=document.getElementById('copts'),cst=document.getElementById('cstatus'),csc=document.getElementById('cscore');
+  function round(){
+    var pool=shuffle(colours);cur=pool[0];answered=false;cst.textContent='';
+    csw.style.background=cur[2];copts.innerHTML='';
+    shuffle(pool.slice(0,3)).forEach(function(c){
+      var b=document.createElement('button');b.className='opt';b.textContent=c[0];
+      b.addEventListener('click',function(){
+        copts.querySelectorAll('.opt').forEach(function(x){x.classList.remove('ok','no')});
+        var ok=c===cur;b.classList.add(ok?'ok':'no');
+        if(!answered){tries++;if(ok)right++;answered=true;csc.textContent='نتيجتك: '+right+' من '+tries;}
+        cst.style.color=ok?'var(--good)':'var(--bad)';cst.textContent=ok?'أحسنت! 🎨':'حاول مرة أخرى.';
+      });
+      copts.appendChild(b);
+    });
+  }
+  document.getElementById('cnext').addEventListener('click',round);
+  round();
+
+  /* Agreement */
+  var ag=[
+    ['قَلَمٌ',['أَحْمَرُ','حَمْرَاءُ'],0],
+    ['وَرْدَةٌ',['أَحْمَرُ','حَمْرَاءُ'],1],
+    ['شَمْسٌ',['أَصْفَرُ','صَفْرَاءُ'],1],
+    ['بَحْرٌ',['أَزْرَقُ','زَرْقَاءُ'],0],
+    ['شَجَرَةٌ',['أَخْضَرُ','خَضْرَاءُ'],1],
+    ['تُرَابٌ',['بُنِّيٌّ','بُنِّيَّةٌ'],0]
+  ];
+  var abox=document.getElementById('agree');
+  ag.forEach(function(a){
+    var d=document.createElement('div');d.className='agree';
+    d.innerHTML='<div class="s">'+a[0]+' <span class="blank">؟</span></div><div class="opts"></div>';
+    var o=d.querySelector('.opts'),bl=d.querySelector('.blank');
+    a[1].forEach(function(t,i){
+      var b=document.createElement('button');b.className='opt';b.textContent=t;
+      b.addEventListener('click',function(){
+        o.querySelectorAll('.opt').forEach(function(x){x.classList.remove('ok','no')});
+        if(i===a[2]){b.classList.add('ok');bl.textContent=t}else{b.classList.add('no');bl.textContent='؟'}
+      });
+      o.appendChild(b);
+    });
+    abox.appendChild(d);
+  });
+})();
+</script>
+</body>
+</html>
