@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>خارطة الباحة التفاعلية · اختيارات أحمد</title>
+<link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FBF8EF;--ink:#26313A;--muted:#5F6B74;--card:#fff;--line:#E8E2CF}
+*{box-sizing:border-box;margin:0}
+body{font-family:'Readex Pro',sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;overflow-x:hidden;font-size:18px}
+header{padding:20px 16px 8px;text-align:center}
+header a.back{display:inline-block;font-weight:600;color:var(--muted);text-decoration:none;margin-bottom:6px;font-size:1rem}
+h1{font-size:1.9rem;line-height:1.3}
+header p{color:var(--muted);font-size:1.05rem;margin-top:6px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;padding:10px 12px}
+.chip{border:2px solid var(--c);background:#fff;color:var(--ink);font:inherit;font-weight:600;font-size:1rem;padding:8px 16px;border-radius:999px;cursor:pointer}
+.chip[aria-pressed=true]{background:var(--c);color:#fff}
+.mapwrap{max-width:900px;margin:0 auto;padding:0 8px}
+svg{width:100%;height:auto;display:block;border-radius:24px;background:#F6EBC8;border:2px solid var(--line)}
+.stop{cursor:pointer}
+.stop circle{stroke:#fff;stroke-width:4;transition:r .15s}
+.stop:hover circle,.stop:focus circle{r:36}
+.stop text{fill:#fff;font-weight:700;font-size:32px;text-anchor:middle;dominant-baseline:central;pointer-events:none;font-family:'Readex Pro',sans-serif}
+.rname{font-weight:700;font-size:30px;font-family:'Readex Pro',sans-serif;paint-order:stroke;stroke:#fff;stroke-width:7px;text-anchor:middle}
+.dim{opacity:.18}
+.hint{text-align:center;color:var(--muted);padding:10px 16px;font-size:1rem}
+#sheet{position:fixed;left:0;right:0;bottom:0;background:#fff;border-radius:26px 26px 0 0;box-shadow:0 -10px 40px rgba(0,0,0,.18);padding:22px 20px 26px;transform:translateY(110%);transition:transform .25s;z-index:5;max-width:640px;margin:0 auto}
+#sheet.on{transform:none}
+#sheet .tag{display:inline-block;color:#fff;border-radius:999px;padding:2px 14px;font-weight:600;font-size:.95rem}
+#sheet h2{font-size:1.5rem;margin:8px 0 2px}
+#sheet p{color:var(--muted);font-size:1.1rem}
+#sheet .go{display:block;margin-top:16px;text-align:center;background:#2f7d57;color:#fff;font-weight:700;font-size:1.15rem;padding:14px;border-radius:16px;text-decoration:none}
+#sheet .x{position:absolute;top:12px;left:14px;border:0;background:#f1ede0;width:38px;height:38px;border-radius:50%;font-size:22px;cursor:pointer}
+.list{max-width:900px;margin:18px auto 60px;padding:0 12px;display:grid;gap:14px}
+.rt{background:var(--card);border:2px solid var(--line);border-radius:20px;padding:14px 16px}
+.rt h3{font-size:1.3rem;color:var(--c)}
+.rt small{color:var(--muted);font-size:1rem}
+.rt ol{margin:8px 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+.rt li button{font:inherit;font-size:1rem;border:1.5px solid var(--c);background:#fff;border-radius:12px;padding:6px 12px;cursor:pointer}
+.note{text-align:center;color:var(--muted);font-size:.95rem;padding:0 16px 40px}
+</style>
+</head>
+<body>
+<header>
+<a class="back" href="./#routes">‹ العودة إلى الصفحة الرئيسية</a>
+<h1>خارطة الباحة السياحية</h1>
+<p>خمسة مسارات من قلب الباحة. اضغط أي محطة لترى تفاصيلها وتفتحها في خرائط غوغل.</p>
+</header>
+<div class="chips" id="chips"></div>
+<div class="mapwrap"><svg id="map" viewBox="0 0 1000 1100" role="img" aria-label="خارطة تخطيطية لمسارات الباحة"></svg></div>
+<p class="hint">رسم تخطيطي للتوضيح، وليس مقياساً دقيقاً للمسافات. زر خرائط غوغل يبحث عن اسم المحطة في الباحة.</p>
+<div class="list" id="list"></div>
+<p class="note">للحجز مع مرشد أو للحصول على الخرائط المطبوعة: تواصل عبر واتساب من الصفحة الرئيسية.</p>
+<div id="sheet" role="dialog" aria-live="polite"><button class="x" aria-label="إغلاق">×</button><span class="tag" id="sTag"></span><h2 id="sTitle"></h2><p id="sDesc"></p><a class="go" id="sGo" target="_blank" rel="noopener">افتح في خرائط غوغل</a></div>
+<script>
+var R=[
+{k:'zahran',n:'مسار زهران',s:'طريق الأنفاق السياحي، من خيرة إلى المندق',c:'#d9573b',end:[150,170],ctrl:[[330,430],[130,330]],lab:[210,110],stops:[
+['غابة خيرة والشلال','بئر القلت والمطل الزجاجي','غابة خيرة'],['منتزه جدر','ممشى حول الشلال','منتزه جدر'],['منتجع قمرة','مغامرات وألعاب جبلية','منتجع قمرة'],['شفا نعاش','إطلالة على تهامة','شفا نعاش'],['مزرعة البروقي','المندق، خميس وسبت','مزرعة البروقي المندق'],['مطعم طلوب','مندي ومفطح وبحجز مسبق','مطعم طلوب'],['مطعم السيسبان','العساف','مطعم السيسبان'],['أكواخ المازم','ختام المسار بالقهوة','أكواخ المازم']]},
+{k:'baljurashi',n:'مسار بلجرشي وسوق السبت',s:'من سوق السبت فجراً إلى قرية الملد',c:'#7a4fa8',end:[610,90],ctrl:[[420,420],[700,300]],lab:[640,50],stops:[
+['سوق السبت','بعد الفجر، وبيت آل غرم','سوق السبت بلجرشي'],['فطور الفول','خلوفة أو الشدوي','فطور فول بلجرشي'],['جبل حزنة','أعلى قمم بلجرشي','جبل حزنة'],['شفا المدان','إطلالة على تهامة','شفا المدان'],['متحف نزل العايد','بيت تراثي وضيافة','متحف نزل العايد'],['بساتين اللوز','لوز وتين وطيور','بساتين اللوز بلجرشي'],['قرية الملد','ومتحف الأخوين','قرية الملد بلجرشي']]},
+{k:'akeeq',n:'مسار العقيق ودرب البخور',s:'الزيتونة، منجم المعملة، الدوائر الحجرية',c:'#b8860b',end:[910,330],ctrl:[[640,480],[800,420]],lab:[760,540],stops:[
+['مزرعة الزيتونة','زيتون وفواكه وطيور وخيول','مزرعة الزيتونة العقيق'],['منجم المعملة','تعدين قديم، 40 كم من الباحة','منجم المعملة'],['درب البخور','طريق الفيل ودرب القوافل','درب البخور العقيق'],['الدوائر الحجرية','وقفة عند الشواهد الأثرية','الدوائر الحجرية العقيق']]},
+{k:'bayda',n:'مسار بيدة والتراث',s:'من وادي بيدة إلى قلعة بخروش بن علاس',c:'#2f7fb0',end:[880,930],ctrl:[[640,640],[780,820]],lab:[790,1010],stops:[
+['وادي بيدة','الوادي ومزارع الرمان','وادي بيدة'],['مطعم وادي القوافل','استراحة الغداء','مطعم وادي القوافل'],['منتزه إكليل الجبل','جلسات وسط الطبيعة','منتزه إكليل الجبل'],['منتزه الثروة الوطنية','منتزه عائلي','منتزه الثروة الوطنية'],['سوق الرمان','رمان الباحة الطازج','سوق الرمان'],['دار عوضة','بيت تراثي','دار عوضة'],['قرية الأطاولة الأثرية','بيوت حجرية قديمة','قرية الأطاولة الأثرية'],['قلعة بخروش بن علاس','ختام المسار، القرى','قلعة بخروش بن علاس']]},
+{k:'tihama',n:'مسار تهامة والعقبة',s:'نزولاً من الباحة إلى ذي عين وجبل شدا',c:'#e0902a',end:[130,900],ctrl:[[400,700],[170,640]],lab:[200,1010],stops:[
+['إفطار الكبدة','السعودية أو شبوة أو مندي الحفرة','مطعم الكبدة الباحة'],['قرية ذي عين','البيوت القديمة والموز والوادي والماء','قرية ذي عين'],['جبل شدا الأسفل','الصعود إلى الكهوف','جبل شدا الأسفل'],['سد الوادي','الاسم مقصوص في الخريطة الأصلية','سد وادي الباحة'],['مزرعة د. أحمد قشاش','أشجار الجزيرة العربية','مزرعة أحمد قشاش'],['فواكه تهامة','مانجو وبابايا وموز بلدي','فواكه تهامة الباحة'],['العشاء','ملهوي الحفرة والسروات ومندي الجبل','مندي الحفرة الباحة']]}
+];
+var NS='http://www.w3.org/2000/svg',svg=document.getElementById('map'),H=[500,560];
+function el(t,a,p){var e=document.createElementNS(NS,t);for(var k in a)e.setAttribute(k,a[k]);(p||svg).appendChild(e);return e}
+// terrain
+el('rect',{x:0,y:0,width:1000,height:1100,fill:'#F6EBC8'});
+el('path',{d:'M0 0H170C130 200 210 330 150 520C100 700 200 900 120 1100H0Z',fill:'#EBD39A'});
+el('path',{d:'M170 0C130 200 210 330 150 520C100 700 200 900 120 1100',fill:'none',stroke:'#C9A862','stroke-width':6,'stroke-dasharray':'2 14','stroke-linecap':'round'});
+var tx=el('text',{x:70,y:560,class:'rname',fill:'#9a7a36',transform:'rotate(-90 70 560)',style:'font-size:34px;stroke:none'});tx.textContent='سهل تهامة';
+[[560,160],[800,120],[330,820],[620,900],[880,640],[300,260]].forEach(function(p,i){
+ el('path',{d:'M'+p[0]+' '+p[1]+'l60 -90l60 90z',fill:i%2?'#B58B5E':'#C79E6B',stroke:'#8d6a42','stroke-width':3});
+ el('path',{d:'M'+(p[0]+48)+' '+(p[1]-72)+'l12 -18l12 18z',fill:'#fff'})});
+[[420,230],[760,560],[260,640],[700,760],[560,980]].forEach(function(p){el('circle',{cx:p[0],cy:p[1],r:22,fill:'#9CC46B'});el('circle',{cx:p[0]+26,cy:p[1]+10,r:15,fill:'#8DB85C'})});
+var ph={};
+R.forEach(function(r){
+ var d='M'+H[0]+' '+H[1]+' C'+r.ctrl[0][0]+' '+r.ctrl[0][1]+' '+r.ctrl[1][0]+' '+r.ctrl[1][1]+' '+r.end[0]+' '+r.end[1];
+ var g=el('g',{id:'g-'+r.k});r.g=g;
+ el('path',{d:d,fill:'none',stroke:'#fff','stroke-width':22,'stroke-linecap':'round'},g);
+ var p=el('path',{d:d,fill:'none',stroke:r.c,'stroke-width':12,'stroke-linecap':'round','stroke-dasharray':'2 20'},g);
+ var len=p.getTotalLength(),n=r.stops.length;
+ var t=el('text',{x:r.lab[0],y:r.lab[1],class:'rname',fill:r.c},g);t.textContent=r.n;
+ r.stops.forEach(function(s,i){
+  var pt=p.getPointAtLength(len*(0.24+0.76*i/(n>1?n-1:1)*(n>1?1:0)+(n==1?0:0)));
+  var sg=el('g',{class:'stop',tabindex:0,role:'button','aria-label':r.n+' محطة '+(i+1)+' '+s[0],transform:'translate('+pt.x+','+pt.y+')'},g);
+  el('circle',{r:31,fill:r.c},sg);var tt=el('text',{},sg);tt.textContent=i+1;
+  function open(){show(r,i)}sg.addEventListener('click',open);sg.addEventListener('keydown',function(e){if(e.key=='Enter'||e.key==' ')open()});
+ });
+});
+// hub
+var hub=el('g',{transform:'translate('+H+')'});
+el('circle',{r:58,fill:'#26313A',stroke:'#fff','stroke-width':6},hub);
+var ht=el('text',{class:'rname',fill:'#fff',style:'stroke:none;font-size:30px;dominant-baseline:central'},hub);ht.textContent='الباحة';
+// chips + list + sheet
+var chips=document.getElementById('chips'),list=document.getElementById('list'),sheet=document.getElementById('sheet'),cur=null;
+function filter(k){cur=cur==k?null:k;R.forEach(function(r){r.g.classList.toggle('dim',!!cur&&cur!=r.k)});document.querySelectorAll('.chip').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.k==cur)})}
+R.forEach(function(r){
+ var b=document.createElement('button');b.className='chip';b.dataset.k=r.k;b.style.setProperty('--c',r.c);b.textContent=r.n;b.setAttribute('aria-pressed','false');b.onclick=function(){filter(r.k)};chips.appendChild(b);
+ var c=document.createElement('div');c.className='rt';c.style.setProperty('--c',r.c);
+ c.innerHTML='<h3>'+r.n+'</h3><small>'+r.s+'</small>';var ol=document.createElement('ol');
+ r.stops.forEach(function(s,i){var li=document.createElement('li'),bt=document.createElement('button');bt.textContent=(i+1)+' · '+s[0];bt.onclick=function(){show(r,i);window.scrollTo({top:0,behavior:'smooth'})};li.appendChild(bt);ol.appendChild(li)});
+ c.appendChild(ol);list.appendChild(c)});
+function show(r,i){var s=r.stops[i],tg=document.getElementById('sTag');tg.textContent=r.n+' · المحطة '+(i+1);tg.style.background=r.c;
+ document.getElementById('sTitle').textContent=s[0];document.getElementById('sDesc').textContent=s[1];
+ document.getElementById('sGo').href='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(s[2]+' الباحة');sheet.classList.add('on')}
+sheet.querySelector('.x').onclick=function(){sheet.classList.remove('on')};
+document.addEventListener('keydown',function(e){if(e.key=='Escape')sheet.classList.remove('on')});
+</script>
+</body>
+</html>
