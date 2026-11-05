@@ -89,6 +89,20 @@
   .pl-ar{--pc:var(--cul);--pbg:var(--cul-bg)}
   .pl-club{--pc:var(--tour);--pbg:var(--tour-bg)}
 
+
+  /* ===== Routes ===== */
+  .routes{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:16px}
+  .route{background:var(--white);border:1.5px solid var(--line);border-radius:26px;padding:20px;display:flex;flex-direction:column;gap:8px}
+  .route .rt{display:flex;align-items:center;gap:12px}
+  .route .ric{width:54px;height:54px;border-radius:18px;background:var(--tour-bg);display:grid;place-items:center;font-size:1.7rem;flex-shrink:0}
+  .route h3{font-size:1.3rem;font-weight:700;line-height:1.4}
+  .route p{color:var(--muted);font-size:1rem}
+  .stops{display:flex;align-items:center;gap:0;margin:6px 0 2px;flex-wrap:wrap}
+  .stops span{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:.95rem}
+  .stops span::before{content:"";width:12px;height:12px;border-radius:50%;background:var(--tour);flex-shrink:0}
+  .stops i{display:block;width:22px;height:3px;background:var(--tour);opacity:.45;margin:0 8px;border-radius:2px}
+  .route .pfoot{margin-top:auto}
+
   /* ===== Sky ===== */
   .skygrid{display:grid;grid-template-columns:1fr 1.3fr;gap:18px}
   .moon{background:linear-gradient(160deg,#EEF2FB,#E3E9F6);border-radius:28px;padding:28px;text-align:center}
@@ -239,6 +253,7 @@
   <div class="sidein">
     <a class="g one" href="#top" style="--c:var(--ink)"><i></i><span class="ar">الرئيسية</span><span class="en">Home</span></a>
     <details class="g" style="--c:var(--tour)"><summary><i></i><span class="ar">السياحة</span><span class="en">Travel</span></summary><div class="sub">
+      <a href="#routes"><span class="ar">مسارات الباحة</span><span class="en">Al-Baha routes</span></a>
       <a href="#places"><span class="ar">أماكن أختارها</span><span class="en">Places I recommend</span></a>
       <a href="#news"><span class="ar">أخبار السياحة</span><span class="en">Travel news</span></a>
       <a href="#contact"><span class="ar">احجز جولة بصحبة مرشد</span><span class="en">Book a guided tour</span></a>
@@ -324,6 +339,32 @@
   </section>
 
   <!-- ===== Sky ===== -->
+  <!-- ===== Al-Baha routes ===== -->
+  <section id="routes">
+    <div class="head">
+      <h2><span class="ar">مسارات الباحة</span><span class="en">Al-Baha routes</span></h2>
+      <p><span class="ar">ثلاثة مسارات بخرائط ومحطات ونصائح من مرشد.</span><span class="en">Three routes with maps, stops and a guide's tips.</span></p>
+    </div>
+    <div class="routes">
+    <article class="route">
+      <div class="rt"><div class="ric" aria-hidden="true">🏔️</div><h3><span class="ar">مسار زهران</span><span class="en">The Zahran Route</span></h3></div>
+      <div class="stops"><span>خيرة</span><i></i><span>شفا نعاش</span><i></i><span>المندق</span></div>
+      <p><span class="ar">مسار على الطريق السياحي للأنفاق، بين جبال زهران وقراها.</span><span class="en">A route along the tunnels tourist road, through the Zahran mountains and villages.</span></p>
+      <div class="pfoot"><span class="price"><span class="ar">الخريطة <small>عند الطلب</small></span><span class="en">Map <small>on request</small></span></span><a class="order" data-p="خريطة مسار زهران | Zahran Route map" href="#"><span class="ar">اطلب الخريطة</span><span class="en">Ask for the map</span></a></div>
+    </article>
+    <article class="route">
+      <div class="rt"><div class="ric" aria-hidden="true">🐪</div><h3><span class="ar">مسار وادي القوافل</span><span class="en">Wadi Al-Qawafil Route</span></h3></div>
+      <p><span class="ar">مسار يمرّ بوادي القوافل في الباحة، بمحطاته ونصائحه.</span><span class="en">A route through Wadi Al-Qawafil in Al-Baha, with its stops and tips.</span></p>
+      <div class="pfoot"><span class="price"><span class="ar">الخريطة <small>عند الطلب</small></span><span class="en">Map <small>on request</small></span></span><a class="order" data-p="خريطة مسار وادي القوافل | Wadi Al-Qawafil Route map" href="#"><span class="ar">اطلب الخريطة</span><span class="en">Ask for the map</span></a></div>
+    </article>
+    <article class="route">
+      <div class="rt"><div class="ric" aria-hidden="true">🐘</div><h3><span class="ar">مسار درب الفيل</span><span class="en">Darb Al-Feel Route</span></h3></div>
+      <p><span class="ar">مسار درب الفيل في الباحة، بمحطاته ونصائحه.</span><span class="en">The Darb Al-Feel route in Al-Baha, with its stops and tips.</span></p>
+      <div class="pfoot"><span class="price"><span class="ar">الخريطة <small>عند الطلب</small></span><span class="en">Map <small>on request</small></span></span><a class="order" data-p="خريطة مسار درب الفيل | Darb Al-Feel Route map" href="#"><span class="ar">اطلب الخريطة</span><span class="en">Ask for the map</span></a></div>
+    </article>
+    </div>
+  </section>
+
   <section id="sky">
     <div class="head">
       <h2><span class="ar">سماء الليلة</span><span class="en">Tonight's sky</span></h2>
