@@ -480,7 +480,6 @@
         </div>
         <div class="ways">
           <a class="wa-link" href="#">💬 <span class="ar">واتساب</span><span class="en">WhatsApp</span></a>
-          <a id="mailLink" href="#">✉️ <span class="ar">البريد الإلكتروني</span><span class="en">Email</span><small dir="ltr" style="margin-inline-start:auto;font-weight:400;color:var(--muted)">mr.gmdi22@gmail.com</small></a>
         </div>
       </div>
 
@@ -516,7 +515,6 @@
 <script>
 /* ================== الإعدادات: عدّل هنا فقط ================== */
 var WHATSAPP = "966504611134";        // رقم واتساب بالصيغة الدولية بدون + ، مثل 9665XXXXXXXX
-var EMAIL    = "mr.gmdi22@gmail.com";     // بريدك الإلكتروني
 
 /* الأخبار: أضف الخبر الجديد في أول القائمة */
 var NEWS = [
@@ -561,7 +559,6 @@ var EVENTS = [
       a.href=wa(L==='ar'?'السلام عليكم، أرغب في: '+p:'Hello, I am interested in: '+p);
     });
     document.querySelectorAll('.wa-link').forEach(function(a){a.href=wa(L==='ar'?'السلام عليكم':'Hello');a.target='_blank';a.rel='noopener';});
-    document.getElementById('mailLink').href='mailto:'+EMAIL;
   }
 
   /* moon */
