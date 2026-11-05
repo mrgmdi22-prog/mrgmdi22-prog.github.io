@@ -73,6 +73,22 @@
   .w-tour{--wbg:var(--tour-bg);--wc:var(--tour)}
   .w-sky{--wbg:var(--sky-bg);--wc:var(--sky)}
 
+
+  /* ===== Learning platforms ===== */
+  .plats{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  .plat{background:var(--white);border:1.5px solid var(--line);border-radius:28px;padding:22px;display:flex;gap:16px;align-items:flex-start;transition:border-color .2s,transform .2s}
+  .plat:hover{border-color:var(--pc);transform:translateY(-2px)}
+  .plat .pic{width:68px;height:68px;border-radius:22px;background:var(--pbg);display:grid;place-items:center;font-size:2.1rem;flex-shrink:0}
+  .plat h3{font-size:1.35rem;font-weight:700;line-height:1.4}
+  .plat p{color:var(--muted);font-size:1rem;margin:2px 0 10px}
+  .plat .go{font-weight:700;color:var(--pc);font-size:1rem}
+  .plat .new{display:inline-block;background:#FFF3D6;color:#8A6410;font-size:.78rem;font-weight:700;border-radius:999px;padding:1px 10px;margin-inline-start:8px;vertical-align:middle}
+  .plat .dom{display:block;color:var(--muted);font-size:.82rem;direction:ltr;text-align:start;margin-top:2px}
+  .pl-step{--pc:var(--sky);--pbg:var(--sky-bg)}
+  .pl-rihla{--pc:var(--edu);--pbg:var(--edu-bg)}
+  .pl-ar{--pc:var(--cul);--pbg:var(--cul-bg)}
+  .pl-club{--pc:var(--tour);--pbg:var(--tour-bg)}
+
   /* ===== Sky ===== */
   .skygrid{display:grid;grid-template-columns:1fr 1.3fr;gap:18px}
   .moon{background:linear-gradient(160deg,#EEF2FB,#E3E9F6);border-radius:28px;padding:28px;text-align:center}
@@ -170,7 +186,7 @@
     html{font-size:18px}
     .navlinks{display:none}
     .hero{padding:46px 0 22px}
-    .worlds,.products,.news,.places{grid-template-columns:1fr}
+    .worlds,.products,.news,.places,.plats{grid-template-columns:1fr}
   }
 </style>
 </head>
@@ -180,6 +196,7 @@
   <div class="wrap">
     <a class="brand" href="#top"><span class="ar">اختيارات <b>أحمد</b></span><span class="en">Ahmed <b>Choices</b></span></a>
     <div class="navlinks">
+      <a href="#learn"><span class="ar">المنصات</span><span class="en">Platforms</span></a>
       <a href="#worlds"><span class="ar">عوالمي</span><span class="en">Worlds</span></a>
       <a href="#sky"><span class="ar">السماء</span><span class="en">Sky</span></a>
       <a href="#places"><span class="ar">أماكن</span><span class="en">Places</span></a>
@@ -201,7 +218,7 @@
     <span class="en">A teacher and tour guide from Al-Baha, Saudi Arabia, sharing what I make and what I choose.</span>
   </p>
   <div class="chips">
-    <a class="chip" href="#edu" style="--c:var(--edu)"><i></i><span class="ar">التعليم</span><span class="en">Learning</span></a>
+    <a class="chip" href="#learn" style="--c:var(--edu)"><i></i><span class="ar">التعليم</span><span class="en">Learning</span></a>
     <a class="chip" href="#cul" style="--c:var(--cul)"><i></i><span class="ar">الثقافة</span><span class="en">Culture</span></a>
     <a class="chip" href="#tour" style="--c:var(--tour)"><i></i><span class="ar">السياحة</span><span class="en">Travel</span></a>
     <a class="chip" href="#sky" style="--c:var(--sky)"><i></i><span class="ar">مراقبة السماء</span><span class="en">Stargazing</span></a>
@@ -210,6 +227,40 @@
 </header>
 
 <main class="wrap">
+
+  <!-- ===== Learning platforms ===== -->
+  <section id="learn">
+    <div class="head">
+      <h2><span class="ar">منصاتي التعليمية</span><span class="en">My learning platforms</span></h2>
+      <p><span class="ar">أربع منصات، لكل منها هدف واضح.</span><span class="en">Four platforms, each with a clear goal.</span></p>
+    </div>
+    <div class="plats">
+      <a class="plat pl-step" href="https://step.ahmedchoices.com/">
+        <div class="pic" aria-hidden="true">🎯</div>
+        <div><h3><span class="ar">منصة ستيب</span><span class="en">STEP Platform</span><span class="new"><span class="ar">جديد</span><span class="en">New</span></span></h3>
+        <p><span class="ar">اختبار تشخيصي مجاني يكشف نقاط ضعفك، ثم خطة وتدريب خاص بك.</span><span class="en">A free diagnostic test that finds your weak points, then a personal plan and practice.</span></p>
+        <span class="go"><span class="ar">ابدأ الاختبار ←</span><span class="en">Start the test →</span></span><span class="dom">step.ahmedchoices.com</span></div>
+      </a>
+      <a class="plat pl-rihla" href="https://rihla.ahmedchoices.com/">
+        <div class="pic" aria-hidden="true">🧭</div>
+        <div><h3><span class="ar">رحلة التعلّم الذاتي</span><span class="en">Self-Learning Journey</span></h3>
+        <p><span class="ar">تنظّم وقتك وتذكّرك وتتابع تقدمك، لتتعلم أي مهارة بنفسك.</span><span class="en">Organizes your time, reminds you and tracks your progress, so you can learn any skill on your own.</span></p>
+        <span class="go"><span class="ar">افتح الرحلة ←</span><span class="en">Open the journey →</span></span><span class="dom">rihla.ahmedchoices.com</span></div>
+      </a>
+      <a class="plat pl-ar" href="https://arabic.ahmedchoices.com/">
+        <div class="pic" aria-hidden="true">⚓</div>
+        <div><h3><span class="ar">مرافئ العربية</span><span class="en">Arabic Harbours</span></h3>
+        <p><span class="ar">تعلّم العربية لغير الناطقين بها، في رحلة بين مرافئ المحيط الهندي.</span><span class="en">Learn Arabic as a second language on a journey through Indian Ocean ports.</span></p>
+        <span class="go"><span class="ar">ابحر ←</span><span class="en">Set sail →</span></span><span class="dom">arabic.ahmedchoices.com</span></div>
+      </a>
+      <a class="plat pl-club" href="/English/">
+        <div class="pic" aria-hidden="true">🎮</div>
+        <div><h3><span class="ar">نادي اللغة الإنجليزية</span><span class="en">English Club</span></h3>
+        <p><span class="ar">ألعاب وكبسولات ومفردات وقواعد، للتدرّب يومياً بمتعة.</span><span class="en">Games, capsules, vocabulary and grammar for daily practice.</span></p>
+        <span class="go"><span class="ar">العب وتعلّم ←</span><span class="en">Play &amp; learn →</span></span></div>
+      </a>
+    </div>
+  </section>
 
   <!-- ===== Worlds ===== -->
   <section id="worlds">
@@ -229,10 +280,8 @@
         <h3><span class="ar">التعليم</span><span class="en">Learning</span></h3>
         <p><span class="ar">ألعاب ودروس في اللغتين، للطلاب ولمعلميهم.</span><span class="en">Games and lessons in Arabic and English, for students and teachers.</span></p>
         <div class="links">
-          <a href="https://step.ahmedchoices.com/"><span><span class="ar">منصة ستيب</span><span class="en">STEP Platform</span></span><small><span class="ar">اختبار تشخيصي وتدريب</span><span class="en">Diagnostic &amp; practice</span></small></a>
-          <a href="https://rihla.ahmedchoices.com/"><span><span class="ar">رحلة التعلّم الذاتي</span><span class="en">Self-Learning Journey</span></span><small><span class="ar">خطتك خطوة بخطوة</span><span class="en">Step by step</span></small></a>
-          <a href="https://arabic.ahmedchoices.com/"><span><span class="ar">مرافئ العربية</span><span class="en">Arabic Harbours</span></span><small><span class="ar">تعلّم العربية</span><span class="en">Learn Arabic</span></small></a>
-          <a href="/English/"><span><span class="ar">نادي الإنجليزية</span><span class="en">English Club</span></span><small><span class="ar">ألعاب وكبسولات</span><span class="en">Games</span></small></a>
+          <a href="#learn"><span><span class="ar">كل المنصات التعليمية</span><span class="en">All learning platforms</span></span><small><span class="ar">أربع منصات</span><span class="en">Four platforms</span></small></a>
+          <a href="mauritius.html"><span><span class="ar">مرافئ العربية: المحيط الهندي</span><span class="en">Arabic Harbours: Indian Ocean</span></span><small><span class="ar">قصة</span><span class="en">Story</span></small></a>
         </div>
       </div>
 
