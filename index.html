@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>اختيارات أحمد | Ahmed Choices</title>
-<meta name="description" content="Ahmed Al-Salim: education, culture, tourism and stargazing from Al-Baha, Saudi Arabia. تعليم وثقافة وسياحة ومراقبة السماء من الباحة.">
+<meta name="description" content="Ahmed Al-Salim: guided tours and routes in Al-Baha, stargazing nights, a local produce store, and travel and history stories. سياحة ونجوم ومتجر منتجات محلية وقصص سياحية وتاريخية من الباحة.">
 <meta name="theme-color" content="#FAFAF7">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,6 +16,7 @@
     --cul:#8A6BB0;  --cul-bg:#EEE8F7;
     --tour:#C27A3E; --tour-bg:#FBEBDC;
     --sky:#4A68A8;  --sky-bg:#E5EBF7;
+    --loc:#5E8C4A; --loc-bg:#E8F2DF;
     --wa:#1FA855;
   }
   *{box-sizing:border-box;margin:0;padding:0}
@@ -54,7 +55,7 @@
 
   section{padding:44px 0}
   .head{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;margin-bottom:22px}
-  .head h2{font-size:clamp(1.7rem,4.5vw,2.2rem);font-weight:700;line-height:1.3}
+  .head h2{font-size:clamp(1.7rem,4.5vw,2.2rem);font-weight:700;line-height:1.3;padding-inline-start:14px;border-inline-start:6px solid var(--sc,var(--ink))}
   .head p{color:var(--muted);font-size:1rem}
 
   /* ===== Worlds ===== */
@@ -76,6 +77,7 @@
 
   /* ===== Learning platforms ===== */
   .plats{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  .plats .plat:last-child:nth-child(odd){grid-column:1/-1}
   .plat{background:var(--white);border:1.5px solid var(--line);border-radius:28px;padding:22px;display:flex;gap:16px;align-items:flex-start;transition:border-color .2s,transform .2s}
   .plat:hover{border-color:var(--pc);transform:translateY(-2px)}
   .plat .pic{width:68px;height:68px;border-radius:22px;background:var(--pbg);display:grid;place-items:center;font-size:2.1rem;flex-shrink:0}
@@ -88,6 +90,11 @@
   .pl-rihla{--pc:var(--edu);--pbg:var(--edu-bg)}
   .pl-ar{--pc:var(--cul);--pbg:var(--cul-bg)}
   .pl-club{--pc:var(--tour);--pbg:var(--tour-bg)}
+  .pl-tour{--pc:var(--tour);--pbg:var(--tour-bg)}
+  .pl-sky{--pc:var(--sky);--pbg:var(--sky-bg)}
+  .pl-loc{--pc:var(--loc);--pbg:var(--loc-bg)}
+  .pl-cul{--pc:var(--cul);--pbg:var(--cul-bg)}
+  .pl-wr{--pc:var(--edu);--pbg:var(--edu-bg)}
 
 
   /* ===== Routes ===== */
@@ -198,6 +205,50 @@
   footer b{color:var(--ink)}
 
 
+  /* ===== Call-to-action bands ===== */
+  .band{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;margin-top:22px;padding:22px 26px;border-radius:26px;background:var(--bb)}
+  .band h3{font-size:1.3rem;font-weight:700;line-height:1.4}
+  .band p{color:var(--muted);font-size:1rem;margin-top:2px;max-width:46ch}
+  .band .order,.band .storebtn{flex-shrink:0;font-size:1rem;padding:12px 24px}
+  .storebtn{display:inline-flex;align-items:center;justify-content:center;background:var(--loc);color:#fff;font-weight:700;border-radius:999px}
+  .b-tour{--bb:var(--tour-bg)} .b-sky{--bb:var(--sky-bg)} .b-loc{--bb:var(--loc-bg)} .b-wr{--bb:var(--edu-bg)}
+  .skygrid + .band{margin-top:18px}
+
+  /* ===== Stories ===== */
+  .stories{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:16px}
+  .story{background:var(--white);border:1.5px solid var(--line);border-radius:26px;padding:22px;display:flex;flex-direction:column;gap:8px;transition:border-color .2s,transform .2s}
+  .story:hover{border-color:var(--cul);transform:translateY(-2px)}
+  .story .stag{font-size:.88rem;font-weight:600;color:var(--cul)}
+  .story h3{font-size:1.3rem;font-weight:700;line-height:1.45}
+  .story p{color:var(--muted);font-size:1rem}
+  .story .go{margin-top:auto;padding-top:8px;font-weight:700;color:var(--cul)}
+
+  /* ===== Store ===== */
+  .storecats{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
+  .scat{background:var(--white);border:1.5px solid var(--line);border-radius:26px;padding:22px;display:flex;flex-direction:column;gap:6px;transition:border-color .2s,transform .2s}
+  .scat:hover{border-color:var(--loc);transform:translateY(-2px)}
+  .scat .pic{width:60px;height:60px;border-radius:20px;background:var(--loc-bg);display:grid;place-items:center;font-size:1.9rem;margin-bottom:4px}
+  .scat h3{font-size:1.25rem;font-weight:700;line-height:1.4}
+  .scat p{color:var(--muted);font-size:1rem}
+
+  /* ===== Writing service ===== */
+  .svcs{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+  .svc{background:var(--white);border:1.5px solid var(--line);border-radius:26px;padding:22px;display:flex;flex-direction:column;gap:6px}
+  .svc .pic{width:60px;height:60px;border-radius:20px;background:var(--edu-bg);display:grid;place-items:center;font-size:1.9rem;margin-bottom:4px}
+  .svc h3{font-size:1.25rem;font-weight:700}
+  .svc p{color:var(--muted);font-size:1rem}
+  .steps{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:16px}
+  .steps li{display:flex;align-items:center;gap:12px;background:var(--white);border:1.5px solid var(--line);border-radius:20px;padding:14px 16px;font-weight:600;font-size:1rem}
+  .steps b{width:38px;height:38px;border-radius:50%;background:var(--edu-bg);color:var(--edu);display:grid;place-items:center;flex-shrink:0}
+
+  /* ===== Friendly sites ===== */
+  .friends{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+  .fr{display:flex;flex-direction:column;gap:2px;background:var(--white);border:1.5px solid var(--line);border-radius:20px;padding:16px 18px;transition:border-color .2s}
+  .fr:hover{border-color:var(--ink)}
+  .fr b{font-size:1.08rem}
+  .fr small{color:var(--muted);font-size:.92rem}
+  #friends{padding-bottom:20px}
+
   /* ===== Side menu ===== */
   .menubtn{width:46px;height:46px;border:1.5px solid var(--line);background:var(--white);border-radius:14px;display:grid;place-content:center;gap:5px}
   .menubtn span{display:block;width:20px;height:2.5px;border-radius:2px;background:var(--ink)}
@@ -236,9 +287,12 @@
   }
   @media (max-width:760px){
     .skygrid,.contact{grid-template-columns:1fr}
+    .plats{grid-template-columns:1fr}
   }
   @media (max-width:620px){
     html{font-size:18px}
+    .plats{grid-template-columns:1fr}
+    .band{padding:20px}
     .navlinks{display:none}
     .hero{padding:46px 0 22px}
     .worlds,.products,.news,.places{grid-template-columns:1fr}
@@ -262,98 +316,72 @@
     <a class="g one" href="#top" style="--c:var(--ink)"><i></i><span class="ar">الرئيسية</span><span class="en">Home</span></a>
     <details class="g" style="--c:var(--tour)"><summary><i></i><span class="ar">السياحة</span><span class="en">Travel</span></summary><div class="sub">
       <a href="#routes"><span class="ar">مسارات الباحة</span><span class="en">Al-Baha routes</span></a>
+      <a href="baha-map.html"><span class="ar">الخارطة التفاعلية</span><span class="en">Interactive map</span></a>
       <a href="#places"><span class="ar">أماكن أختارها</span><span class="en">Places I recommend</span></a>
-      <a href="#news"><span class="ar">أخبار السياحة</span><span class="en">Travel news</span></a>
-      <a href="#contact"><span class="ar">احجز جولة بصحبة مرشد</span><span class="en">Book a guided tour</span></a>
+      <a href="#routes"><span class="ar">احجز جولة بصحبة مرشد</span><span class="en">Book a guided tour</span></a>
     </div></details>
-    <details class="g" style="--c:var(--sky)"><summary><i></i><span class="ar">مراقبة السماء</span><span class="en">Stargazing</span></summary><div class="sub">
+    <details class="g" style="--c:var(--sky)"><summary><i></i><span class="ar">النجوم</span><span class="en">Stars</span></summary><div class="sub">
       <a href="#sky"><span class="ar">سماء الليلة</span><span class="en">Tonight's sky</span></a>
-      <a href="#contact"><span class="ar">احجز ليلة رصد</span><span class="en">Book a stargazing night</span></a>
+      <a href="#news"><span class="ar">جديد السماء والسياحة</span><span class="en">Sky &amp; travel news</span></a>
+      <a href="#sky"><span class="ar">احجز ليلة رصد</span><span class="en">Book a stargazing night</span></a>
     </div></details>
-    <a class="g one" href="#products" style="--c:var(--wa)"><i></i><span class="ar">المنتجات</span><span class="en">Products</span></a>
-    <details class="g" style="--c:var(--edu)"><summary><i></i><span class="ar">التعليم</span><span class="en">Learning</span></summary><div class="sub">
+    <a class="g one" href="#products" style="--c:var(--loc)"><i></i><span class="ar">المتجر</span><span class="en">Store</span></a>
+    <a class="g one" href="#stories" style="--c:var(--cul)"><i></i><span class="ar">قصص سياحية وتاريخية</span><span class="en">Travel &amp; history stories</span></a>
+    <a class="g one" href="#writing" style="--c:var(--edu)"><i></i><span class="ar">التحرير والصياغة الأدبية</span><span class="en">Editing &amp; literary writing</span></a>
+    <a class="g one" href="#contact" style="--c:var(--ink)"><i></i><span class="ar">تواصل معي</span><span class="en">Contact</span></a>
+    <details class="g" style="--c:var(--muted)"><summary><i></i><span class="ar">مواقع صديقة</span><span class="en">Friendly sites</span></summary><div class="sub">
       <a href="https://step.ahmedchoices.com/"><span class="ar">منصة ستيب</span><span class="en">STEP Platform</span></a>
       <a href="https://rihla.ahmedchoices.com/"><span class="ar">رحلة التعلّم الذاتي</span><span class="en">Self-Learning Journey</span></a>
       <a href="https://arabic.ahmedchoices.com/"><span class="ar">مرافئ العربية</span><span class="en">Arabic Harbours</span></a>
       <a href="/English/"><span class="ar">نادي الإنجليزية</span><span class="en">English Club</span></a>
     </div></details>
-    <details class="g" style="--c:var(--cul)"><summary><i></i><span class="ar">الثقافة</span><span class="en">Culture</span></summary><div class="sub">
-      <a href="pieter-both.html"><span class="ar">الرجل الذي صار جبلاً</span><span class="en">The man who became a mountain</span></a>
-      <a href="right-of-way.html"><span class="ar">الفيل والشجرة</span><span class="en">The elephant and the tree</span></a>
-      <a href="coconut.html"><span class="ar">جاني جوز الهند</span><span class="en">The coconut picker</span></a>
-      <a href="mauritius.html"><span class="ar">مرافئ المحيط الهندي</span><span class="en">Indian Ocean ports</span></a>
-    </div></details>
-    <a class="g one" href="#contact" style="--c:var(--ink)"><i></i><span class="ar">تواصل معي</span><span class="en">Contact</span></a>
     <div class="sidefoot"><span class="ar">أ. أحمد آل سالم</span><span class="en">Ahmed Al-Salim</span></div>
   </div>
 </aside>
 <div class="content">
+
 <header class="hero wrap" id="top">
   <h1>
-    <span class="ar">سياحة، وسماءٌ صافية،<br>ومنتجات، وتعليم وثقافة</span>
-    <span class="en">Travel, clear night skies,<br>products, learning and culture</span>
+    <span class="ar">الباحة بعين مرشدها:<br>رحلات، ونجوم، وخيرات، وحكايات</span>
+    <span class="en">Al-Baha through a guide's eyes:<br>journeys, stars, produce and stories</span>
   </h1>
   <p>
-    <span class="ar">معلّم ومرشد سياحي من الباحة، أجمع هنا ما أعددته وما أختاره لكم.</span>
-    <span class="en">A teacher and tour guide from Al-Baha, Saudi Arabia, sharing what I make and what I choose.</span>
+    <span class="ar">مرشد سياحي وراصد للأفلاك وكاتب من الباحة. أصحبك في مساراتها وليالي سمائها، وأختار لك خيراتها، وأروي لك حكاياتها.</span>
+    <span class="en">A tour guide, sky observer and writer from Al-Baha. I take you along its routes and night skies, choose its produce, and tell its stories.</span>
   </p>
   <div class="chips">
-    <a class="chip" href="#tour" style="--c:var(--tour)"><i></i><span class="ar">السياحة</span><span class="en">Travel</span></a>
-    <a class="chip" href="#sky" style="--c:var(--sky)"><i></i><span class="ar">مراقبة السماء</span><span class="en">Stargazing</span></a>
-    <a class="chip" href="#products" style="--c:var(--wa)"><i></i><span class="ar">المنتجات</span><span class="en">Products</span></a>
-    <a class="chip" href="#edu" style="--c:var(--edu)"><i></i><span class="ar">التعليم</span><span class="en">Learning</span></a>
-    <a class="chip" href="#cul" style="--c:var(--cul)"><i></i><span class="ar">الثقافة</span><span class="en">Culture</span></a>
+    <a class="chip" href="#routes" style="--c:var(--tour)"><i></i><span class="ar">السياحة</span><span class="en">Travel</span></a>
+    <a class="chip" href="#sky" style="--c:var(--sky)"><i></i><span class="ar">النجوم</span><span class="en">Stars</span></a>
+    <a class="chip" href="#products" style="--c:var(--loc)"><i></i><span class="ar">المتجر</span><span class="en">Store</span></a>
+    <a class="chip" href="#stories" style="--c:var(--cul)"><i></i><span class="ar">القصص</span><span class="en">Stories</span></a>
+    <a class="chip" href="#writing" style="--c:var(--edu)"><i></i><span class="ar">التحرير والصياغة</span><span class="en">Writing</span></a>
   </div>
 </header>
 
 <main class="wrap">
 
-  <!-- ===== Worlds ===== -->
-  <section id="worlds">
+  <!-- ===== What you will find ===== -->
+  <section id="overview" style="--sc:var(--ink)">
     <div class="head">
-      <h2><span class="ar">عوالمي</span><span class="en">My worlds</span></h2>
-      <p><span class="ar">اختر عالماً وابدأ</span><span class="en">Pick one and start</span></p>
+      <h2><span class="ar">ماذا ستجد هنا</span><span class="en">What you will find here</span></h2>
+      <p><span class="ar">خمسة أبواب، وكل باب بحقه.</span><span class="en">Five doors, each with its own purpose.</span></p>
     </div>
-    <div class="worlds">
-
-      <div class="world w-tour" id="tour">
-        <svg class="art" viewBox="0 0 300 96" preserveAspectRatio="xMinYMid meet" aria-hidden="true">
-          <path d="M10 82 L60 34 L95 64 L130 28 L190 82Z" fill="#fff"/>
-          <path d="M24 86 C64 70 100 92 140 76 S175 70 190 78" stroke="#C27A3E" stroke-width="3" stroke-dasharray="6 6" fill="none"/>
-          <circle cx="140" cy="76" r="6" fill="#C27A3E"/><rect x="118" y="42" width="14" height="22" fill="#F3D9C0"/>
-        </svg>
-        <h3><span class="ar">السياحة</span><span class="en">Travel</span></h3>
-        <p><span class="ar">مسارات الباحة وقراها، بخرائط واضحة ونصائح مرشد.</span><span class="en">Routes through Al-Baha's mountains and villages, with a local guide.</span></p>
-        <div class="links">
-          <span class="soonlink"><span><span class="ar">مسارات الباحة</span><span class="en">Al-Baha routes</span></span><small><span class="ar">قريباً</span><span class="en">Soon</span></small></span>
-          <a href="#contact"><span><span class="ar">احجز جولة بصحبة مرشد</span><span class="en">Book a guided tour</span></span><small><span class="ar">تواصل</span><span class="en">Contact</span></small></a>
-        </div>
-      </div>
-
-      <div class="world w-sky" id="skyw">
-        <svg class="art" viewBox="0 0 300 96" preserveAspectRatio="xMinYMid meet" aria-hidden="true">
-          <circle cx="150" cy="30" r="16" fill="#fff"/><circle cx="157" cy="25" r="14" fill="#E5EBF7"/>
-          <g fill="#4A68A8"><circle cx="30" cy="22" r="2.5"/><circle cx="62" cy="44" r="2"/><circle cx="96" cy="18" r="3"/><circle cx="118" cy="52" r="2"/><circle cx="190" cy="40" r="2.5"/></g>
-          <path d="M10 88 L60 58 L95 76 L140 50 L200 88Z" fill="#fff"/>
-        </svg>
-        <h3><span class="ar">مراقبة السماء</span><span class="en">Stargazing</span></h3>
-        <p><span class="ar">جبال الباحة بعيدة عن أضواء المدن، فسماؤها مثالية للرصد.</span><span class="en">Al-Baha's highlands sit far from city lights, ideal for watching the night sky.</span></p>
-        <div class="links">
-          <a href="#sky"><span><span class="ar">سماء الليلة</span><span class="en">Tonight's sky</span></span><small><span class="ar">القمر والأحداث</span><span class="en">Moon & events</span></small></a>
-          <a href="#contact"><span><span class="ar">احجز ليلة رصد</span><span class="en">Book a stargazing night</span></span><small><span class="ar">تواصل</span><span class="en">Contact</span></small></a>
-        </div>
-      </div>
+    <div class="plats">
+      <a class="plat pl-tour" href="#routes"><div class="pic" aria-hidden="true">🧭</div><div><h3><span class="ar">السياحة</span><span class="en">Travel</span></h3><p><span class="ar">خمسة مسارات في الباحة بخرائط ومحطات، وجولات بصحبة مرشد.</span><span class="en">Five Al-Baha routes with maps and stops, plus guided tours.</span></p><span class="go"><span class="ar">استعرض المسارات</span><span class="en">Browse the routes</span></span></div></a>
+      <a class="plat pl-sky" href="#sky"><div class="pic" aria-hidden="true">🔭</div><div><h3><span class="ar">النجوم</span><span class="en">Stars</span></h3><p><span class="ar">حال السماء الليلة، ومواعيد الأحداث الفلكية، وليالي رصد في جبال الباحة.</span><span class="en">Tonight's sky, upcoming astronomical events, and stargazing nights in the highlands.</span></p><span class="go"><span class="ar">سماء الليلة</span><span class="en">Tonight's sky</span></span></div></a>
+      <a class="plat pl-loc" href="#products"><div class="pic" aria-hidden="true">🍯</div><div><h3><span class="ar">المتجر</span><span class="en">Store</span></h3><p><span class="ar">منتجات محلية مختارة من أهلها، وخرائط المسارات. الطلب عبر واتساب.</span><span class="en">Local produce chosen from its makers, and route maps. Order on WhatsApp.</span></p><span class="go"><span class="ar">ادخل المتجر</span><span class="en">Visit the store</span></span></div></a>
+      <a class="plat pl-cul" href="#stories"><div class="pic" aria-hidden="true">📜</div><div><h3><span class="ar">قصص سياحية وتاريخية</span><span class="en">Travel &amp; history stories</span></h3><p><span class="ar">حكايات ومشاهدات من رحلاتي، بقلمي.</span><span class="en">Tales and observations from my journeys, in my own words (in Arabic).</span></p><span class="go"><span class="ar">اقرأ القصص</span><span class="en">Read the stories</span></span></div></a>
+      <a class="plat pl-wr" href="#writing"><div class="pic" aria-hidden="true">✍️</div><div><h3><span class="ar">التحرير والصياغة الأدبية</span><span class="en">Editing &amp; literary writing</span></h3><p><span class="ar">أحرّر نصك وأصوغه بلغة سليمة وأسلوب أدبي. خدمة بمقابل.</span><span class="en">I edit and shape your text with sound language and a literary touch. A paid service.</span></p><span class="go"><span class="ar">تفاصيل الخدمة</span><span class="en">About the service</span></span></div></a>
     </div>
   </section>
 
-  <!-- ===== Sky ===== -->
   <!-- ===== Al-Baha routes ===== -->
-  <section id="routes">
+  <section id="routes" style="--sc:var(--tour)">
     <div class="head">
       <h2><span class="ar">مسارات الباحة</span><span class="en">Al-Baha routes</span></h2>
       <p><span class="ar">خمسة مسارات بخرائط ومحطات ونصائح من مرشد.</span><span class="en">Five routes with maps, stops and a guide's tips.</span></p>
     </div>
-    <a class="mapbtn" href="baha-map.html">افتح خارطة الباحة التفاعلية</a>
+    <a class="mapbtn" href="baha-map.html"><span class="ar">افتح خارطة الباحة التفاعلية</span><span class="en">Open the interactive Al-Baha map</span></a>
     <div class="routes">
     <article class="route">
       <img class="rimg" src="assets/routes/zahran.jpg" alt="مسار زهران" loading="lazy" data-full="assets/routes/zahran.jpg">
@@ -363,63 +391,48 @@
     </article>
     <article class="route">
       <img class="rimg" src="assets/routes/tihama.jpg" alt="مسار تهامة والعقبة" loading="lazy" data-full="assets/routes/tihama.jpg">
-      <h3><span class="ar">مسار تهامة والعقبة</span><span class="en">Tihama & the Descent</span></h3>
+      <h3><span class="ar">مسار تهامة والعقبة</span><span class="en">Tihama &amp; the Descent</span></h3>
       <p><span class="ar">نزولاً من الباحة إلى ذي عين وجبل شدا، وفواكه تهامة، وعشاء بين الجبال.</span><span class="en">Down from Al-Baha to Dhi Ayn and Mount Shada, Tihama fruit, and dinner in the hills.</span></p>
-      <div class="rbtns"><button type="button" class="rbtn rview" data-full="assets/routes/tihama.jpg"><span class="ar">اعرض الخريطة</span><span class="en">View map</span></button><a class="order" data-p="خريطة مسار تهامة والعقبة | Tihama & Descent map" href="#"><span class="ar">اطلبها</span><span class="en">Ask for it</span></a></div>
+      <div class="rbtns"><button type="button" class="rbtn rview" data-full="assets/routes/tihama.jpg"><span class="ar">اعرض الخريطة</span><span class="en">View map</span></button><a class="order" data-p="خريطة مسار تهامة والعقبة | Tihama &amp; Descent map" href="#"><span class="ar">اطلبها</span><span class="en">Ask for it</span></a></div>
     </article>
     <article class="route">
       <img class="rimg" src="assets/routes/bayda.jpg" alt="مسار بيدة والتراث" loading="lazy" data-full="assets/routes/bayda.jpg">
-      <h3><span class="ar">مسار بيدة والتراث</span><span class="en">Bayda & Heritage</span></h3>
+      <h3><span class="ar">مسار بيدة والتراث</span><span class="en">Bayda &amp; Heritage</span></h3>
       <p><span class="ar">من وادي بيدة ومزارع الرمان إلى قلعة بخروش بن علاس.</span><span class="en">From Wadi Bayda and its pomegranate farms to the castle of Bakhroush bin Alas.</span></p>
-      <div class="rbtns"><button type="button" class="rbtn rview" data-full="assets/routes/bayda.jpg"><span class="ar">اعرض الخريطة</span><span class="en">View map</span></button><a class="order" data-p="خريطة مسار بيدة والتراث | Bayda & Heritage map" href="#"><span class="ar">اطلبها</span><span class="en">Ask for it</span></a></div>
+      <div class="rbtns"><button type="button" class="rbtn rview" data-full="assets/routes/bayda.jpg"><span class="ar">اعرض الخريطة</span><span class="en">View map</span></button><a class="order" data-p="خريطة مسار بيدة والتراث | Bayda &amp; Heritage map" href="#"><span class="ar">اطلبها</span><span class="en">Ask for it</span></a></div>
     </article>
     <article class="route">
       <img class="rimg" src="assets/routes/baljurashi.jpg" alt="مسار بلجرشي وسوق السبت" loading="lazy" data-full="assets/routes/baljurashi.jpg">
-      <h3><span class="ar">مسار بلجرشي وسوق السبت</span><span class="en">Baljurashi & Saturday Market</span></h3>
+      <h3><span class="ar">مسار بلجرشي وسوق السبت</span><span class="en">Baljurashi &amp; Saturday Market</span></h3>
       <p><span class="ar">من سوق السبت فجراً إلى قرية الملد: جبل حزنة وشفا المدان وبساتين اللوز.</span><span class="en">From the Saturday market at dawn to Al-Malad village: Mount Hazna, Shafa Al-Madan and almond orchards.</span></p>
       <div class="rbtns"><button type="button" class="rbtn rview" data-full="assets/routes/baljurashi.jpg"><span class="ar">اعرض الخريطة</span><span class="en">View map</span></button><a class="order" data-p="خريطة مسار بلجرشي وسوق السبت | Baljurashi map" href="#"><span class="ar">اطلبها</span><span class="en">Ask for it</span></a></div>
     </article>
     <article class="route">
       <img class="rimg" src="assets/routes/akeeq.jpg" alt="مسار العقيق ودرب البخور" loading="lazy" data-full="assets/routes/akeeq.jpg">
-      <h3><span class="ar">مسار العقيق ودرب البخور</span><span class="en">Al-Aqiq & the Incense Road</span></h3>
+      <h3><span class="ar">مسار العقيق ودرب البخور</span><span class="en">Al-Aqiq &amp; the Incense Road</span></h3>
       <p><span class="ar">مزرعة الزيتونة ومنجم المعملة ودرب البخور والدوائر الحجرية.</span><span class="en">Olive farm, the Al-Muamala mine, the Incense Road and the stone circles.</span></p>
-      <div class="rbtns"><button type="button" class="rbtn rview" data-full="assets/routes/akeeq.jpg"><span class="ar">اعرض الخريطة</span><span class="en">View map</span></button><a class="order" data-p="خريطة مسار العقيق ودرب البخور | Al-Aqiq & Incense Road map" href="#"><span class="ar">اطلبها</span><span class="en">Ask for it</span></a></div>
+      <div class="rbtns"><button type="button" class="rbtn rview" data-full="assets/routes/akeeq.jpg"><span class="ar">اعرض الخريطة</span><span class="en">View map</span></button><a class="order" data-p="خريطة مسار العقيق ودرب البخور | Al-Aqiq &amp; Incense Road map" href="#"><span class="ar">اطلبها</span><span class="en">Ask for it</span></a></div>
     </article>
     </div>
-  </section>
-
-  <section id="sky">
-    <div class="head">
-      <h2><span class="ar">سماء الليلة</span><span class="en">Tonight's sky</span></h2>
-      <p><span class="ar">تُحسب حالة القمر تلقائياً كل يوم</span><span class="en">The moon phase updates every day</span></p>
-    </div>
-    <div class="skygrid">
-      <div class="moon">
-        <div class="emo" id="moonEmo" aria-hidden="true">🌙</div>
-        <h3 id="moonName"></h3>
-        <div class="pct" id="moonPct"></div>
-        <div class="tip" id="moonTip"></div>
-      </div>
-      <div class="events">
-        <h3><span class="ar">مواعيد قادمة في السماء</span><span class="en">Coming up in the sky</span></h3>
-        <div id="events"></div>
-      </div>
+    <div class="band b-tour">
+      <div><h3><span class="ar">تفضّل أن يصحبك مرشد؟</span><span class="en">Prefer to go with a guide?</span></h3><p><span class="ar">أرتّب لك جولة في أي مسار منها، ونتفق على الموعد عبر واتساب.</span><span class="en">I will arrange a tour on any of these routes. We agree on the date over WhatsApp.</span></p></div>
+      <a class="order" data-p="جولة سياحية بصحبة مرشد | Guided tour" href="#"><span class="ar">احجز جولة</span><span class="en">Book a tour</span></a>
     </div>
   </section>
 
   <!-- ===== Places ===== -->
-  <section id="places">
+  <section id="places" style="--sc:var(--tour)">
     <div class="head">
       <h2><span class="ar">أماكن أختارها</span><span class="en">Places I recommend</span></h2>
       <div class="ptabs" role="group">
         <button class="tab ptab" aria-pressed="true" data-f="all"><span class="ar">الكل</span><span class="en">All</span></button>
-        <button class="tab ptab" aria-pressed="false" data-f="food"><span class="ar">مطاعم ومقاهٍ</span><span class="en">Food & coffee</span></button>
+        <button class="tab ptab" aria-pressed="false" data-f="food"><span class="ar">مطاعم ومقاهٍ</span><span class="en">Food &amp; coffee</span></button>
         <button class="tab ptab" aria-pressed="false" data-f="stay"><span class="ar">إقامة</span><span class="en">Stays</span></button>
       </div>
     </div>
     <div class="places">
       <div class="place" data-c="food">
-        <div class="top"><div class="ic" aria-hidden="true">☕</div><div><h3><span class="ar">مقهى ومطعم أمور</span><span class="en">Amour Coffee & Restaurant</span></h3><div class="where"><span class="ar">بلجرشي</span><span class="en">Baljurashi</span></div></div></div>
+        <div class="top"><div class="ic" aria-hidden="true">☕</div><div><h3><span class="ar">مقهى ومطعم أمور</span><span class="en">Amour Coffee &amp; Restaurant</span></h3><div class="where"><span class="ar">بلجرشي</span><span class="en">Baljurashi</span></div></div></div>
         <p><span class="ar">مقهى ومطعم في بلجرشي، من الأماكن التي أختارها للجلسة والقهوة.</span><span class="en">A café and restaurant in Baljurashi, one of my picks for coffee and a relaxed sit-down.</span></p>
         <a class="map" href="https://www.google.com/maps/search/?api=1&query=%D9%85%D9%82%D9%87%D9%89%20%D9%88%D9%85%D8%B7%D8%B9%D9%85%20%D8%A7%D9%85%D9%88%D8%B1%20Amour%20coffee%20and%20restaurant&query_place_id=ChIJdSc1vvdd7xUROaag2wvsczg" target="_blank" rel="noopener"><span class="ar">افتح في الخريطة</span><span class="en">Open in Maps</span></a>
       </div>
@@ -437,107 +450,114 @@
     <p class="pnote"><span class="ar">أذكر هنا ما أوصي به فقط، وهي توصيات شخصية غير مدفوعة.</span><span class="en">I only list places I recommend. These are personal, unpaid picks.</span></p>
   </section>
 
-  <!-- ===== News ===== -->
-  <section id="news">
+  <!-- ===== Sky ===== -->
+  <section id="sky" style="--sc:var(--sky)">
     <div class="head">
-      <h2><span class="ar">جديد السماء والسياحة</span><span class="en">Sky & travel news</span></h2>
+      <h2><span class="ar">سماء الباحة الليلة</span><span class="en">Tonight's sky over Al-Baha</span></h2>
+      <p><span class="ar">تُحسب حالة القمر تلقائياً كل يوم.</span><span class="en">The moon phase updates every day.</span></p>
+    </div>
+    <div class="skygrid">
+      <div class="moon">
+        <div class="emo" id="moonEmo" aria-hidden="true">🌙</div>
+        <h3 id="moonName"></h3>
+        <div class="pct" id="moonPct"></div>
+        <div class="tip" id="moonTip"></div>
+      </div>
+      <div class="events">
+        <h3><span class="ar">مواعيد قادمة في السماء</span><span class="en">Coming up in the sky</span></h3>
+        <div id="events"></div>
+      </div>
+    </div>
+    <div class="band b-sky">
+      <div><h3><span class="ar">ليلة رصد في جبال الباحة</span><span class="en">A stargazing night in Al-Baha</span></h3><p><span class="ar">أمسية في موقع مظلم بعيد عن الأضواء، مع مرشد يعرّفك بالنجوم والكواكب.</span><span class="en">An evening at a dark-sky spot with a guide who shows you stars and planets.</span></p></div>
+      <a class="order" data-p="ليلة رصد | Stargazing night" href="#"><span class="ar">احجز ليلة</span><span class="en">Book a night</span></a>
+    </div>
+  </section>
+
+  <!-- ===== News ===== -->
+  <section id="news" style="--sc:var(--sky)">
+    <div class="head">
+      <h2><span class="ar">جديد السماء والسياحة</span><span class="en">Sky &amp; travel news</span></h2>
     </div>
     <div class="news" id="newsList"></div>
   </section>
 
-  <!-- ===== Products ===== -->
-  <section id="products">
+  <!-- ===== Stories ===== -->
+  <section id="stories" style="--sc:var(--cul)">
     <div class="head">
-      <h2><span class="ar">منتجات مختارة</span><span class="en">Selected products</span></h2>
-      <div class="tabs" role="group">
-        <button class="tab" aria-pressed="true" data-f="all"><span class="ar">الكل</span><span class="en">All</span></button>
-        <button class="tab" aria-pressed="false" data-f="know"><span class="ar">معرفية</span><span class="en">Learning</span></button>
-        <button class="tab" aria-pressed="false" data-f="map"><span class="ar">خرائط ورحلات</span><span class="en">Maps & trips</span></button>
-        <button class="tab" aria-pressed="false" data-f="local"><span class="ar">محلية</span><span class="en">Local</span></button>
+      <h2><span class="ar">قصص سياحية وتاريخية</span><span class="en">Travel &amp; history stories</span></h2>
+      <p><span class="ar">حكايات ومشاهدات من رحلاتي، بقلم أحمد آل سالم.</span><span class="en">Tales and observations from my journeys, by Ahmed Al-Salim (in Arabic).</span></p>
+    </div>
+    <div class="stories">
+      <a class="story" href="pieter-both.html">
+        <span class="stag"><span class="ar">حكاية من موريشيوس</span><span class="en">A tale from Mauritius</span></span>
+        <h3><span class="ar">الرجل الذي صار جبلاً</span><span class="en">The man who became a mountain</span></h3>
+        <p><span class="ar">على قمة «بيتر بوث» صخرة كأنها رأس رجل يرقب البحر، ولأهل الجزيرة معها حكاية.</span><span class="en">On the Pieter Both peak a rock looks like a man's head watching the sea, and the islanders have a tale about it.</span></p>
+        <span class="go"><span class="ar">اقرأ الحكاية</span><span class="en">Read the tale</span></span>
+      </a>
+      <a class="story" href="right-of-way.html">
+        <span class="stag"><span class="ar">مشاهدات من سريلانكا</span><span class="en">Notes from Sri Lanka</span></span>
+        <h3><span class="ar">حقُّ الطريق: الفيل والشجرة</span><span class="en">Right of way: the elephant and the tree</span></h3>
+        <p><span class="ar">بلد يترك الطريق للفيل، ويترك البيت للشجرة.</span><span class="en">A country that leaves the road to the elephant and the house to the tree.</span></p>
+        <span class="go"><span class="ar">اقرأ المشاهدة</span><span class="en">Read the piece</span></span>
+      </a>
+      <a class="story" href="coconut.html">
+        <span class="stag"><span class="ar">مشاهدات من سريلانكا</span><span class="en">Notes from Sri Lanka</span></span>
+        <h3><span class="ar">جاني جوز الهند</span><span class="en">The coconut picker</span></h3>
+        <p><span class="ar">مهنة بأجرة ثمرة، وجوال في جيب من يصعد النخلة.</span><span class="en">A job paid in a single coconut, and a phone in the pocket of the man who climbs the palm.</span></p>
+        <span class="go"><span class="ar">اقرأ المشاهدة</span><span class="en">Read the piece</span></span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== Store ===== -->
+  <section id="products" style="--sc:var(--loc)">
+    <div class="head">
+      <h2><span class="ar">المتجر</span><span class="en">The store</span></h2>
+      <p><span class="ar">خيرات الباحة مختارة من أهلها، وأطلبها عبر واتساب.</span><span class="en">Al-Baha produce chosen from its makers. Order on WhatsApp.</span></p>
+    </div>
+    <div class="storecats">
+      <a class="scat" href="store.html"><div class="pic" aria-hidden="true">🍯</div><h3><span class="ar">منتجات محلية</span><span class="en">Local produce</span></h3><p><span class="ar">عسل، ولوز، وسمن، وأقط، وزبدة، ورمان، وبن.</span><span class="en">Honey, almonds, ghee, aqit, butter, pomegranates and coffee beans.</span></p></a>
+      <a class="scat" href="#routes"><div class="pic" aria-hidden="true">🗺️</div><h3><span class="ar">خرائط المسارات</span><span class="en">Route maps</span></h3><p><span class="ar">خرائط مساراتي السياحية في الباحة، بمحطاتها ونصائحها.</span><span class="en">Maps of my Al-Baha tourist routes, with stops and tips.</span></p></a>
+      <a class="scat" href="store.html"><div class="pic" aria-hidden="true">📘</div><h3><span class="ar">ملزمة رحلة التعلم الذاتي</span><span class="en">Self-Learning Journey booklet</span></h3><p><span class="ar">خطوات عملية تساعد المتعلم على بناء عادة التعلم بنفسه.</span><span class="en">Practical steps that help a learner build their own learning habit.</span></p></a>
+    </div>
+    <div class="band b-loc">
+      <div><h3><span class="ar">اطلب ما تريد</span><span class="en">Order what you like</span></h3><p><span class="ar">اختر من المتجر، وأرسل طلبك عبر واتساب، ثم نتفق على الكمية والسعر والتوصيل.</span><span class="en">Pick from the store, send your order on WhatsApp, and we agree on quantity, price and delivery.</span></p></div>
+      <a class="storebtn" href="store.html"><span class="ar">ادخل المتجر</span><span class="en">Visit the store</span></a>
+    </div>
+  </section>
+
+  <!-- ===== Editing & literary writing ===== -->
+  <section id="writing" style="--sc:var(--edu)">
+    <div class="head">
+      <h2><span class="ar">التحرير والصياغة الأدبية</span><span class="en">Editing &amp; literary writing</span></h2>
+      <p><span class="ar">خدمة بمقابل، والسعر عند الطلب.</span><span class="en">A paid service. Price on request.</span></p>
+    </div>
+    <div class="svcs">
+      <div class="svc">
+        <div class="pic" aria-hidden="true">🖋️</div>
+        <h3><span class="ar">التحرير اللغوي</span><span class="en">Language editing</span></h3>
+        <p><span class="ar">أراجع نصك وأصحح لغته وأحسّن سبكه ووضوحه، مع الحفاظ على صوتك وفكرتك.</span><span class="en">I review your text, correct its language and improve its flow and clarity, while keeping your voice and idea.</span></p>
+      </div>
+      <div class="svc">
+        <div class="pic" aria-hidden="true">📖</div>
+        <h3><span class="ar">الصياغة الأدبية</span><span class="en">Literary writing</span></h3>
+        <p><span class="ar">أحوّل أفكارك وملاحظاتك إلى نص أدبي متماسك، بأسلوب يليق بموضوعه وقارئه.</span><span class="en">I turn your ideas and notes into a coherent literary text, in a style that suits its subject and reader.</span></p>
       </div>
     </div>
-    <div class="products">
-      <article class="product p-know" data-c="know">
-        <div class="pimg" aria-hidden="true">🧭</div>
-        <div class="pbody">
-          <span class="ptag"><span class="ar">منتج معرفي</span><span class="en">Learning</span></span>
-          <h3><span class="ar">رحلة التعلم الذاتي</span><span class="en">Self-Learning Journey</span></h3>
-          <p><span class="ar">برنامج يأخذ بيد المتعلم خطوة بخطوة، ليبني عادة التعلم بنفسه.</span><span class="en">A step-by-step program that helps learners build their own learning habit.</span></p>
-          <div class="pfoot"><span class="price"><span class="ar">السعر <small>عند الطلب</small></span><span class="en">Price <small>on request</small></span></span><a class="order" data-p="رحلة التعلم الذاتي | Self-Learning Journey" href="#"><span class="ar">اطلب</span><span class="en">Order</span></a></div>
-        </div>
-      </article>
-      <article class="product p-map" data-c="map">
-        <div class="pimg" aria-hidden="true">🗺️</div>
-        <div class="pbody">
-          <span class="ptag"><span class="ar">خريطة سياحية</span><span class="en">Travel map</span></span>
-          <h3><span class="ar">مسار زهران</span><span class="en">The Zahran Route</span></h3>
-          <p><span class="ar">خريطة مسار سياحي في الباحة عبر طريق الأنفاق، بمحطاته ونصائحه.</span><span class="en">A scenic Al-Baha route through the tunnels road, with stops and tips.</span></p>
-          <div class="pfoot"><span class="price"><span class="ar">السعر <small>عند الطلب</small></span><span class="en">Price <small>on request</small></span></span><a class="order" data-p="خريطة مسار زهران | Zahran Route map" href="#"><span class="ar">اطلب</span><span class="en">Order</span></a></div>
-        </div>
-      </article>
-      <article class="product p-sky" data-c="map">
-        <div class="pimg" aria-hidden="true">🔭</div>
-        <div class="pbody">
-          <span class="ptag"><span class="ar">رحلة</span><span class="en">Trip</span></span>
-          <h3><span class="ar">ليلة رصد في جبال الباحة</span><span class="en">A Stargazing Night in Al-Baha</span></h3>
-          <p><span class="ar">أمسية في موقع مظلم بعيد عن الأضواء، مع مرشد يعرّفك بالنجوم والكواكب.</span><span class="en">An evening at a dark-sky spot with a guide who shows you stars and planets.</span></p>
-          <div class="pfoot"><span class="price"><span class="ar">السعر <small>عند الطلب</small></span><span class="en">Price <small>on request</small></span></span><a class="order" data-p="ليلة رصد | Stargazing night" href="#"><span class="ar">احجز</span><span class="en">Book</span></a></div>
-        </div>
-      </article>
-      <article class="product p-local" data-c="local">
-        <div class="pimg" aria-hidden="true">🍯</div>
-        <div class="pbody">
-          <span class="ptag"><span class="ar">منتج محلي</span><span class="en">Local product</span></span>
-          <h3><span class="ar">اسم المنتج</span><span class="en">Product name</span></h3>
-          <p><span class="ar">وصف قصير للمنتج المحلي، ومن أين يأتي، ولماذا اخترته.</span><span class="en">A short description: where it comes from and why I chose it.</span></p>
-          <div class="pfoot"><span class="price"><span class="ar">السعر <small>عند الطلب</small></span><span class="en">Price <small>on request</small></span></span><a class="order" data-p="منتج محلي | Local product" href="#"><span class="ar">اطلب</span><span class="en">Order</span></a></div>
-        </div>
-      </article>
+    <ol class="steps">
+      <li><b>١</b><span><span class="ar">أرسل نصك أو فكرتك عبر واتساب.</span><span class="en">Send your text or idea on WhatsApp.</span></span></li>
+      <li><b>٢</b><span><span class="ar">نتفق على المطلوب والسعر والموعد.</span><span class="en">We agree on the scope, price and deadline.</span></span></li>
+      <li><b>٣</b><span><span class="ar">تستلم نصك جاهزاً.</span><span class="en">You receive your finished text.</span></span></li>
+    </ol>
+    <div class="band b-wr">
+      <div><h3><span class="ar">عندك نص يحتاج إلى يد كاتب؟</span><span class="en">Have a text that needs a writer's touch?</span></h3><p><span class="ar">أخبرني عنه، وأعطيك تصوراً للعمل والسعر.</span><span class="en">Tell me about it, and I will outline the work and price.</span></p></div>
+      <a class="order" data-p="التحرير والصياغة الأدبية | Editing and literary writing" href="#"><span class="ar">اطلب الخدمة</span><span class="en">Request the service</span></a>
     </div>
   </section>
 
   <!-- ===== Contact ===== -->
-  <!-- ===== Learning & culture (after tourism, sky, products) ===== -->
-  <section id="learncul">
-    <div class="head">
-      <h2><span class="ar">التعليم والثقافة</span><span class="en">Learning &amp; culture</span></h2>
-      <p><span class="ar">منصاتي وقصصي من المحيط الهندي.</span><span class="en">My platforms and stories from the Indian Ocean.</span></p>
-    </div>
-    <div class="worlds">
-      <div class="world w-edu" id="edu">
-        <svg class="art" viewBox="0 0 300 96" preserveAspectRatio="xMinYMid meet" aria-hidden="true">
-          <rect x="20" y="16" width="70" height="60" rx="8" fill="#fff"/><rect x="90" y="16" width="70" height="60" rx="8" fill="#CBE7E2"/>
-          <path d="M90 16v60" stroke="#3E8F86" stroke-width="3"/>
-          <text x="55" y="55" font-size="24" text-anchor="middle" fill="#3E8F86" font-family="serif">ض</text>
-          <text x="125" y="55" font-size="22" text-anchor="middle" fill="#3E8F86" font-family="serif" font-style="italic">Aa</text>
-        </svg>
-        <h3><span class="ar">التعليم</span><span class="en">Learning</span></h3>
-        <p><span class="ar">ألعاب ودروس في اللغتين، للطلاب ولمعلميهم.</span><span class="en">Games and lessons in Arabic and English, for students and teachers.</span></p>
-        <div class="links">
-          <a href="https://step.ahmedchoices.com/"><span><span class="ar">منصة ستيب</span><span class="en">STEP Platform</span></span><small><span class="ar">اختبار وتدريب</span><span class="en">Test &amp; practice</span></small></a>
-          <a href="https://rihla.ahmedchoices.com/"><span><span class="ar">رحلة التعلّم الذاتي</span><span class="en">Self-Learning Journey</span></span><small><span class="ar">خطتك خطوة بخطوة</span><span class="en">Step by step</span></small></a>
-          <a href="https://arabic.ahmedchoices.com/"><span><span class="ar">مرافئ العربية</span><span class="en">Arabic Harbours</span></span><small><span class="ar">تعلّم العربية</span><span class="en">Learn Arabic</span></small></a>
-          <a href="/English/"><span><span class="ar">نادي الإنجليزية</span><span class="en">English Club</span></span><small><span class="ar">ألعاب وكبسولات</span><span class="en">Games</span></small></a>
-        </div>
-      </div>
-
-      <div class="world w-cul" id="cul">
-        <svg class="art" viewBox="0 0 300 96" preserveAspectRatio="xMinYMid meet" aria-hidden="true">
-          <path d="M20 80 L70 30 L105 62 L130 44 L175 80Z" fill="#fff"/><ellipse cx="70" cy="25" rx="9" ry="10" fill="#D6C9E6"/>
-          <circle cx="160" cy="26" r="12" fill="#fff"/><rect x="20" y="80" width="155" height="5" rx="2.5" fill="#D6C9E6"/>
-        </svg>
-        <h3><span class="ar">الثقافة</span><span class="en">Culture</span></h3>
-        <p><span class="ar">مقالات وحكايات ومشاهدات من رحلاتي.</span><span class="en">Articles, tales and notes from my travels (in Arabic).</span></p>
-        <div class="links">
-          <a href="pieter-both.html"><span><span class="ar">الرجل الذي صار جبلاً</span><span class="en">The man who became a mountain</span></span><small><span class="ar">موريشيوس</span><span class="en">Mauritius</span></small></a>
-          <a href="right-of-way.html"><span><span class="ar">الفيل والشجرة</span><span class="en">The elephant and the tree</span></span><small><span class="ar">سريلانكا</span><span class="en">Sri Lanka</span></small></a>
-          <a href="coconut.html"><span><span class="ar">جاني جوز الهند</span><span class="en">The coconut picker</span></span><small><span class="ar">سريلانكا</span><span class="en">Sri Lanka</span></small></a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact">
+  <section id="contact" style="--sc:var(--ink)">
     <div class="head"><h2><span class="ar">تواصل معي</span><span class="en">Get in touch</span></h2></div>
     <div class="contact">
       <div class="about">
@@ -563,8 +583,8 @@
           <select id="ftopic">
             <option data-ar="جولة سياحية" data-en="A guided tour"></option>
             <option data-ar="ليلة رصد" data-en="A stargazing night"></option>
-            <option data-ar="منتج" data-en="A product"></option>
-            <option data-ar="تعليم ودورات" data-en="Teaching & courses"></option>
+            <option data-ar="منتج من المتجر" data-en="A product from the store"></option>
+            <option data-ar="تحرير وصياغة أدبية" data-en="Editing &amp; literary writing"></option>
             <option data-ar="أخرى" data-en="Other"></option>
           </select>
         </label>
@@ -572,6 +592,20 @@
         <button class="order send" type="submit"><span class="ar">أرسل عبر واتساب</span><span class="en">Send via WhatsApp</span></button>
         <p class="note"><span class="ar">ستُفتح رسالتك في واتساب جاهزة للإرسال.</span><span class="en">Your message opens in WhatsApp, ready to send.</span></p>
       </form>
+    </div>
+  </section>
+
+  <!-- ===== Friendly sites ===== -->
+  <section id="friends" style="--sc:var(--muted)">
+    <div class="head">
+      <h2><span class="ar">مواقع صديقة</span><span class="en">Friendly sites</span></h2>
+      <p><span class="ar">مواقع تعليمية أعددتُها، وهي تعمل باستقلال عن هذا الموقع.</span><span class="en">Learning sites I built. They run independently of this one.</span></p>
+    </div>
+    <div class="friends">
+      <a class="fr" href="https://step.ahmedchoices.com/"><b><span class="ar">منصة ستيب</span><span class="en">STEP Platform</span></b><small><span class="ar">اختبار وتدريب</span><span class="en">Test &amp; practice</span></small></a>
+      <a class="fr" href="https://rihla.ahmedchoices.com/"><b><span class="ar">رحلة التعلّم الذاتي</span><span class="en">Self-Learning Journey</span></b><small><span class="ar">خطتك خطوة بخطوة</span><span class="en">Step by step</span></small></a>
+      <a class="fr" href="https://arabic.ahmedchoices.com/"><b><span class="ar">مرافئ العربية</span><span class="en">Arabic Harbours</span></b><small><span class="ar">تعلّم العربية</span><span class="en">Learn Arabic</span></small></a>
+      <a class="fr" href="/English/"><b><span class="ar">نادي الإنجليزية</span><span class="en">English Club</span></b><small><span class="ar">ألعاب وكبسولات</span><span class="en">Games &amp; capsules</span></small></a>
     </div>
   </section>
 </main>
@@ -706,14 +740,6 @@ var EVENTS = [
     var gs=side.querySelectorAll('details.g');
     gs.forEach(function(d){d.addEventListener('toggle',function(){if(d.open)gs.forEach(function(o){if(o!==d)o.open=false})})});
   })();
-
-  /* tabs */
-  var tabs=document.querySelectorAll('.tab:not(.ptab)');
-  tabs.forEach(function(t){t.addEventListener('click',function(){
-    tabs.forEach(function(x){x.setAttribute('aria-pressed',x===t)});
-    var f=t.dataset.f;
-    document.querySelectorAll('.product').forEach(function(p){p.hidden=!(f==='all'||p.dataset.c===f)});
-  });});
 
   var ptabs=document.querySelectorAll('.ptab');
   ptabs.forEach(function(t){t.addEventListener('click',function(){
