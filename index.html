@@ -175,6 +175,40 @@
   footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;padding-top:24px;padding-bottom:30px;color:var(--muted);font-size:.92rem}
   footer b{color:var(--ink)}
 
+
+  /* ===== Side menu ===== */
+  .menubtn{width:46px;height:46px;border:1.5px solid var(--line);background:var(--white);border-radius:14px;display:grid;place-content:center;gap:5px}
+  .menubtn span{display:block;width:20px;height:2.5px;border-radius:2px;background:var(--ink)}
+  .shell{display:block}
+  .content .wrap{max-width:1000px}
+  #side{position:fixed;top:0;bottom:0;inset-inline-start:0;width:min(86vw,330px);background:var(--white);z-index:40;overflow-y:auto;transform:translateX(100%);transition:transform .25s;border-inline-end:1px solid var(--line);box-shadow:0 0 30px rgba(0,0,0,.12)}
+  [dir=ltr] #side{transform:translateX(-100%)}
+  #side.open{transform:none!important}
+  .scrim{position:fixed;inset:0;background:rgba(38,49,58,.35);z-index:30;opacity:0;pointer-events:none;transition:opacity .25s}
+  .scrim.open{opacity:1;pointer-events:auto}
+  .sidein{padding:84px 16px 24px;display:grid;gap:8px}
+  .g{display:block;border-radius:16px;background:var(--bg);border:1.5px solid transparent}
+  .g summary,.g.one{display:flex;align-items:center;gap:12px;padding:13px 16px;font-weight:700;font-size:1.05rem;cursor:pointer;list-style:none}
+  .g summary::-webkit-details-marker{display:none}
+  .g i{width:12px;height:12px;border-radius:50%;background:var(--c);flex-shrink:0}
+  .g summary::after{content:"▾";margin-inline-start:auto;color:var(--muted);transition:transform .2s}
+  .g[open]{background:var(--white);border-color:var(--c)}
+  .g[open] summary::after{transform:rotate(180deg)}
+  .g .sub{display:grid;padding:0 10px 10px}
+  .g .sub a{padding:10px 14px;border-radius:12px;font-size:.98rem;font-weight:500;color:var(--ink)}
+  .g .sub a:hover{background:var(--bg)}
+  .g.one:hover{border-color:var(--c)}
+  .sidefoot{margin-top:14px;text-align:center;color:var(--muted);font-size:.9rem}
+  nav .wrap{justify-content:flex-start}
+  nav .brand{margin-inline-end:auto}
+  @media (min-width:1100px){
+    .menubtn,.scrim{display:none}
+    .shell{display:grid;grid-template-columns:300px 1fr;align-items:start}
+    #side{position:sticky;top:68px;height:calc(100vh - 68px);width:auto;transform:none!important;box-shadow:none;z-index:1}
+    .sidein{padding-top:22px}
+    html{scroll-padding-top:80px}
+  }
+  .products,.news,.places{grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
   @media (max-width:980px){
     .products,.places{grid-template-columns:repeat(2,1fr)}
     .news{grid-template-columns:1fr 1fr}
@@ -186,7 +220,7 @@
     html{font-size:18px}
     .navlinks{display:none}
     .hero{padding:46px 0 22px}
-    .worlds,.products,.news,.places,.plats{grid-template-columns:1fr}
+    .worlds,.products,.news,.places{grid-template-columns:1fr}
   }
 </style>
 </head>
@@ -194,20 +228,44 @@
 
 <nav>
   <div class="wrap">
+    <button class="menubtn" id="menubtn" aria-label="القائمة / Menu" aria-expanded="false"><span></span><span></span><span></span></button>
     <a class="brand" href="#top"><span class="ar">اختيارات <b>أحمد</b></span><span class="en">Ahmed <b>Choices</b></span></a>
-    <div class="navlinks">
-      <a href="#learn"><span class="ar">المنصات</span><span class="en">Platforms</span></a>
-      <a href="#worlds"><span class="ar">عوالمي</span><span class="en">Worlds</span></a>
-      <a href="#sky"><span class="ar">السماء</span><span class="en">Sky</span></a>
-      <a href="#places"><span class="ar">أماكن</span><span class="en">Places</span></a>
-      <a href="#news"><span class="ar">الأخبار</span><span class="en">News</span></a>
-      <a href="#products"><span class="ar">المنتجات</span><span class="en">Products</span></a>
-      <a href="#contact"><span class="ar">تواصل</span><span class="en">Contact</span></a>
-    </div>
     <button class="lang" id="lang" aria-label="Switch language"><span class="ar">English</span><span class="en">العربية</span></button>
   </div>
 </nav>
 
+<div class="shell">
+<div class="scrim" id="scrim"></div>
+<aside id="side" aria-label="القائمة">
+  <div class="sidein">
+    <a class="g one" href="#top" style="--c:var(--ink)"><i></i><span class="ar">الرئيسية</span><span class="en">Home</span></a>
+    <details class="g" style="--c:var(--edu)"><summary><i></i><span class="ar">التعليم</span><span class="en">Learning</span></summary><div class="sub">
+      <a href="https://step.ahmedchoices.com/"><span class="ar">منصة ستيب</span><span class="en">STEP Platform</span></a>
+      <a href="https://rihla.ahmedchoices.com/"><span class="ar">رحلة التعلّم الذاتي</span><span class="en">Self-Learning Journey</span></a>
+      <a href="https://arabic.ahmedchoices.com/"><span class="ar">مرافئ العربية</span><span class="en">Arabic Harbours</span></a>
+      <a href="/English/"><span class="ar">نادي الإنجليزية</span><span class="en">English Club</span></a>
+    </div></details>
+    <details class="g" style="--c:var(--cul)"><summary><i></i><span class="ar">الثقافة</span><span class="en">Culture</span></summary><div class="sub">
+      <a href="pieter-both.html"><span class="ar">الرجل الذي صار جبلاً</span><span class="en">The man who became a mountain</span></a>
+      <a href="right-of-way.html"><span class="ar">الفيل والشجرة</span><span class="en">The elephant and the tree</span></a>
+      <a href="coconut.html"><span class="ar">جاني جوز الهند</span><span class="en">The coconut picker</span></a>
+      <a href="mauritius.html"><span class="ar">مرافئ المحيط الهندي</span><span class="en">Indian Ocean ports</span></a>
+    </div></details>
+    <details class="g" style="--c:var(--tour)"><summary><i></i><span class="ar">السياحة</span><span class="en">Travel</span></summary><div class="sub">
+      <a href="#places"><span class="ar">أماكن أختارها</span><span class="en">Places I recommend</span></a>
+      <a href="#news"><span class="ar">أخبار السياحة</span><span class="en">Travel news</span></a>
+      <a href="#contact"><span class="ar">احجز جولة بصحبة مرشد</span><span class="en">Book a guided tour</span></a>
+    </div></details>
+    <details class="g" style="--c:var(--sky)"><summary><i></i><span class="ar">مراقبة السماء</span><span class="en">Stargazing</span></summary><div class="sub">
+      <a href="#sky"><span class="ar">سماء الليلة</span><span class="en">Tonight's sky</span></a>
+      <a href="#contact"><span class="ar">احجز ليلة رصد</span><span class="en">Book a stargazing night</span></a>
+    </div></details>
+    <a class="g one" href="#products" style="--c:var(--wa)"><i></i><span class="ar">المنتجات</span><span class="en">Products</span></a>
+    <a class="g one" href="#contact" style="--c:var(--ink)"><i></i><span class="ar">تواصل معي</span><span class="en">Contact</span></a>
+    <div class="sidefoot"><span class="ar">أ. أحمد آل سالم</span><span class="en">Ahmed Al-Salim</span></div>
+  </div>
+</aside>
+<div class="content">
 <header class="hero wrap" id="top">
   <h1>
     <span class="ar">تعليم، وثقافة، وسياحة،<br>وسماءٌ صافية</span>
@@ -218,7 +276,7 @@
     <span class="en">A teacher and tour guide from Al-Baha, Saudi Arabia, sharing what I make and what I choose.</span>
   </p>
   <div class="chips">
-    <a class="chip" href="#learn" style="--c:var(--edu)"><i></i><span class="ar">التعليم</span><span class="en">Learning</span></a>
+    <a class="chip" href="#edu" style="--c:var(--edu)"><i></i><span class="ar">التعليم</span><span class="en">Learning</span></a>
     <a class="chip" href="#cul" style="--c:var(--cul)"><i></i><span class="ar">الثقافة</span><span class="en">Culture</span></a>
     <a class="chip" href="#tour" style="--c:var(--tour)"><i></i><span class="ar">السياحة</span><span class="en">Travel</span></a>
     <a class="chip" href="#sky" style="--c:var(--sky)"><i></i><span class="ar">مراقبة السماء</span><span class="en">Stargazing</span></a>
@@ -227,40 +285,6 @@
 </header>
 
 <main class="wrap">
-
-  <!-- ===== Learning platforms ===== -->
-  <section id="learn">
-    <div class="head">
-      <h2><span class="ar">منصاتي التعليمية</span><span class="en">My learning platforms</span></h2>
-      <p><span class="ar">أربع منصات، لكل منها هدف واضح.</span><span class="en">Four platforms, each with a clear goal.</span></p>
-    </div>
-    <div class="plats">
-      <a class="plat pl-step" href="https://step.ahmedchoices.com/">
-        <div class="pic" aria-hidden="true">🎯</div>
-        <div><h3><span class="ar">منصة ستيب</span><span class="en">STEP Platform</span><span class="new"><span class="ar">جديد</span><span class="en">New</span></span></h3>
-        <p><span class="ar">اختبار تشخيصي مجاني يكشف نقاط ضعفك، ثم خطة وتدريب خاص بك.</span><span class="en">A free diagnostic test that finds your weak points, then a personal plan and practice.</span></p>
-        <span class="go"><span class="ar">ابدأ الاختبار ←</span><span class="en">Start the test →</span></span><span class="dom">step.ahmedchoices.com</span></div>
-      </a>
-      <a class="plat pl-rihla" href="https://rihla.ahmedchoices.com/">
-        <div class="pic" aria-hidden="true">🧭</div>
-        <div><h3><span class="ar">رحلة التعلّم الذاتي</span><span class="en">Self-Learning Journey</span></h3>
-        <p><span class="ar">تنظّم وقتك وتذكّرك وتتابع تقدمك، لتتعلم أي مهارة بنفسك.</span><span class="en">Organizes your time, reminds you and tracks your progress, so you can learn any skill on your own.</span></p>
-        <span class="go"><span class="ar">افتح الرحلة ←</span><span class="en">Open the journey →</span></span><span class="dom">rihla.ahmedchoices.com</span></div>
-      </a>
-      <a class="plat pl-ar" href="https://arabic.ahmedchoices.com/">
-        <div class="pic" aria-hidden="true">⚓</div>
-        <div><h3><span class="ar">مرافئ العربية</span><span class="en">Arabic Harbours</span></h3>
-        <p><span class="ar">تعلّم العربية لغير الناطقين بها، في رحلة بين مرافئ المحيط الهندي.</span><span class="en">Learn Arabic as a second language on a journey through Indian Ocean ports.</span></p>
-        <span class="go"><span class="ar">ابحر ←</span><span class="en">Set sail →</span></span><span class="dom">arabic.ahmedchoices.com</span></div>
-      </a>
-      <a class="plat pl-club" href="/English/">
-        <div class="pic" aria-hidden="true">🎮</div>
-        <div><h3><span class="ar">نادي اللغة الإنجليزية</span><span class="en">English Club</span></h3>
-        <p><span class="ar">ألعاب وكبسولات ومفردات وقواعد، للتدرّب يومياً بمتعة.</span><span class="en">Games, capsules, vocabulary and grammar for daily practice.</span></p>
-        <span class="go"><span class="ar">العب وتعلّم ←</span><span class="en">Play &amp; learn →</span></span></div>
-      </a>
-    </div>
-  </section>
 
   <!-- ===== Worlds ===== -->
   <section id="worlds">
@@ -280,8 +304,10 @@
         <h3><span class="ar">التعليم</span><span class="en">Learning</span></h3>
         <p><span class="ar">ألعاب ودروس في اللغتين، للطلاب ولمعلميهم.</span><span class="en">Games and lessons in Arabic and English, for students and teachers.</span></p>
         <div class="links">
-          <a href="#learn"><span><span class="ar">كل المنصات التعليمية</span><span class="en">All learning platforms</span></span><small><span class="ar">أربع منصات</span><span class="en">Four platforms</span></small></a>
-          <a href="mauritius.html"><span><span class="ar">مرافئ العربية: المحيط الهندي</span><span class="en">Arabic Harbours: Indian Ocean</span></span><small><span class="ar">قصة</span><span class="en">Story</span></small></a>
+          <a href="https://step.ahmedchoices.com/"><span><span class="ar">منصة ستيب</span><span class="en">STEP Platform</span></span><small><span class="ar">اختبار وتدريب</span><span class="en">Test &amp; practice</span></small></a>
+          <a href="https://rihla.ahmedchoices.com/"><span><span class="ar">رحلة التعلّم الذاتي</span><span class="en">Self-Learning Journey</span></span><small><span class="ar">خطتك خطوة بخطوة</span><span class="en">Step by step</span></small></a>
+          <a href="https://arabic.ahmedchoices.com/"><span><span class="ar">مرافئ العربية</span><span class="en">Arabic Harbours</span></span><small><span class="ar">تعلّم العربية</span><span class="en">Learn Arabic</span></small></a>
+          <a href="/English/"><span><span class="ar">نادي الإنجليزية</span><span class="en">English Club</span></span><small><span class="ar">ألعاب وكبسولات</span><span class="en">Games</span></small></a>
         </div>
       </div>
 
@@ -484,6 +510,8 @@
     <span><span class="ar">الباحة، المملكة العربية السعودية</span><span class="en">Al-Baha, Saudi Arabia</span></span>
   </div>
 </footer>
+</div>
+</div>
 
 <script>
 /* ================== الإعدادات: عدّل هنا فقط ================== */
@@ -584,6 +612,19 @@ var EVENTS = [
     try{localStorage.setItem('lang',L)}catch(e){}
   }
   document.getElementById('lang').addEventListener('click',function(){L=L==='ar'?'en':'ar';apply();});
+
+
+  /* side menu */
+  (function(){
+    var side=document.getElementById('side'),scrim=document.getElementById('scrim'),btn=document.getElementById('menubtn');
+    function set(o){side.classList.toggle('open',o);scrim.classList.toggle('open',o);btn.setAttribute('aria-expanded',o)}
+    btn.addEventListener('click',function(){set(!side.classList.contains('open'))});
+    scrim.addEventListener('click',function(){set(false)});
+    side.addEventListener('click',function(e){if(e.target.closest('a'))set(false)});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false)});
+    var gs=side.querySelectorAll('details.g');
+    gs.forEach(function(d){d.addEventListener('toggle',function(){if(d.open)gs.forEach(function(o){if(o!==d)o.open=false})})});
+  })();
 
   /* tabs */
   var tabs=document.querySelectorAll('.tab:not(.ptab)');
