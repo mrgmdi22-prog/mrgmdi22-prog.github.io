@@ -301,6 +301,7 @@ footer a{color:var(--teal);font-weight:600}
     <a href="#products" style="--c:var(--blossom)"><i></i><span class="ar">المتجر</span><span class="en">Store</span></a>
     <a href="#stories" style="--c:var(--sand)"><i></i><span class="ar">قصص سياحية وتاريخية</span><span class="en">Travel &amp; history stories</span></a>
     <a href="#writing" style="--c:var(--teal)"><i></i><span class="ar">التحرير والصياغة الأدبية</span><span class="en">Editing &amp; literary writing</span></a>
+    <a href="#schools" style="--c:var(--sky)"><i></i><span class="ar">التقنية في التعليم</span><span class="en">Technology in teaching</span></a>
     <a href="#contact" style="--c:var(--sage)"><i></i><span class="ar">عنّي وتواصل معي</span><span class="en">About &amp; contact</span></a>
   </nav>
   <h4><span class="ar">مواقع صديقة</span><span class="en">Friendly sites</span></h4>
@@ -523,6 +524,48 @@ footer a{color:var(--teal);font-weight:600}
   </div>
 </section>
 
+<!-- ===== Technology in schools ===== -->
+<section class="chapter" id="schools" style="--c:var(--sky);--wash:var(--sky-wash)">
+  <div class="wrap">
+    <div class="ch-head">
+      <figure class="paint"><img src="assets/art/places-1600.jpg" srcset="assets/art/places-800.jpg 800w, assets/art/places-1600.jpg 1600w" sizes="(min-width:900px) 52vw, 100vw" width="1600" height="893" loading="lazy" alt="لوحة مائية: شجرة وسط جبال وتلال خضراء"></figure>
+      <div class="ch-text">
+        <span class="kicker"><span class="ar">للمدارس والمعلمين</span><span class="en">For schools and teachers</span></span>
+        <h2><span class="ar">توظيف التقنية في التعليم</span><span class="en">Technology in teaching</span></h2>
+        <p><span class="ar">أصمم للمعلمين مشاريع تعليمية تقنية تناسب فصولهم ومدارسهم، بمقابل يُتفق عليه قبل البدء.</span><span class="en">I design technology-based learning projects for teachers' classes and schools, for a fee agreed before we start.</span></p>
+      </div>
+    </div>
+    <div class="contact">
+      <div class="card">
+        <h3><span class="ar">مشاريع أعمل عليها</span><span class="en">Projects I work on</span></h3>
+        <div class="grid" style="margin-top:12px">
+          <div class="card svc"><h3><span class="ar">مشروع بيان</span><span class="en">Bayan Project</span></h3><p><span class="ar">مشروع تعليمي تقني، أكيّفه لاحتياج مدرستك.</span><span class="en">A technology-based learning project, adapted to your school's needs.</span></p></div>
+          <div class="card svc"><h3><span class="ar">سنابل القراءة</span><span class="en">Sonbol Reading</span></h3><p><span class="ar">مشروع لتنمية القراءة، أكيّفه لفصلك ومرحلتك.</span><span class="en">A reading-development project, adapted to your class and stage.</span></p></div>
+          <div class="card svc"><h3><span class="ar">نادي اللغة الإنجليزية</span><span class="en">English Language Club</span></h3><p><span class="ar">نادٍ تعليمي للغة الإنجليزية، يُبنى حول اهتمامات طلابك.</span><span class="en">An English club built around your students' interests.</span></p></div>
+        </div>
+      </div>
+      <form class="card" id="sform">
+        <h3><span class="ar">أخبرني عن فصلك أو مدرستك</span><span class="en">Tell me about your class or school</span></h3>
+        <label for="sname"><span><span class="ar">اسمك</span><span class="en">Your name</span></span></label>
+        <input id="sname" required autocomplete="name">
+        <label for="sschool"><span><span class="ar">مدرستك</span><span class="en">Your school</span></span></label>
+        <input id="sschool" required>
+        <label for="stopic"><span><span class="ar">المشروع المهتم به</span><span class="en">The project you are interested in</span></span></label>
+        <select id="stopic">
+          <option data-ar="مشروع بيان" data-en="Bayan Project"></option>
+          <option data-ar="سنابل القراءة" data-en="Sonbol Reading"></option>
+          <option data-ar="نادي اللغة الإنجليزية" data-en="English Language Club"></option>
+          <option data-ar="مشروع آخر" data-en="Another project"></option>
+        </select>
+        <label for="smsg"><span><span class="ar">تفاصيل الاحتياج</span><span class="en">Details of your need</span></span></label>
+        <textarea id="smsg"></textarea>
+        <button class="btn wa" type="submit"><span class="ar">أرسل عبر واتساب</span><span class="en">Send via WhatsApp</span></button>
+        <p class="fnote"><span class="ar">تُفتح رسالتك في واتساب جاهزة للإرسال.</span><span class="en">Your message opens in WhatsApp, ready to send.</span></p>
+      </form>
+    </div>
+  </div>
+</section>
+
 <!-- ===== About & contact ===== -->
 <section class="chapter flip" id="contact" style="--c:var(--sage);--wash:var(--sage-wash)">
   <div class="wrap">
@@ -723,6 +766,15 @@ var EVENTS = [
     var n=document.getElementById('fname').value.trim(), s=document.getElementById('ftopic'), m=document.getElementById('fmsg').value.trim();
     var topic=s.options[s.selectedIndex].textContent;
     var text=L==='ar'?('السلام عليكم، أنا '+n+'.\nبخصوص: '+topic+'\n'+m):('Hello, I am '+n+'.\nAbout: '+topic+'\n'+m);
+    var a=document.createElement('a');a.href=wa(text);a.target='_blank';a.rel='noopener';document.body.appendChild(a);a.click();a.remove();
+  });
+
+  /* schools form → WhatsApp */
+  document.getElementById('sform').addEventListener('submit',function(e){
+    e.preventDefault();
+    var n=document.getElementById('sname').value.trim(), sc=document.getElementById('sschool').value.trim(), t=document.getElementById('stopic'), m=document.getElementById('smsg').value.trim();
+    var topic=t.options[t.selectedIndex].textContent;
+    var text=L==='ar'?('السلام عليكم، أنا '+n+' من '+sc+'.\nمهتم بـ: '+topic+'\n'+m):('Hello, I am '+n+' from '+sc+'.\nInterested in: '+topic+'\n'+m);
     var a=document.createElement('a');a.href=wa(text);a.target='_blank';a.rel='noopener';document.body.appendChild(a);a.click();a.remove();
   });
 
