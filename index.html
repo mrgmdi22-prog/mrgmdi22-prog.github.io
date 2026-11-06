@@ -45,13 +45,22 @@
   .lang:hover{border-color:var(--ink)}
 
   /* ===== Hero ===== */
-  .hero{padding:66px 0 34px;text-align:center}
-  .hero h1{font-size:clamp(2.2rem,7vw,3.5rem);font-weight:700;line-height:1.25}
-  .hero p{font-size:1.15rem;color:var(--muted);max-width:36ch;margin:16px auto 0}
-  .chips{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:28px}
-  .chip{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:1rem;padding:10px 20px;border-radius:999px;background:var(--white);border:1.5px solid var(--line);transition:border-color .2s}
-  .chip i{width:12px;height:12px;border-radius:50%;background:var(--c)}
-  .chip:hover{border-color:var(--c)}
+  .hero{position:relative;overflow:hidden;background:linear-gradient(180deg,#E8EFFA 0%,#F3F1F4 55%,#FBF3EA 100%);border-bottom:1px solid var(--line)}
+  .hero-art{position:absolute;inset:0;pointer-events:none}
+  .hero-art svg{position:absolute;bottom:0;left:0;width:100%;height:100%}
+  .hero-in{position:relative;padding-top:64px;padding-bottom:150px;max-width:1000px}
+  .eyebrow{display:inline-block;font-size:.92rem;font-weight:600;color:var(--tour);background:rgba(255,255,255,.75);border:1px solid #F0DCC6;border-radius:999px;padding:4px 14px}
+  .hero h1{font-size:clamp(2.1rem,6vw,3.1rem);font-weight:700;line-height:1.25;margin-top:14px;text-wrap:balance}
+  .hero .lead{font-size:1.15rem;color:var(--muted);max-width:40ch;margin-top:12px;text-wrap:pretty}
+  .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+  .ctas .order{font-size:1.05rem;padding:14px 26px;box-shadow:0 6px 18px rgba(31,168,85,.22)}
+  .ctas .order svg{width:20px;height:20px}
+  .ghost{display:inline-flex;align-items:center;font-weight:600;font-size:1.05rem;padding:13px 24px;border-radius:999px;background:rgba(255,255,255,.85);border:1.5px solid var(--line)}
+  .ghost:hover{border-color:var(--ink)}
+  .facts{list-style:none;display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:28px;color:var(--muted);font-size:.98rem}
+  .facts li{display:flex;align-items:center;gap:8px}
+  .facts li::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--c)}
+  .facts b{color:var(--ink);font-weight:600}
 
   section{padding:44px 0}
   .head{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;margin-bottom:22px}
@@ -273,12 +282,13 @@
   .sidefoot{margin-top:14px;text-align:center;color:var(--muted);font-size:.9rem}
   nav .wrap{justify-content:flex-start}
   nav .brand{margin-inline-end:auto}
-  @media (min-width:1100px){
-    .menubtn,.scrim{display:none}
-    .shell{display:grid;grid-template-columns:300px 1fr;align-items:start}
-    #side{position:sticky;top:68px;height:calc(100vh - 68px);width:auto;opacity:1;visibility:visible;transform:none!important;box-shadow:none;z-index:1}
-    .sidein{padding-top:22px}
-    html{scroll-padding-top:80px}
+  html{scroll-padding-top:80px}
+  .navlinks{display:none}
+  @media (min-width:1000px){
+    .menubtn{display:none}
+    .navlinks{display:flex;margin-inline-end:auto;margin-inline-start:18px}
+    nav .brand{margin-inline-end:0}
+    .navlinks a{font-size:.95rem}
   }
   .products,.news,.places{grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
   @media (max-width:980px){
@@ -294,7 +304,8 @@
     .plats{grid-template-columns:1fr}
     .band{padding:20px}
     .navlinks{display:none}
-    .hero{padding:46px 0 22px}
+    .hero-in{padding-top:40px;padding-bottom:120px}
+    .ctas a{flex:1 1 auto;justify-content:center}
     .worlds,.products,.news,.places{grid-template-columns:1fr}
   }
 </style>
@@ -305,6 +316,14 @@
   <div class="wrap">
     <button class="menubtn" id="menubtn" aria-label="القائمة / Menu" aria-expanded="false"><span></span><span></span><span></span></button>
     <a class="brand" href="#top"><span class="ar">اختيارات <b>أحمد</b></span><span class="en">Ahmed <b>Choices</b></span></a>
+    <div class="navlinks">
+      <a href="#routes"><span class="ar">السياحة</span><span class="en">Travel</span></a>
+      <a href="#sky"><span class="ar">النجوم</span><span class="en">Stars</span></a>
+      <a href="#products"><span class="ar">المتجر</span><span class="en">Store</span></a>
+      <a href="#stories"><span class="ar">القصص</span><span class="en">Stories</span></a>
+      <a href="#writing"><span class="ar">التحرير</span><span class="en">Writing</span></a>
+      <a href="#contact"><span class="ar">تواصل</span><span class="en">Contact</span></a>
+    </div>
     <button class="lang" id="lang" aria-label="Switch language"><span class="ar">English</span><span class="en">العربية</span></button>
   </div>
 </nav>
@@ -340,21 +359,31 @@
 </aside>
 <div class="content">
 
-<header class="hero wrap" id="top">
-  <h1>
-    <span class="ar">الباحة بعين مرشدها:<br>رحلات، ونجوم، وخيرات، وحكايات</span>
-    <span class="en">Al-Baha through a guide's eyes:<br>journeys, stars, produce and stories</span>
-  </h1>
-  <p>
-    <span class="ar">مرشد سياحي وراصد للأفلاك وكاتب من الباحة. أصحبك في مساراتها وليالي سمائها، وأختار لك خيراتها، وأروي لك حكاياتها.</span>
-    <span class="en">A tour guide, sky observer and writer from Al-Baha. I take you along its routes and night skies, choose its produce, and tell its stories.</span>
-  </p>
-  <div class="chips">
-    <a class="chip" href="#routes" style="--c:var(--tour)"><i></i><span class="ar">السياحة</span><span class="en">Travel</span></a>
-    <a class="chip" href="#sky" style="--c:var(--sky)"><i></i><span class="ar">النجوم</span><span class="en">Stars</span></a>
-    <a class="chip" href="#products" style="--c:var(--loc)"><i></i><span class="ar">المتجر</span><span class="en">Store</span></a>
-    <a class="chip" href="#stories" style="--c:var(--cul)"><i></i><span class="ar">القصص</span><span class="en">Stories</span></a>
-    <a class="chip" href="#writing" style="--c:var(--edu)"><i></i><span class="ar">التحرير والصياغة</span><span class="en">Writing</span></a>
+<header class="hero" id="top">
+  <div class="hero-art" aria-hidden="true">
+    <svg viewBox="0 0 1200 420" preserveAspectRatio="xMidYMax slice">
+      <g fill="#8FA6CC">
+        <circle cx="90" cy="70" r="2.2"/><circle cx="170" cy="130" r="1.6"/><circle cx="250" cy="55" r="2"/><circle cx="330" cy="150" r="1.4"/><circle cx="410" cy="90" r="1.8"/><circle cx="60" cy="190" r="1.5"/><circle cx="480" cy="40" r="1.4"/><circle cx="210" cy="200" r="1.2"/><circle cx="560" cy="120" r="1.2"/><circle cx="1150" cy="60" r="1.4"/>
+      </g>
+      <path d="M150 105a26 26 0 1 0 20 -42a21 21 0 1 1 -20 42z" fill="#F2D9A6"/>
+      <path d="M0 330 L120 270 L210 300 L330 220 L450 290 L560 240 L700 300 L820 230 L950 285 L1080 245 L1200 280 V420 H0Z" fill="#D9E3F0"/>
+      <path d="M0 360 L140 310 L260 345 L390 290 L520 340 L650 300 L790 350 L930 305 L1060 345 L1200 315 V420 H0Z" fill="#C9D7E8"/>
+      <path d="M0 392 L180 365 L360 388 L540 360 L720 390 L900 366 L1080 388 L1200 372 V420 H0Z" fill="#EADBC6"/>
+    </svg>
+  </div>
+  <div class="wrap hero-in">
+    <span class="eyebrow"><span class="ar">مرشد سياحي وراصد للأفلاك من الباحة</span><span class="en">Tour guide &amp; sky observer from Al-Baha</span></span>
+    <h1><span class="ar">الباحة بعين مرشدها</span><span class="en">Al-Baha through a guide's eyes</span></h1>
+    <p class="lead"><span class="ar">رحلات في مساراتها، وليالٍ تحت سمائها، وخيرات من أهلها، وحكايات من دروبها.</span><span class="en">Journeys along its routes, nights under its sky, produce from its people, and stories from its roads.</span></p>
+    <div class="ctas">
+      <a class="order" data-p="جولة سياحية بصحبة مرشد | Guided tour" href="#"><span class="ar">احجز جولة</span><span class="en">Book a tour</span></a>
+      <a class="ghost" href="#routes"><span class="ar">تصفّح المسارات</span><span class="en">Browse the routes</span></a>
+    </div>
+    <ul class="facts">
+      <li style="--c:var(--tour)"><span class="ar"><b>٥ مسارات</b> بخرائطها</span><span class="en"><b>5 routes</b> with maps</span></li>
+      <li style="--c:var(--sky)"><span class="ar"><b>ليالي رصد</b> في مواقع مظلمة</span><span class="en"><b>Stargazing nights</b> at dark sites</span></li>
+      <li style="--c:var(--loc)"><span class="ar"><b>الطلب مباشرة</b> عبر واتساب</span><span class="en"><b>Order directly</b> on WhatsApp</span></li>
+    </ul>
   </div>
 </header>
 
@@ -363,8 +392,7 @@
   <!-- ===== What you will find ===== -->
   <section id="overview" style="--sc:var(--ink)">
     <div class="head">
-      <h2><span class="ar">ماذا ستجد هنا</span><span class="en">What you will find here</span></h2>
-      <p><span class="ar">خمسة أبواب، وكل باب بحقه.</span><span class="en">Five doors, each with its own purpose.</span></p>
+      <h2><span class="ar">ابدأ من هنا</span><span class="en">Start here</span></h2>
     </div>
     <div class="plats">
       <a class="plat pl-tour" href="#routes"><div class="pic" aria-hidden="true">🧭</div><div><h3><span class="ar">السياحة</span><span class="en">Travel</span></h3><p><span class="ar">خمسة مسارات في الباحة بخرائط، وجولات بصحبة مرشد.</span><span class="en">Five Al-Baha routes with maps, plus guided tours.</span></p><span class="go"><span class="ar">استعرض المسارات</span><span class="en">Browse the routes</span></span></div></a>
