@@ -20,8 +20,9 @@
   .strip .home{font-family:'Amiri',serif;font-weight:700;font-size:1.4rem}
   .strip .latin{font-family:'Playfair Display',serif;font-style:italic;direction:ltr;color:var(--muted)}
 
-  .hero{position:relative;background:var(--sky);margin-top:36px;overflow:hidden}
-  .hero svg{display:block;width:100%;height:auto}
+  .art{margin-top:36px}
+  .art img{display:block;width:100%;height:auto;border-radius:2px}
+  .art figcaption{font-size:.9rem;color:var(--muted);margin-top:10px;text-align:left;direction:ltr}
   .titles{padding:44px 0 10px;max-width:760px}
   .kicker{font-weight:600;color:var(--gold);font-size:1rem}
   h1{font-family:'Amiri',serif;font-weight:700;font-size:clamp(2.8rem,8vw,5rem);line-height:1.15;margin-top:6px}
@@ -44,7 +45,7 @@
     .page{padding:0 18px}
     article{padding:30px 18px 56px}
     article p{font-size:1.35rem}
-    .hero{margin-top:22px}
+    .art{margin-top:22px}
   }
 </style>
 </head>
@@ -55,19 +56,7 @@
     <a class="home" href="/">اختيارات</a>
     <span class="latin">Ahmed Choices</span>
   </div>
-  <div class="hero" aria-hidden="true">
-    <svg viewBox="0 0 1200 420" preserveAspectRatio="xMidYMax slice">
-      <rect width="1200" height="420" fill="#E4ECF2"/>
-      <circle cx="260" cy="110" r="46" fill="#FFFFFF" opacity=".8"/>
-      <path d="M0 300 L140 230 L260 270 L400 190 L520 250 L640 180 L760 240 L900 200 L1040 250 L1200 210 V420 H0Z" fill="#C9D5DC"/>
-      <path d="M0 340 L180 270 L330 310 L470 230 L600 150 L640 150 L700 200 L820 260 L980 240 L1200 290 V420 H0Z" fill="#A9B8BF"/>
-      <!-- the head on the summit -->
-      <ellipse cx="620" cy="122" rx="34" ry="36" fill="#8E9EA6"/>
-      <rect x="608" y="150" width="24" height="12" fill="#8E9EA6"/>
-      <path d="M0 380 Q300 340 600 368 T1200 360 V420 H0Z" fill="#DCE6EA"/>
-      <path d="M0 400 Q300 384 600 396 T1200 392 V420 H0Z" fill="#FBFAF7"/>
-    </svg>
-  </div>
+  <figure class="art"><img src="assets/art/peak-1600.jpg" srcset="assets/art/peak-800.jpg 800w, assets/art/peak-1600.jpg 1600w" sizes="(max-width:1200px) 100vw, 1200px" width="1600" height="893" alt="لوحة مائية: قمة مخروطية وحيدة وسط السهل تحت سماء غائمة"></figure>
   <div class="titles">
     <div class="kicker">حكاية من موريشيوس</div>
     <h1>الرجلُ الذي صارَ جبلاً</h1>
@@ -78,7 +67,7 @@
 
 <main class="page">
   <article>
-    <p>إذا وقفتَ في بورت لويس ورفعتَ بصرك نحو الجبال، رأيتَ على أعلى قمة في سلسلة موكا صخرةً مستديرة، كأنها رأسُ رجلٍ يمدّ عنقه نحو البحر. يسمّونه جبل "بيتر بوث"، على اسم حاكم هولندي غرقت سفينته قرب الجزيرة. أما أهلها فلهم مع الصخرة حكاية أخرى.</p>
+    <p>إذا وقفتَ في بورت لويس ورفعتَ بصرك نحو الجبال، رأيتَ على قمة من قمم سلسلة موكا صخرةٌ مستديرة، كأنها رأسُ رجلٍ يمدّ عنقه نحو البحر. يسمّونه جبل "بيتر بوث"، على اسم حاكم هولندي غرقت سفينته قرب الجزيرة. أما أهلها فلهم مع الصخرة حكاية أخرى.</p>
 
     <div class="voice">
       <p>يقول المرشد، وهو يشير إلى القمة: كان في الجزيرة شابٌّ أحبّ فتاةً من قريته، فلما حان موسم الرياح ركبت البحر في سفينةٍ مسافرة، ووعدته أن تعود مع الموسم القادم. فصار الشاب يصعد كل صباح إلى أعلى قمة في الجزيرة، يجلس فوقها ويرقب الأفق، ينتظر شراعاً أبيض يعيدها إليه.</p>
