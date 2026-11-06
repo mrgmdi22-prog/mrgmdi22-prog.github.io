@@ -234,6 +234,11 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--teal);ba
 textarea{min-height:120px;resize:vertical}
 .fnote{font-size:.88rem;color:var(--ink-soft)}
 
+.ch-head.mini{margin-top:46px;margin-bottom:0}
+.ch-head.mini h2{font-size:clamp(1.7rem,4.5vw,2.2rem)}
+@media (min-width:900px){.ch-head.mini{grid-template-columns:1fr 1fr}.ch-head.mini .paint{order:2}}
+.closing{max-width:860px;margin:10px auto 0;padding-inline:18px}
+.closing img{width:100%;height:auto;aspect-ratio:1600/893;object-fit:cover;-webkit-mask-image:radial-gradient(ellipse 80% 72% at 50% 50%,#000 55%,transparent 100%);mask-image:radial-gradient(ellipse 80% 72% at 50% 50%,#000 55%,transparent 100%)}
 /* Friendly sites + footer */
 .friends{padding:44px 0 10px}
 .friends h2{font-size:1.5rem}
@@ -334,7 +339,7 @@ footer a{color:var(--teal);font-weight:600}
 <section class="chapter" id="routes" style="--c:var(--sand);--wash:var(--sand-wash)">
   <div class="wrap">
     <div class="ch-head">
-      <figure class="paint"><img src="assets/art/travel-1600.jpg" srcset="assets/art/travel-800.jpg 800w, assets/art/travel-1600.jpg 1600w" sizes="(min-width:900px) 52vw, 100vw" width="1600" height="893" loading="lazy" alt="لوحة مائية: شجرة قديمة وأغصان خضراء تؤطّر جبال الباحة"></figure>
+      <figure class="paint"><img src="assets/art/tunnel-1600.jpg" srcset="assets/art/tunnel-800.jpg 800w, assets/art/tunnel-1600.jpg 1600w" sizes="(min-width:900px) 52vw, 100vw" width="1600" height="893" loading="lazy" alt="لوحة مائية: طريق جبلي يدخل نفقاً تحت جبال السراة والضباب"></figure>
       <div class="ch-text">
         <span class="kicker"><span class="ar">السياحة</span><span class="en">Travel</span></span>
         <h2><span class="ar">مسارات الباحة</span><span class="en">Al-Baha routes</span></h2>
@@ -355,7 +360,11 @@ footer a{color:var(--teal);font-weight:600}
     </div>
 
     <div id="places">
-      <div class="sub"><span class="ar">أماكن أختارها</span><span class="en">Places I recommend</span>
+      <div class="ch-head mini">
+        <figure class="paint"><img src="assets/art/places-1600.jpg" srcset="assets/art/places-800.jpg 800w, assets/art/places-1600.jpg 1600w" sizes="(min-width:900px) 40vw, 100vw" width="1600" height="893" loading="lazy" alt="لوحة مائية: شجرة قديمة وأغصان خضراء تؤطّر جبال الباحة"></figure>
+        <div class="ch-text"><span class="kicker"><span class="ar">مطاعم ومقاهٍ وإقامة</span><span class="en">Food, coffee &amp; stays</span></span><h2><span class="ar">أماكن أختارها</span><span class="en">Places I recommend</span></h2><p><span class="ar">أماكن جرّبتها بنفسي في الباحة، وأوصي بها لزوّارها.</span><span class="en">Places in Al-Baha I have tried myself and recommend to visitors.</span></p></div>
+      </div>
+      <div class="sub"><span></span>
         <div class="tabs" role="group">
           <button class="tab ptab" aria-pressed="true" data-f="all"><span class="ar">الكل</span><span class="en">All</span></button>
           <button class="tab ptab" aria-pressed="false" data-f="food"><span class="ar">مطاعم ومقاهٍ</span><span class="en">Food &amp; coffee</span></button>
@@ -533,6 +542,7 @@ footer a{color:var(--teal);font-weight:600}
   </div>
 </section>
 
+<figure class="closing" aria-hidden="false"><img src="assets/art/camels-1600.jpg" srcset="assets/art/camels-800.jpg 800w, assets/art/camels-1600.jpg 1600w" sizes="100vw" width="1600" height="893" loading="lazy" alt="لوحة مائية: جملان عند غدير ماء بين الأشجار"></figure>
 <div class="ribbon" aria-hidden="true"></div>
 
 <!-- ===== Friendly sites ===== -->
