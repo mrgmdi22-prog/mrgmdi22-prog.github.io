@@ -141,7 +141,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .card{background:var(--card);border:1px solid var(--line);border-radius:20px}
 .grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
 .grid.routes{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
-@media (max-width:620px){.grid.routes{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.route{padding:10px}.route h3{font-size:1.02rem}.route .btn.small{flex:1 1 100%;padding:8px 10px;font-size:.88rem}}
+@media (max-width:620px){.grid.routes{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.route{padding:10px}.route h3{font-size:1.02rem}.route .btn.small{flex:1 1 100%;padding:8px 10px;font-size:.88rem}.grid.routes>.route:last-child:nth-child(odd){grid-column:1/-1;justify-self:center;width:calc(50% - 5px)}}
 
 /* Routes */
 .route{padding:14px;display:flex;flex-direction:column;gap:10px}
@@ -220,6 +220,8 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 @media (min-width:900px){.gstrip{grid-auto-flow:row;grid-template-columns:repeat(6,1fr);overflow:visible}.gitem:nth-child(-n+2){grid-column:span 3}.gitem:nth-child(n+3){grid-column:span 2}}
 /* Writing */
 .svc{padding:20px 22px}
+.projbox{padding:26px}
+.projbox .svc{box-shadow:none}
 .svc h3{font-size:1.25rem}
 .svc p{color:var(--ink-soft);margin-top:4px}
 .steps{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-top:16px}
@@ -534,7 +536,7 @@ footer a{color:var(--teal);font-weight:600}
       </div>
     </div>
     <div class="contact">
-      <div class="card">
+      <div class="card projbox">
         <h3><span class="ar">مشاريع أعمل عليها</span><span class="en">Projects I work on</span></h3>
         <div class="grid" style="margin-top:12px">
           <div class="card svc"><h3><span class="ar">مشروع بيان</span><span class="en">Bayan Project</span></h3><p><span class="ar">مشروع تعليمي تقني، أكيّفه لاحتياج مدرستك.</span><span class="en">A technology-based learning project, adapted to your school's needs.</span></p></div>
