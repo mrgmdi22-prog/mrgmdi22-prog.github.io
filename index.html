@@ -145,13 +145,10 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 
 /* Routes */
 .route{padding:14px;display:flex;flex-direction:column;gap:10px}
-.route img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:top;border-radius:14px;background:var(--sand-wash);cursor:zoom-in}
+.route .thumb{display:block}
+.route img{width:100%;height:auto;aspect-ratio:800/352;object-fit:cover;object-position:center bottom;border-radius:14px;background:var(--sand-wash)}
 .route h3{font-size:1.2rem;padding:0 4px}
 .route .row{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto;padding:0 2px 2px}
-.lb{position:fixed;inset:0;z-index:60;background:rgba(40,56,61,.82);display:none;align-items:center;justify-content:center;padding:max(12px,env(safe-area-inset-top,0px)) 12px 12px}
-.lb.o{display:flex}
-.lb img{max-width:100%;max-height:100%;border-radius:12px;background:#FFFFFF}
-.lb button{position:absolute;top:calc(12px + env(safe-area-inset-top,0px));inset-inline-end:14px;width:48px;height:48px;border-radius:50%;background:#FFFFFF;font-size:1.6rem;line-height:1}
 
 /* Wash band (booking) */
 .band{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-top:22px;padding:22px 26px;border-radius:24px;background:var(--wash)}
@@ -354,7 +351,7 @@ footer a{color:var(--teal);font-weight:600}
       <div class="ch-text">
         <span class="kicker"><span class="ar">السياحة</span><span class="en">Travel</span></span>
         <h2><span class="ar">مسارات الباحة</span><span class="en">Al-Baha routes</span></h2>
-        <p><span class="ar">خمسة مسارات سياحية في الباحة، لكل مسار خريطته. اطلب الخريطة وانطلق بنفسك، أو دعني أصحبك فيه.</span><span class="en">Five tourist routes in Al-Baha, each with its own map. Ask for the map and go on your own, or let me take you.</span></p>
+        <p><span class="ar">خمسة مسارات سياحية في الباحة، لكل مسار طريقه ومحطاته. تصفّح المسار وانطلق بنفسك، أو دعني أصحبك فيه.</span><span class="en">Five tourist routes in Al-Baha, each with its own road and stops. Browse a route and go on your own, or let me take you.</span></p>
         <div class="ctas">
           <a class="btn wa order" data-p="جولة سياحية بصحبة مرشد | Guided tour" href="#"><span class="ar">احجز جولة</span><span class="en">Book a tour</span></a>
           <a class="btn" href="baha-map.html"><span class="ar">الخارطة التفاعلية</span><span class="en">Interactive map</span></a>
@@ -363,11 +360,11 @@ footer a{color:var(--teal);font-weight:600}
     </div>
 
     <div class="grid routes">
-      <article class="card route"><img src="assets/routes/zahran-ar.png" alt="خريطة مسار زهران" loading="lazy" data-full="assets/routes/zahran-ar.png" data-ar="assets/routes/zahran-ar.png" data-en="assets/routes/zahran-en.png" data-alt-ar="خريطة مسار زهران" data-alt-en="Zahran Route map"><h3><span class="ar">مسار زهران</span><span class="en">The Zahran Route</span></h3><div class="row"><button type="button" class="btn small view"><span class="ar">اعرض الخريطة</span><span class="en">View map</span></button><a class="btn small wa order" data-p="خريطة مسار زهران | Zahran Route map" href="#"><span class="ar">اطلبها</span><span class="en">Request the map</span></a></div></article>
-      <article class="card route"><img src="assets/routes/tihama-ar.png" alt="خريطة مسار تهامة والعقبة" loading="lazy" data-full="assets/routes/tihama-ar.png" data-ar="assets/routes/tihama-ar.png" data-en="assets/routes/tihama-en.png" data-alt-ar="خريطة مسار تهامة والعقبة" data-alt-en="Tihama and the Descent route map"><h3><span class="ar">مسار تهامة والعقبة</span><span class="en">Tihama &amp; the Descent</span></h3><div class="row"><button type="button" class="btn small view"><span class="ar">اعرض الخريطة</span><span class="en">View map</span></button><a class="btn small wa order" data-p="خريطة مسار تهامة والعقبة | Tihama &amp; Descent map" href="#"><span class="ar">اطلبها</span><span class="en">Request the map</span></a></div></article>
-      <article class="card route"><img src="assets/routes/bayda-ar.png" alt="خريطة مسار بيدة والتراث" loading="lazy" data-full="assets/routes/bayda-ar.png" data-ar="assets/routes/bayda-ar.png" data-en="assets/routes/bayda-en.png" data-alt-ar="خريطة مسار بيدة والتراث" data-alt-en="Bayda and Heritage route map"><h3><span class="ar">مسار بيدة والتراث</span><span class="en">Bayda &amp; Heritage</span></h3><div class="row"><button type="button" class="btn small view"><span class="ar">اعرض الخريطة</span><span class="en">View map</span></button><a class="btn small wa order" data-p="خريطة مسار بيدة والتراث | Bayda &amp; Heritage map" href="#"><span class="ar">اطلبها</span><span class="en">Request the map</span></a></div></article>
-      <article class="card route"><img src="assets/routes/baljurashi-ar.png" alt="خريطة مسار بلجرشي وسوق السبت" loading="lazy" data-full="assets/routes/baljurashi-ar.png" data-ar="assets/routes/baljurashi-ar.png" data-en="assets/routes/baljurashi-en.png" data-alt-ar="خريطة مسار بلجرشي وسوق السبت" data-alt-en="Baljurashi and Saturday Market route map"><h3><span class="ar">مسار بلجرشي وسوق السبت</span><span class="en">Baljurashi &amp; Saturday Market</span></h3><div class="row"><button type="button" class="btn small view"><span class="ar">اعرض الخريطة</span><span class="en">View map</span></button><a class="btn small wa order" data-p="خريطة مسار بلجرشي وسوق السبت | Baljurashi map" href="#"><span class="ar">اطلبها</span><span class="en">Request the map</span></a></div></article>
-      <article class="card route"><img src="assets/routes/akeeq-ar.png" alt="خريطة مسار العقيق ودرب البخور" loading="lazy" data-full="assets/routes/akeeq-ar.png" data-ar="assets/routes/akeeq-ar.png" data-en="assets/routes/akeeq-en.png" data-alt-ar="خريطة مسار العقيق ودرب البخور" data-alt-en="Al-Aqiq and the Incense Road route map"><h3><span class="ar">مسار العقيق ودرب البخور</span><span class="en">Al-Aqiq &amp; the Incense Road</span></h3><div class="row"><button type="button" class="btn small view"><span class="ar">اعرض الخريطة</span><span class="en">View map</span></button><a class="btn small wa order" data-p="خريطة مسار العقيق ودرب البخور | Al-Aqiq &amp; Incense Road map" href="#"><span class="ar">اطلبها</span><span class="en">Request the map</span></a></div></article>
+      <article class="card route"><a class="thumb" href="routes.html#zahran"><img src="assets/routes/zahran-scene.jpg" alt="رسم مائي لمسار زهران: جبال وطريق ونفق" loading="lazy" width="800" height="352"></a><h3><span class="ar">مسار زهران</span><span class="en">The Zahran Route</span></h3><div class="row"><a class="btn small view" href="routes.html#zahran"><span class="ar">اعرض المسار</span><span class="en">See the route</span></a><a class="btn small wa order" data-p="خريطة مسار زهران | Zahran Route map" href="#"><span class="ar">اطلبها</span><span class="en">Request the map</span></a></div></article>
+      <article class="card route"><a class="thumb" href="routes.html#tihama"><img src="assets/routes/tihama-scene.jpg" alt="رسم مائي لمسار تهامة: نزول من الجبال إلى السهل" loading="lazy" width="800" height="352"></a><h3><span class="ar">مسار تهامة والعقبة</span><span class="en">Tihama &amp; the Descent</span></h3><div class="row"><a class="btn small view" href="routes.html#tihama"><span class="ar">اعرض المسار</span><span class="en">See the route</span></a><a class="btn small wa order" data-p="خريطة مسار تهامة والعقبة | Tihama &amp; Descent map" href="#"><span class="ar">اطلبها</span><span class="en">Request the map</span></a></div></article>
+      <article class="card route"><a class="thumb" href="routes.html#bayda"><img src="assets/routes/bayda-scene.jpg" alt="رسم مائي لمسار بيدة: وادٍ وأشجار رمان وقلعة" loading="lazy" width="800" height="352"></a><h3><span class="ar">مسار بيدة والتراث</span><span class="en">Bayda &amp; Heritage</span></h3><div class="row"><a class="btn small view" href="routes.html#bayda"><span class="ar">اعرض المسار</span><span class="en">See the route</span></a><a class="btn small wa order" data-p="خريطة مسار بيدة والتراث | Bayda &amp; Heritage map" href="#"><span class="ar">اطلبها</span><span class="en">Request the map</span></a></div></article>
+      <article class="card route"><a class="thumb" href="routes.html#baljurashi"><img src="assets/routes/baljurashi-scene.jpg" alt="رسم مائي لمسار بلجرشي: بساتين لوز وقرية وسوق" loading="lazy" width="800" height="352"></a><h3><span class="ar">مسار بلجرشي وسوق السبت</span><span class="en">Baljurashi &amp; Saturday Market</span></h3><div class="row"><a class="btn small view" href="routes.html#baljurashi"><span class="ar">اعرض المسار</span><span class="en">See the route</span></a><a class="btn small wa order" data-p="خريطة مسار بلجرشي وسوق السبت | Baljurashi map" href="#"><span class="ar">اطلبها</span><span class="en">Request the map</span></a></div></article>
+      <article class="card route"><a class="thumb" href="routes.html#akeeq"><img src="assets/routes/akeeq-scene.jpg" alt="رسم مائي لمسار العقيق: سهل ودوائر حجرية" loading="lazy" width="800" height="352"></a><h3><span class="ar">مسار العقيق ودرب البخور</span><span class="en">Al-Aqiq &amp; the Incense Road</span></h3><div class="row"><a class="btn small view" href="routes.html#akeeq"><span class="ar">اعرض المسار</span><span class="en">See the route</span></a><a class="btn small wa order" data-p="خريطة مسار العقيق ودرب البخور | Al-Aqiq &amp; Incense Road map" href="#"><span class="ar">اطلبها</span><span class="en">Request the map</span></a></div></article>
     </div>
 
     <div id="places">
@@ -636,7 +633,6 @@ footer a{color:var(--teal);font-weight:600}
   </div>
 </footer>
 
-<div class="lb" id="lb" role="dialog" aria-modal="true"><button type="button" aria-label="إغلاق / Close">×</button><img alt=""></div>
 
 <script>
 /* ================== الإعدادات: عدّل هنا فقط ================== */
@@ -726,7 +722,6 @@ var EVENTS = [
     document.documentElement.lang=L; document.documentElement.dir=L==='ar'?'rtl':'ltr';
     document.title=L==='ar'?'اختيارات أحمد | Ahmed Choices':'Ahmed Choices | اختيارات أحمد';
     document.querySelectorAll('#ftopic option, #stopic option').forEach(function(o){o.textContent=o.dataset[L];});
-    document.querySelectorAll('.route img').forEach(function(im){im.src=im.dataset[L];im.dataset.full=im.dataset[L];im.alt=im.dataset['alt'+(L==='ar'?'Ar':'En')];});
     document.getElementById('fname').placeholder=L==='ar'?'مثال: محمد':'e.g. Sarah';
     document.getElementById('fmsg').placeholder=L==='ar'?'اكتب ما تريد السؤال عنه أو طلبه':'What would you like to ask or book?';
     refreshLinks(); moon(); events(); news();
@@ -742,15 +737,7 @@ var EVENTS = [
   document.getElementById('scrim').addEventListener('click',function(){menu(false)});
   document.getElementById('sheet').addEventListener('click',function(e){if(e.target.closest('a'))menu(false)});
 
-  /* route map lightbox */
-  var lb=document.getElementById('lb'),lbi=lb.querySelector('img');
-  function openLb(r){var im=r.querySelector('img');lbi.src=im.dataset.full;lbi.alt=im.alt;lb.classList.add('o');lb.querySelector('button').focus();}
-  document.querySelectorAll('.route').forEach(function(r){
-    r.querySelector('img').addEventListener('click',function(){openLb(r)});
-    r.querySelector('.view').addEventListener('click',function(){openLb(r)});
-  });
-  lb.addEventListener('click',function(){lb.classList.remove('o')});
-  document.addEventListener('keydown',function(e){if(e.key==='Escape'){lb.classList.remove('o');menu(false);}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){menu(false);}});
 
   /* places filter */
   var ptabs=document.querySelectorAll('.ptab');

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>مسارات الباحة | اختيارات أحمد</title>
+<meta name="description" content="خمسة مسارات سياحية في الباحة، لكل مسار طريقه ومحطاته. Five tourist routes in Al-Baha, stop by stop.">
+<meta name="theme-color" content="#FBFCFA">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Aref+Ruqaa:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FBFCFA; --card:#FFFFFF; --ink:#28383D; --ink-soft:#56686D; --line:#E2E8E4;
+  --wa:#1E9E55;
+  --display:'El Messiri','IBM Plex Sans Arabic',sans-serif;
+  --body:'IBM Plex Sans Arabic',system-ui,sans-serif;
+  --hand:'Aref Ruqaa','El Messiri',serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{font-size:18px;scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--body);background:var(--paper);color:var(--ink);line-height:1.8;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:3px solid #3F729B;outline-offset:3px;border-radius:8px}
+.l-ar .en,.l-en .ar{display:none}
+.wrap{max-width:860px;margin:0 auto;padding:0 max(18px,env(safe-area-inset-left,0px))}
+
+/* top bar */
+.top{position:sticky;top:0;z-index:20;background:rgba(251,252,250,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:60px}
+.home{font-family:var(--display);font-weight:700;font-size:1.15rem;display:flex;align-items:center;gap:8px}
+.home b{font-size:1.3rem;line-height:1}
+.lang{border:1.5px solid var(--line);border-radius:999px;padding:6px 16px;font-weight:600;background:#fff}
+
+/* intro */
+.intro{padding:34px 0 8px}
+.kicker{font-family:var(--hand);color:#A9733F;font-size:1.3rem}
+h1{font-family:var(--display);font-size:clamp(2.1rem,7vw,3.1rem);line-height:1.3;margin-top:2px}
+.lead{color:var(--ink-soft);font-size:1.1rem;margin-top:8px;max-width:640px}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:18px 0 6px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.chips::-webkit-scrollbar{display:none}
+.chips a{flex:none;display:flex;align-items:center;gap:8px;border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:8px 16px;font-weight:600;font-size:.98rem}
+.chips a i{width:12px;height:12px;border-radius:50%;background:var(--c)}
+
+/* a route */
+.route{padding:34px 0 30px;border-bottom:1px solid var(--line);scroll-margin-top:70px}
+.scene{position:relative;border-radius:24px;overflow:hidden;background:var(--wash);box-shadow:0 1px 0 var(--line)}
+.scene svg{display:block;width:100%;height:clamp(210px,42vw,360px)}
+.badge{position:absolute;inset-inline-start:14px;top:14px;background:rgba(255,255,255,.9);border-radius:999px;padding:4px 14px;font-weight:700;font-size:.92rem;color:var(--c)}
+.rhead{padding:18px 4px 6px}
+.rhead h2{font-family:var(--display);font-size:clamp(1.7rem,5.4vw,2.3rem);line-height:1.35;color:var(--ink)}
+.rhead h2 i{display:inline-block;width:14px;height:14px;border-radius:50%;background:var(--c);margin-inline-end:10px;vertical-align:middle}
+.rhead p{color:var(--ink-soft);font-size:1.08rem}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.meta span{background:var(--wash);color:var(--ink);border-radius:999px;padding:3px 14px;font-size:.95rem;font-weight:600}
+
+/* the journey: road column + stop cards */
+.journey{margin-top:18px}
+.end{display:grid;grid-template-columns:86px 1fr;align-items:center}
+.end .flag{justify-self:center;display:flex;flex-direction:column;align-items:center}
+.end .flag b{display:block;width:44px;height:44px;border-radius:50%;background:#fff;border:3px solid var(--c);position:relative}
+.end .flag b::after{content:"";position:absolute;inset:9px;border-radius:50%;background:var(--c)}
+.end .flag s{display:block;width:16px;height:22px;background:var(--road);margin-top:-2px;text-decoration:none}
+.end.last .flag{flex-direction:column-reverse}
+.end.last .flag s{margin-top:0;margin-bottom:-2px}
+.end span{font-family:var(--hand);font-size:1.25rem;color:var(--c);padding-inline-start:6px}
+.stop{display:grid;grid-template-columns:86px 1fr;min-height:150px}
+.road{position:relative}
+.road svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.pin{position:absolute;top:50%;transform:translate(-50%,-50%);width:46px;height:46px;border-radius:50%;background:var(--c);color:#fff;
+     display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.15rem;border:4px solid var(--paper);box-shadow:0 2px 6px rgba(40,56,61,.18);font-family:var(--display)}
+.card{align-self:center;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:14px 16px;margin:8px 0;
+      display:grid;grid-template-columns:52px 1fr;gap:12px;align-items:start;box-shadow:0 1px 2px rgba(40,56,61,.04)}
+.ico{width:52px;height:52px;border-radius:16px;background:var(--wash);color:var(--c);display:flex;align-items:center;justify-content:center}
+.ico svg{width:30px;height:30px}
+.card h3{font-family:var(--display);font-size:1.25rem;line-height:1.45}
+.card p{color:var(--ink-soft);font-size:1.02rem;line-height:1.7;margin-top:2px}
+.card a{display:inline-flex;align-items:center;gap:6px;margin-top:8px;font-weight:600;font-size:.95rem;color:var(--c);border-bottom:1.5px solid currentColor;padding-bottom:1px}
+.ctas{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;padding:12px 22px;font-weight:700;font-size:1.02rem;border:1.5px solid var(--line);background:#fff}
+.btn.wa{background:var(--wa);border-color:var(--wa);color:#fff}
+.btn svg{width:20px;height:20px}
+.note{color:var(--ink-soft);font-size:.98rem;padding:26px 4px 0}
+footer{padding:30px 0 calc(30px + env(safe-area-inset-bottom,0px));color:var(--ink-soft);font-size:.95rem}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+@media (max-width:520px){
+  html{font-size:17px}
+  .stop,.end{grid-template-columns:66px 1fr}
+  .card{grid-template-columns:44px 1fr;padding:12px 14px;gap:10px}
+  .ico{width:44px;height:44px;border-radius:14px}
+  .ico svg{width:26px;height:26px}
+  .pin{width:40px;height:40px;font-size:1.02rem}
+  .scene{border-radius:18px}
+}
+</style>
+</head>
+<body class="l-ar">
+
+<header class="top">
+  <div class="wrap">
+    <a class="home" href="/"><b aria-hidden="true" class="ar">›</b><b aria-hidden="true" class="en">‹</b><span class="ar">اختيارات أحمد</span><span class="en">Ahmed Choices</span></a>
+    <button class="lang" id="lang" aria-label="Switch language"><span class="ar">English</span><span class="en">العربية</span></button>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="intro">
+    <div class="kicker"><span class="ar">دليل الطريق</span><span class="en">A road guide</span></div>
+    <h1><span class="ar">مسارات الباحة</span><span class="en">Al-Baha routes</span></h1>
+    <p class="lead"><span class="ar">خمسة مسارات جرّبتها بنفسي، لكل مسار طريقه ومحطاته بالترتيب. افتح أي محطة في خرائط Google، أو دعني أصحبك فيه.</span><span class="en">Five routes I have travelled myself, each with its road and stops in order. Open any stop in Google Maps, or let me take you along.</span></p>
+    <nav class="chips" id="chips" aria-label="المسارات"></nav>
+  </section>
+  <div id="routes"></div>
+  <p class="note"><span class="ar">المحطات مرتبة من أول المسار إلى آخره، وروابطها تفتح بحثاً في خرائط Google. تحقّق من أوقات العمل قبل الذهاب.</span><span class="en">Stops run from the start of each route to its end, and each link opens a Google Maps search. Check opening hours before you go.</span></p>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span><span class="ar">اختيارات أحمد · الباحة</span><span class="en">Ahmed Choices · Al-Baha</span></span>
+    <a href="/" style="font-weight:600"><span class="ar">العودة إلى الصفحة الرئيسية</span><span class="en">Back to the home page</span></a>
+  </div>
+</footer>
+
+<script>
+(function(){
+var WHATSAPP="966504611134";
+
+/* ---------- icons (24×24, stroke) ---------- */
+var I={
+ waterfall:'<path d="M4 5h16M7 5v7c0 3 2 4 2 7M12 5v14M17 5v5c0 3-2 5-2 9"/>',
+ park:'<path d="M12 3c-3 0-5 2.5-5 5.5S9 13 12 13s5-1.5 5-4.5S15 3 12 3z"/><path d="M12 13v8M4 21h16M6 17h4"/>',
+ adventure:'<path d="M3 20l6-10 4 6 3-4 5 8z"/><path d="M14 6l2-2 2 2"/>',
+ view:'<circle cx="7" cy="14" r="3.5"/><circle cx="17" cy="14" r="3.5"/><path d="M10.5 14h3M5 10.5L7 5h2M19 10.5L17 5h-2"/>',
+ farm:'<path d="M12 21v-9"/><path d="M12 12c0-4 3-6 7-6 0 4-3 6-7 6zM12 15c0-3-2.5-5-6-5 0 3 2.5 5 6 5z"/><path d="M4 21h16"/>',
+ food:'<path d="M3 12h18a9 9 0 0 1-18 0z"/><path d="M8 8c0-2 2-2 2-4M13 8c0-2 2-2 2-4"/>',
+ cabin:'<path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-5h4v5"/>',
+ coffee:'<path d="M5 9h11v5a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5z"/><path d="M16 11h2a2 2 0 0 1 0 4h-2M8 3c0 2 2 2 2 4M12 3c0 2 2 2 2 4"/>',
+ market:'<path d="M3 9l2-5h14l2 5"/><path d="M3 9c0 1.7 1.3 3 3 3s3-1.3 3-3c0 1.7 1.3 3 3 3s3-1.3 3-3c0 1.7 1.3 3 3 3s3-1.3 3-3"/><path d="M5 12v8h14v-8"/>',
+ mountain:'<path d="M2 20l7-12 4 6 3-4 6 10z"/><path d="M7.5 10.5L9 12l1.5-1.5"/>',
+ museum:'<path d="M3 9l9-5 9 5"/><path d="M5 9v9M9.5 9v9M14.5 9v9M19 9v9M3 20h18"/>',
+ blossom:'<circle cx="12" cy="12" r="2"/><path d="M12 10c-2-4 2-6 2-2M14 12c4-2 6 2 2 2M12 14c2 4-2 6-2 2M10 12c-4 2-6-2-2-2"/>',
+ village:'<path d="M2 20V11l5-4 5 4v9M12 20v-6l5-4 5 4v6M2 20h20"/><path d="M6 20v-4h2v4"/>',
+ mine:'<path d="M4 20L14 10"/><path d="M11 5c4-1 7 1 8 4-3-1-5-1-8-1z"/><path d="M15 21l2-2 3 2"/>',
+ trail:'<path d="M7 20c-1.5 0-2-1.5-2-3s1-3 2-3 2 1.5 2 3-0.5 3-2 3zM15 11c-1.5 0-2-1.5-2-3s1-3 2-3 2 1.5 2 3-0.5 3-2 3z"/>',
+ stones:'<circle cx="12" cy="5" r="1.8"/><circle cx="18" cy="9" r="1.8"/><circle cx="18" cy="15" r="1.8"/><circle cx="12" cy="19" r="1.8"/><circle cx="6" cy="15" r="1.8"/><circle cx="6" cy="9" r="1.8"/>',
+ valley:'<path d="M2 6l6 8 4-3 4 3 6-8"/><path d="M4 19c3-2 5 1 8-1s5 1 8-1"/>',
+ castle:'<path d="M4 21V9h3V6h2v3h2V6h2v3h2V6h2v3h3v12z"/><path d="M10 21v-5h4v5"/>',
+ dam:'<path d="M3 8h18M5 8v12h14V8"/><path d="M9 8v12M15 8v12"/><path d="M2 5c2-1.5 4 1.5 6 0s4 1.5 6 0 4 1.5 6 0"/>',
+ spring:'<path d="M12 3c-3 4-5 6.5-5 9a5 5 0 0 0 10 0c0-2.5-2-5-5-9z"/><path d="M5 21c1-1 1-2 0-3M12 21c1-1 1-2 0-3M19 21c1-1 1-2 0-3"/>',
+ fruit:'<path d="M5 6c2 9 7 13 14 13"/><path d="M5 6c4 2 8 6 9 13M5 6L4 4"/>',
+ cave:'<path d="M2 20c1-8 5-14 10-14s9 6 10 14z"/><path d="M8 20c0-4 2-7 4-7s4 3 4 7"/>',
+ breakfast:'<circle cx="12" cy="13" r="7"/><circle cx="12" cy="13" r="3"/><path d="M12 2v2M4 6l1.5 1.5M20 6l-1.5 1.5"/>',
+ dinner:'<path d="M12 4a8 8 0 1 0 0 16 6 6 0 0 1 0-16z"/><path d="M17 4l.5 1.5L19 6l-1.5.5L17 8l-.5-1.5L15 6l1.5-.5z"/>',
+ forest:'<path d="M8 3l-5 9h3l-3 5h10l-3-5h3z"/><path d="M8 17v4M17 8l-3 5h2l-2 4h6l-2-4h2z"/><path d="M17 17v4"/>'
+};
+function icon(n){return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+(I[n]||I.view)+'</svg>';}
+
+/* ---------- routes ----------  [ar name, ar note, en name, en note, icon, maps search] */
+var R=[
+{k:'zahran',c:'#C0533B',wash:'#FBEAE4',road:'#E8DCCB',
+ ar:{t:'مسار زهران',s:'على طريق الأنفاق السياحي، من غابة خيرة إلى المندق'},
+ en:{t:'The Zahran Route',s:'Along the tunnels tourist road, from Khayrah Forest to Al-Mandaq'},
+ stops:[
+ ['غابة خيرة والشلال','بئر القلت والمطلّ الزجاجي','Khayrah Forest & Waterfall','Al-Qalt Well and the glass viewpoint','waterfall','غابة خيرة'],
+ ['منتزه جدر','ممشى يحيط بالشلال','Jidar Park','A walkway around the waterfall','park','منتزه جدر'],
+ ['منتجع قمرة','مغامرات وألعاب جبلية','Qamra Resort','Mountain adventures and games','adventure','منتجع قمرة'],
+ ['شفا نعاش','إطلالة على تهامة','Shafa Na\'ash','A view over Tihama','view','شفا نعاش'],
+ ['مزرعة البروقي','في المندق، يومي الخميس والسبت','Al-Buroqi Farm','In Al-Mandaq, on Thursdays and Saturdays','farm','مزرعة البروقي المندق'],
+ ['مطعم طلوب','مندي ومفطّح، بحجز مسبق','Talloub Restaurant','Mandi and whole roast lamb, booking needed','food','مطعم طلوب'],
+ ['مطعم السيسبان','في العسّاف','Al-Sisaban Restaurant','In Al-Assaf','food','مطعم السيسبان'],
+ ['أكواخ الحازم','ختام المسار بالقهوة','Al-Hazim Cabins','End the route over coffee','coffee','أكواخ الحازم']]},
+{k:'tihama',c:'#C77A22',wash:'#FBEFDD',road:'#EADBC4',
+ ar:{t:'مسار تهامة والعقبة',s:'نزولاً من الباحة عبر العقبة إلى ذي عين وجبل شدا'},
+ en:{t:'Tihama & the Descent',s:'Down from Al-Baha through the pass to Dhi Ain and Mount Shada'},
+ stops:[
+ ['إفطار الكبدة','في السعودية أو شبوة أو مندي الحفرة','Liver breakfast','At Al-Saudia, Shabwa or Mandi Al-Hufra','breakfast','مطعم الكبدة الباحة'],
+ ['قرية ذي عين','البيوت القديمة والموز والوادي والماء','Dhi Ain Village','Old houses, banana groves, the valley and its stream','village','قرية ذي عين'],
+ ['جبل شدا الأسفل','الصعود إلى الكهوف','Lower Mount Shada','A climb up to the caves','cave','جبل شدا الأسفل'],
+ ['سد وادي الأحسبة','سدّ على الوادي','Wadi Al-Ahsaba Dam','A dam across the valley','dam','سد وادي الأحسبة'],
+ ['مزرعة د. أحمد قشاش','أشجار الجزيرة العربية','Dr. Ahmed Qashash\'s Farm','Trees of the Arabian Peninsula','forest','مزرعة أحمد قشاش'],
+ ['فواكه تهامة','مانجو وبابايا وموز بلدي','Tihama fruit','Mango, papaya and local bananas','fruit','فواكه تهامة الباحة'],
+ ['وادي قنونا','وادٍ من أودية تهامة','Wadi Qanuna','One of the valleys of Tihama','valley','وادي قنونا'],
+ ['العين الحارة في الأحسرين','عين ماء حارة','The hot spring at Al-Ahsarin','A natural hot spring','spring','العين الحارة الأحسرين'],
+ ['العشاء','ملهوي الحفرة والسروات، أو مندي الجبل','Dinner','Mulhawi at Al-Hufra or Al-Sarawat, or Mandi Al-Jabal','dinner','مندي الحفرة الباحة']]},
+{k:'bayda',c:'#2F7AA8',wash:'#E5F0F8',road:'#E3E0D6',
+ ar:{t:'مسار بيدة والتراث',s:'من وادي بيدة إلى قلعة بخروش بن علاس'},
+ en:{t:'Bayda & Heritage',s:'From Wadi Bayda to the castle of Bakhroush bin Allas'},
+ stops:[
+ ['وادي بيدة','الوادي ومزارع الرمان','Wadi Bayda','The valley and its pomegranate farms','valley','وادي بيدة'],
+ ['مطعم وادي القوافل','استراحة الغداء','Wadi Al-Qawafel Restaurant','A lunch stop','food','مطعم وادي القوافل'],
+ ['منتزه إكليل الجبل','جلسات وسط الطبيعة','Iklil Al-Jabal Park','Seating out in nature','park','منتزه إكليل الجبل'],
+ ['منتزه الثروة الوطنية','منتزه عائلي','Al-Tharwa Al-Wataniya Park','A family park','park','منتزه الثروة الوطنية'],
+ ['سوق الرمان','رمّان الباحة الطازج','The pomegranate market','Fresh Al-Baha pomegranates','market','سوق الرمان'],
+ ['دار عوضة','بيت تراثي','Dar Awdah','A heritage house','museum','دار عوضة'],
+ ['قرية الأطاولة الأثرية','بيوت حجرية قديمة','Al-Atawlah heritage village','Old stone houses','village','قرية الأطاولة الأثرية'],
+ ['قلعة بخروش بن علاس','ختام المسار بين القرى','Bakhroush bin Allas Castle','The end of the route, among the villages','castle','قلعة بخروش بن علاس']]},
+{k:'baljurashi',c:'#8A5AAE',wash:'#F1EAF7',road:'#E6DED2',
+ ar:{t:'مسار بلجرشي وسوق السبت',s:'من سوق السبت فجراً إلى قرية الملد'},
+ en:{t:'Baljurashi & the Saturday Market',s:'From the Saturday market at dawn to Al-Malad village'},
+ stops:[
+ ['سوق السبت','بعد الفجر، ثم بيت آل غرم','The Saturday market','Just after dawn, then the Al Gharm house','market','سوق السبت بلجرشي'],
+ ['فطور الفول','في خلوفة أو الشدوي','Fava bean breakfast','At Khaloufa or Al-Shadawi','breakfast','فطور فول بلجرشي'],
+ ['جبل حَزْنة','أعلى قمم بلجرشي','Mount Hazna','The highest peak around Baljurashi','mountain','جبل حزنة'],
+ ['شفا المدان','إطلالة على تهامة','Shafa Al-Madan','A view over Tihama','view','شفا المدان'],
+ ['متحف نُزُل العايد','بيت تراثي وضيافة','Nuzul Al-Ayed Museum','A heritage house with a warm welcome','museum','متحف نزل العايد'],
+ ['بساتين اللوز','لوز وتين وطيور','Almond orchards','Almonds, figs and birdsong','blossom','بساتين اللوز بلجرشي'],
+ ['قرية الملد','ومتحف الأخوين فيها','Al-Malad village','And its Two Brothers Museum','village','قرية الملد بلجرشي']]},
+{k:'akeeq',c:'#A07A14',wash:'#F8F0D8',road:'#EDE2C9',
+ ar:{t:'مسار العقيق ودرب البخور',s:'الزيتونة، ومنجم المعملة، والدوائر الحجرية'},
+ en:{t:'Al-Aqiq & the Incense Road',s:'Al-Zaytouna farm, the Al-Ma\'mala mine and the stone circles'},
+ stops:[
+ ['مزرعة الزيتونة','زيتون وفواكه وطيور وخيول','Al-Zaytouna Farm','Olives, fruit, birds and horses','farm','مزرعة الزيتونة العقيق'],
+ ['منجم المعملة','تعدين قديم، على بعد ٤٠ كم من الباحة','Al-Ma\'mala Mine','Ancient mining, 40 km from Al-Baha','mine','منجم المعملة'],
+ ['درب البخور','طريق الفيل ودرب القوافل','The Incense Road','The Elephant Road, an old caravan trail','trail','درب البخور العقيق'],
+ ['الدوائر الحجرية','وقفة عند الشواهد الأثرية','The stone circles','A stop among the ancient markers','stones','الدوائر الحجرية العقيق']]}
+];
+
+/* ---------- painted scenes (viewBox 800×340) ---------- */
+var DEFS='<defs>'+
+ '<filter id="wc" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.022" numOctaves="3" seed="7"/><feDisplacementMap in="SourceGraphic" scale="10"/></filter>'+
+ '<filter id="soft"><feGaussianBlur stdDeviation="6"/></filter>'+
+ '<filter id="paper"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="2"/><feColorMatrix values="0 0 0 0 0.55  0 0 0 0 0.5  0 0 0 0 0.42  0 0 0 0.08 0"/></filter>'+
+ '</defs>';
+function sky(a,b){return '<linearGradient id="sk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="'+a+'"/><stop offset="1" stop-color="'+b+'"/></linearGradient><rect width="800" height="340" fill="url(#sk)"/>';}
+function cloud(x,y,s){return '<g filter="url(#soft)" opacity=".85" fill="#fff"><ellipse cx="'+x+'" cy="'+y+'" rx="'+(70*s)+'" ry="'+(18*s)+'"/><ellipse cx="'+(x+30*s)+'" cy="'+(y-12*s)+'" rx="'+(40*s)+'" ry="'+(18*s)+'"/></g>';}
+function tree(x,y,s,col){return '<g filter="url(#wc)"><path d="M'+x+' '+y+'v'+(-14*s)+'" stroke="#8C7A62" stroke-width="'+(3*s)+'"/><ellipse cx="'+x+'" cy="'+(y-22*s)+'" rx="'+(13*s)+'" ry="'+(15*s)+'" fill="'+col+'"/></g>';}
+function house(x,y,s,col){return '<g filter="url(#wc)"><rect x="'+x+'" y="'+(y-18*s)+'" width="'+(22*s)+'" height="'+(18*s)+'" fill="'+col+'"/><rect x="'+(x+8*s)+'" y="'+(y-9*s)+'" width="'+(6*s)+'" height="'+(9*s)+'" fill="#B39C7C"/><path d="M'+(x-1*s)+' '+(y-18*s)+'h'+(24*s)+'" stroke="#fff" stroke-width="'+(2*s)+'"/></g>';}
+function road(d,w){return '<path d="'+d+'" fill="none" stroke="#EFE7DA" stroke-width="'+w+'" stroke-linecap="round" filter="url(#wc)"/><path d="'+d+'" fill="none" stroke="#fff" stroke-width="2.4" stroke-dasharray="10 12" stroke-linecap="round"/>';}
+var SC={
+ zahran:function(){return sky('#DCEBF3','#F7F4EC')+cloud(170,70,1.2)+cloud(560,52,1)+
+  '<g filter="url(#wc)"><path d="M0 170 L120 90 L230 150 L330 70 L450 140 L560 80 L680 150 L800 100 V340 H0Z" fill="#CFDCE6"/>'+
+  '<path d="M0 220 L90 160 L200 205 L300 140 L420 210 L520 160 L640 220 L800 170 V340 H0Z" fill="#B7CDB8"/>'+
+  '<path d="M500 340 L560 150 L640 110 L800 120 V340Z" fill="#DCC6A3"/>'+
+  '<path d="M600 340 C605 260 640 220 690 205 L800 200 V340Z" fill="#CDB38C"/></g>'+
+  '<path d="M520 170 C516 210 522 250 516 300" stroke="#fff" stroke-width="5" fill="none" opacity=".9" filter="url(#wc)"/><path d="M532 175 C530 215 536 255 530 300" stroke="#fff" stroke-width="3" fill="none" opacity=".7" filter="url(#wc)"/>'+
+  road('M-20 330 C120 300 230 300 330 270 S520 250 610 262 S690 268 720 262',26)+
+  '<g filter="url(#wc)"><path d="M688 300 V262 a34 34 0 0 1 68 0 V300Z" fill="#B8A07C"/><path d="M700 300 V266 a22 22 0 0 1 44 0 V300Z" fill="#7E7466" opacity=".55"/></g>'+
+  tree(70,300,1.1,'#8FB08F')+tree(110,312,0.9,'#A3C09B')+tree(400,268,0.8,'#8FB08F')+tree(440,276,1,'#9DBB93');},
+ tihama:function(){return sky('#E9EFF2','#FBF3E6')+
+  '<g filter="url(#wc)"><path d="M0 60 L180 70 L300 120 L360 190 L800 210 V340 H0Z" fill="#B9CDB6"/>'+
+  '<path d="M0 120 L150 125 L250 175 L330 240 L800 250 V340 H0Z" fill="#C8D6B5"/>'+
+  '<path d="M300 250 C450 230 620 240 800 232 V340 H260Z" fill="#EEDDB9"/>'+
+  '<path d="M560 236 L600 205 L640 236Z M620 238 L670 196 L720 238Z" fill="#D8C2A2"/></g>'+
+  '<g filter="url(#soft)" fill="#fff" opacity=".9"><ellipse cx="300" cy="170" rx="160" ry="16"/><ellipse cx="520" cy="185" rx="200" ry="14"/></g>'+
+  road('M40 120 C140 140 120 175 210 190 S300 215 260 240 S330 290 470 300 S700 300 820 300',22)+
+  '<g filter="url(#wc)" stroke="#7FA56B" stroke-width="5" fill="none" stroke-linecap="round"><path d="M660 320 V280 M660 284 q-26 -8 -40 6 M660 284 q24 -12 40 2 M660 290 q-20 2 -30 18 M660 290 q22 0 32 16"/>'+
+  '<path d="M720 324 V292 M720 296 q-20 -6 -32 6 M720 296 q20 -10 32 2"/></g>'+
+  house(520,300,1,'#F2E7D2')+house(548,302,0.8,'#EBDDC2')+tree(90,128,0.9,'#93B38D')+tree(130,134,0.7,'#A6C29C');},
+ bayda:function(){return sky('#DFEDF6','#F8F6EE')+cloud(240,60,1)+cloud(620,80,0.8)+
+  '<g filter="url(#wc)"><path d="M0 120 L160 90 L300 170 L400 220 L500 170 L640 80 L800 110 V340 H0Z" fill="#C3D6C4"/>'+
+  '<path d="M0 200 L140 170 L300 230 L400 262 L520 226 L660 160 L800 190 V340 H0Z" fill="#A9C6A5"/>'+
+  '<path d="M300 250 C360 268 440 272 520 250" stroke="#9CC6DA" stroke-width="12" fill="none"/></g>'+
+  '<g filter="url(#wc)"><rect x="652" y="92" width="34" height="62" fill="#D8C39E"/><path d="M650 92 h6v-8h6v8h6v-8h6v8h6v-8h6v8h4" fill="#D8C39E"/><rect x="664" y="126" width="10" height="28" fill="#B39C7C"/></g>'+
+  road('M-20 320 C160 310 260 300 340 290 S520 300 610 250 S660 190 670 156',20)+
+  tree(120,300,1,'#86AE7E')+tree(170,312,0.9,'#93B88A')+tree(220,300,0.8,'#86AE7E')+
+  '<g fill="#C9584D">'+[[116,276],[124,282],[166,288],[176,292],[216,280]].map(function(p){return '<circle cx="'+p[0]+'" cy="'+p[1]+'" r="3.4"/>';}).join('')+'</g>'+
+  house(470,250,1,'#E9DCC2')+house(500,256,0.8,'#E2D3B7');},
+ baljurashi:function(){return sky('#E6EEF5','#FBF5F2')+cloud(150,64,1)+cloud(600,50,1.1)+
+  '<g filter="url(#wc)"><path d="M180 175 L300 70 L345 100 L420 165Z" fill="#C9D3DE"/><path d="M0 190 C120 140 240 150 360 175 S600 130 800 160 V340 H0Z" fill="#CDDCCB"/>'+
+  '<path d="M0 250 C140 215 300 230 420 245 S650 215 800 235 V340 H0Z" fill="#B7CEB2"/></g>'+
+  road('M-20 318 C140 300 260 292 380 296 S600 300 820 276',22)+
+  house(470,232,1.2,'#EADBC0')+house(504,236,1,'#E3D1B2')+house(530,230,1.1,'#EFE2CA')+
+  '<g filter="url(#wc)"><path d="M300 286 h70 l-6 -16 h-58z" fill="#F0D27A"/><path d="M312 286 v-16 M326 286 v-16 M340 286 v-16 M354 286 v-16" stroke="#fff" stroke-width="5"/><path d="M306 286 v18 M364 286 v18" stroke="#B39C7C" stroke-width="3"/></g>'+
+  [[80,300],[130,312],[640,288],[700,300],[750,288]].map(function(p,i){return '<g filter="url(#wc)"><path d="M'+p[0]+' '+p[1]+' v-16" stroke="#8C7A62" stroke-width="3"/><circle cx="'+p[0]+'" cy="'+(p[1]-28)+'" r="17" fill="'+(i%2?'#F4D3DD':'#F7DFE6')+'"/><circle cx="'+(p[0]-8)+'" cy="'+(p[1]-34)+'" r="6" fill="#fff" opacity=".8"/></g>';}).join('');},
+ akeeq:function(){return sky('#E8F0F4','#FCF4E2')+
+  '<g filter="url(#wc)"><path d="M0 170 C120 150 200 160 300 168 S520 140 640 156 S760 150 800 152 V340 H0Z" fill="#E2D2B1"/>'+
+  '<path d="M0 220 C180 205 380 215 560 205 S760 210 800 208 V340 H0Z" fill="#F1E2C2"/></g>'+
+  '<circle cx="640" cy="80" r="34" fill="#F7E3A8" filter="url(#soft)"/>'+
+  '<path d="M-10 300 C120 280 240 260 380 252 S600 236 820 230" fill="none" stroke="#C9A976" stroke-width="3" stroke-dasharray="2 10" stroke-linecap="round"/>'+
+  road('M-20 330 C140 318 300 300 420 290 S640 270 820 266',18)+
+  '<g fill="#BDB4A4" filter="url(#wc)">'+(function(){var s='';for(var r=0;r<2;r++){var cx=r?560:470,cy=r?226:236,rx=r?34:28,ry=r?10:9;for(var a=0;a<12;a++){var t=a/12*Math.PI*2;s+='<ellipse cx="'+(cx+rx*Math.cos(t)).toFixed(1)+'" cy="'+(cy+ry*Math.sin(t)).toFixed(1)+'" rx="4" ry="3"/>';}}return s;})()+'</g>'+
+  tree(90,300,1,'#A9B78F')+tree(130,306,0.8,'#B4C09B')+tree(170,298,0.9,'#A9B78F');}
+};
+function scene(k){return '<svg viewBox="0 0 800 340" preserveAspectRatio="xMidYMax slice" aria-hidden="true">'+DEFS+SC[k]()+'<rect width="800" height="340" filter="url(#paper)"/></svg>';}
+
+/* ---------- build ---------- */
+var L='ar';try{L=localStorage.getItem('lang')||'ar'}catch(e){}
+function num(n){return L==='ar'?n.toLocaleString('ar-SA'):String(n);}
+function seg(x){ /* one row of road: enter top-centre, swing to x, leave bottom-centre */
+  return '<svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">'+
+   '<path d="M50 0 C50 28 '+x+' 22 '+x+' 50 C'+x+' 78 50 72 50 100" fill="none" stroke="var(--road)" stroke-width="18" vector-effect="non-scaling-stroke" stroke-linecap="butt"/>'+
+   '<path d="M50 0 C50 28 '+x+' 22 '+x+' 50 C'+x+' 78 50 72 50 100" fill="none" stroke="#fff" stroke-width="2.4" stroke-dasharray="7 9" vector-effect="non-scaling-stroke"/></svg>';}
+function wa(t){return 'https://wa.me/'+WHATSAPP+'?text='+encodeURIComponent(t);}
+function maps(q){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(q+' الباحة');}
+var WAI='<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.4-.7-2.8-1.1-4.6-4-4.8-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></svg>';
+
+function render(){
+  document.body.className='l-'+L;
+  document.documentElement.lang=L; document.documentElement.dir=L==='ar'?'rtl':'ltr';
+  document.title=L==='ar'?'مسارات الباحة | اختيارات أحمد':'Al-Baha routes | Ahmed Choices';
+  var ar=L==='ar';
+  document.getElementById('chips').innerHTML=R.map(function(r){return '<a href="#'+r.k+'" style="--c:'+r.c+'"><i></i>'+r[L].t+'</a>';}).join('');
+  document.getElementById('routes').innerHTML=R.map(function(r){
+    var rows=r.stops.map(function(s,i){
+      var x=i%2?70:30; if(!ar) x=100-x;
+      return '<div class="stop"><div class="road">'+seg(x)+'<span class="pin" style="'+(ar?'left':'left')+':'+x+'%">'+num(i+1)+'</span></div>'+
+        '<div class="card"><span class="ico">'+icon(s[4])+'</span><div><h3>'+(ar?s[0]:s[2])+'</h3><p>'+(ar?s[1]:s[3])+'</p>'+
+        '<a href="'+maps(s[5])+'" target="_blank" rel="noopener">'+(ar?'افتح في خرائط Google':'Open in Google Maps')+' ↗</a></div></div></div>';
+    }).join('');
+    var t=r[L];
+    return '<section class="route" id="'+r.k+'" style="--c:'+r.c+';--wash:'+r.wash+';--road:'+r.road+'">'+
+      '<div class="scene">'+scene(r.k)+'<span class="badge">'+(ar?num(r.stops.length)+' محطات':r.stops.length+' stops')+'</span></div>'+
+      '<div class="rhead"><h2><i></i>'+t.t+'</h2><p>'+t.s+'</p></div>'+
+      '<div class="journey">'+
+        '<div class="end"><div class="flag"><b></b><s></s></div><span>'+(ar?'نقطة الانطلاق':'Start here')+'</span></div>'+
+        rows+
+        '<div class="end last"><div class="flag"><b></b><s></s></div><span>'+(ar?'ختام المسار':'End of the route')+'</span></div>'+
+      '</div>'+
+      '<div class="ctas"><a class="btn wa" target="_blank" rel="noopener" href="'+wa(ar?('أرغب في جولة في '+t.t):('I would like a guided tour of '+t.t))+'">'+WAI+(ar?'احجز جولة في هذا المسار':'Book a tour of this route')+'</a></div>'+
+    '</section>';
+  }).join('');
+  try{localStorage.setItem('lang',L)}catch(e){}
+}
+document.getElementById('lang').addEventListener('click',function(){
+  var y=window.scrollY; L=L==='ar'?'en':'ar'; render(); window.scrollTo(0,y);
+});
+render();
+if(location.hash){var t=document.getElementById(location.hash.slice(1));if(t)setTimeout(function(){t.scrollIntoView({behavior:'instant',block:'start'})},30);}
+})();
+</script>
+</body>
+</html>
