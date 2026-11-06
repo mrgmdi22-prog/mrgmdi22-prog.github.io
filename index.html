@@ -174,11 +174,14 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 /* Sky */
 .skygrid{display:grid;grid-template-columns:1fr;gap:16px;align-items:start}
 @media (min-width:800px){.skygrid{grid-template-columns:.9fr 1.3fr}}
-.moon{padding:26px;text-align:center;background:linear-gradient(170deg,var(--sky-wash),var(--card))}
-.moon .emo{font-size:5rem;line-height:1.15}
+.moon{padding:0 0 22px;text-align:center;background:var(--card);overflow:hidden}
+.moon::before{content:"";display:block;height:150px;background:var(--moon-art) center/cover;margin-bottom:-58px}
+.moon .emo{position:relative;width:96px;height:96px;margin:0 auto;border-radius:50%;background:var(--card);display:grid;place-items:center;box-shadow:0 6px 18px rgba(63,114,155,.18)}
+.moon h3,.moon .pct,.moon .tip{margin-inline:22px}
+.moon .emo{font-size:3.6rem;line-height:1}
 .moon h3{font-size:1.5rem;margin-top:4px}
 .moon .pct{color:var(--sky);font-weight:600}
-.moon .tip{background:var(--card);border-radius:14px;padding:12px 16px;margin-top:14px;font-size:.98rem;color:var(--ink-soft);border:1px solid var(--line)}
+.moon .tip{background:var(--sky-wash);border-radius:14px;padding:12px 16px;margin-top:14px;font-size:.98rem;color:var(--ink-soft);border:1px solid var(--line)}
 .events{padding:20px 24px}
 .events h3{font-size:1.25rem;margin-bottom:4px}
 .ev{display:grid;grid-template-columns:84px 1fr;gap:14px;padding:13px 0;border-top:1px solid var(--line)}
@@ -210,6 +213,14 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .story p{color:var(--ink-soft)}
 .story .go{margin-top:auto;padding-top:8px;font-weight:600;color:var(--sand)}
 
+/* Gallery */
+.gallery{padding:50px 0 40px;border-top:1px solid var(--line);background:linear-gradient(180deg,var(--paper),var(--sky-wash) 60%,var(--paper))}
+.gallery h2{font-size:clamp(1.8rem,5vw,2.4rem);margin-top:2px}
+.gstrip{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(260px,78%);gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:18px 2px 14px;scrollbar-width:thin}
+.gitem{margin:0;scroll-snap-align:start;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:10px 10px 12px}
+.gitem img{width:100%;height:auto;aspect-ratio:800/447;object-fit:cover;border-radius:14px}
+.gitem figcaption{font-family:var(--hand);font-size:1.15rem;color:var(--ink-soft);padding:8px 6px 0}
+@media (min-width:900px){.gstrip{grid-auto-flow:row;grid-template-columns:repeat(6,1fr);overflow:visible}.gitem:nth-child(-n+2){grid-column:span 3}.gitem:nth-child(n+3){grid-column:span 2}}
 /* Writing */
 .svc{padding:20px 22px}
 .svc h3{font-size:1.25rem}
@@ -400,7 +411,7 @@ footer a{color:var(--teal);font-weight:600}
 <section class="chapter flip" id="sky" style="--c:var(--sky);--wash:var(--sky-wash)">
   <div class="wrap">
     <div class="ch-head">
-      <figure class="paint"><img src="assets/art/sky-1600.jpg" srcset="assets/art/sky-800.jpg 800w, assets/art/sky-1600.jpg 1600w" sizes="(min-width:900px) 52vw, 100vw" width="1600" height="893" loading="lazy" alt="لوحة مائية: غروب الشمس فوق بيوت الباحة وتلالها"></figure>
+      <figure class="paint"><img src="assets/art/meteor-1600.jpg" srcset="assets/art/meteor-800.jpg 800w, assets/art/meteor-1600.jpg 1600w" sizes="(min-width:900px) 52vw, 100vw" width="1600" height="893" loading="lazy" alt="لوحة مائية: رجلان من الأزمنة الأولى يشيران إلى شهاب يعبر سماء مرصّعة بالنجوم قرب نار مخيم"></figure>
       <div class="ch-text">
         <span class="kicker"><span class="ar">النجوم</span><span class="en">Stars</span></span>
         <h2><span class="ar">سماء الباحة الليلة</span><span class="en">Tonight's sky over Al-Baha</span></h2>
@@ -411,7 +422,7 @@ footer a{color:var(--teal);font-weight:600}
       </div>
     </div>
     <div class="skygrid">
-      <div class="card moon">
+      <div class="card moon" style="--moon-art:url(assets/art/moon-800.jpg)">
         <div class="emo" id="moonEmo" aria-hidden="true">🌙</div>
         <h3 id="moonName"></h3>
         <div class="pct" id="moonPct"></div>
@@ -471,11 +482,26 @@ footer a{color:var(--teal);font-weight:600}
   </div>
 </section>
 
+<!-- ===== Gallery ===== -->
+<section class="gallery" id="gallery">
+  <div class="wrap">
+    <span class="kicker" style="--c:var(--teal)"><span class="ar">من دفتر الرسم</span><span class="en">From the sketchbook</span></span>
+    <h2><span class="ar">الباحة بالألوان المائية</span><span class="en">Al-Baha in watercolour</span></h2>
+    <div class="gstrip">
+      <figure class="gitem"><img src="assets/art/sunrays-800.jpg" width="800" height="447" loading="lazy" alt="لوحة مائية: أشعة الشمس تخرج من خلف سحاب كثيف فوق مدينة فيها مئذنة"><figcaption><span class="ar">شمس خلف السحاب فوق المدينة</span><span class="en">Sun behind the clouds over town</span></figcaption></figure>
+      <figure class="gitem"><img src="assets/art/peak-800.jpg" width="800" height="447" loading="lazy" alt="لوحة مائية: جبل مخروطي وسط سهل وبيوت تحت سماء غائمة"><figcaption><span class="ar">جبل وسط السهل تحت الغيم</span><span class="en">A lone peak under the clouds</span></figcaption></figure>
+      <figure class="gitem"><img src="assets/art/night-peak-800.jpg" width="800" height="447" loading="lazy" alt="لوحة مائية: جبل بنفسجي فوق بيوت القرية في ليلة مرصعة بالنجوم"><figcaption><span class="ar">الجبل تحت نجوم الليل</span><span class="en">The mountain under night stars</span></figcaption></figure>
+      <figure class="gitem"><img src="assets/art/stonehouse-800.jpg" width="800" height="447" loading="lazy" alt="رسم بالحبر والألوان المائية: جدار حجري قديم وجذع خشبي وشجرة خضراء"><figcaption><span class="ar">بيت حجري قديم</span><span class="en">An old stone house</span></figcaption></figure>
+      <figure class="gitem"><img src="assets/art/sunset-800.jpg" width="800" height="447" loading="lazy" alt="لوحة مائية: غروب الشمس فوق بيوت الباحة وتلالها"><figcaption><span class="ar">غروب على أطراف المدينة</span><span class="en">Sunset at the edge of town</span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
 <!-- ===== Writing ===== -->
 <section class="chapter" id="writing" style="--c:var(--teal);--wash:var(--teal-wash)">
   <div class="wrap">
     <div class="ch-head">
-      <figure class="paint"><img src="assets/art/writing-1600.jpg" srcset="assets/art/writing-800.jpg 800w, assets/art/writing-1600.jpg 1600w" sizes="(min-width:900px) 52vw, 100vw" width="1600" height="893" loading="lazy" alt="رسم بالحبر والألوان المائية: جدار حجري قديم وجذع خشبي وشجرة خضراء"></figure>
+      <figure class="paint"><img src="assets/art/window-1600.jpg" srcset="assets/art/window-800.jpg 800w, assets/art/window-1600.jpg 1600w" sizes="(min-width:900px) 52vw, 100vw" width="1600" height="893" loading="lazy" alt="لوحة مائية: نافذة خشبية سروية فيروزية منقوشة بزخارف صفراء، مفتوحة على حديقة وجبل"></figure>
       <div class="ch-text">
         <span class="kicker"><span class="ar">خدمة بمقابل</span><span class="en">A paid service</span></span>
         <h2><span class="ar">التحرير والصياغة الأدبية</span><span class="en">Editing &amp; literary writing</span></h2>
