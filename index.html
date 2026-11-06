@@ -726,7 +726,7 @@ var EVENTS = [
     document.body.className='l-'+L;
     document.documentElement.lang=L; document.documentElement.dir=L==='ar'?'rtl':'ltr';
     document.title=L==='ar'?'اختيارات أحمد | Ahmed Choices':'Ahmed Choices | اختيارات أحمد';
-    document.querySelectorAll('#ftopic option').forEach(function(o){o.textContent=o.dataset[L];});
+    document.querySelectorAll('#ftopic option, #stopic option').forEach(function(o){o.textContent=o.dataset[L];});
     document.getElementById('fname').placeholder=L==='ar'?'مثال: محمد':'e.g. Sarah';
     document.getElementById('fmsg').placeholder=L==='ar'?'اكتب ما تريد السؤال عنه أو طلبه':'What would you like to ask or book?';
     refreshLinks(); moon(); events(); news();
