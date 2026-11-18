@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>اختيارات أحمد</title>
+<script>
+(function () {
+  // كل الصيغ التي تُحوَّل إلى نادي اللغة الإنجليزية (بأي حروف كبيرة أو صغيرة)
+  var ALIASES = ["english", "eng", "englishclub", "english-club", "english_club",
+                 "englishhub", "english-hub", "club", "نادي", "النادي",
+                 "نادي-اللغة-الإنجليزية", "انجليزي", "الانجليزي", "الإنجليزية"];
+  var CLUB = "/English/";
+  var segs = location.pathname.split("/").filter(Boolean);
+  if (!segs.length) return;
+  var first;
+  try { first = decodeURIComponent(segs[0]); } catch (e) { first = segs[0]; }
+  var key = first.toLowerCase().replace(/\.html?$/, "");
+  if (ALIASES.indexOf(key) === -1) return;
+  // الصفحة الصحيحة غير موجودة داخل النادي نفسه: إلى واجهة النادي (منعاً للتكرار)
+  if (first === "English") { location.replace(CLUB); return; }
+  var rest = segs.slice(1).join("/");
+  location.replace(CLUB + rest + location.search + location.hash);
+})();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center;
+         font-family: "Cairo", sans-serif; background: #EEF5FE; color: #1E2A4A; text-align: center; }
+  .card { background: #fff; border-radius: 24px; padding: 40px 28px; max-width: 420px; margin: 20px;
+          box-shadow: 0 6px 0 #D6E7FB; }
+  h1 { font-size: 30px; margin: 0 0 12px; }
+  p { font-size: 20px; line-height: 1.8; margin: 0 0 24px; }
+  a { display: block; margin: 12px 0; padding: 14px; border-radius: 16px; font-size: 20px;
+      font-weight: 700; text-decoration: none; }
+  .club { background: #FFD34D; color: #1E2A4A; }
+  .home { background: #D6E7FB; color: #1E2A4A; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <h1>الصفحة غير موجودة</h1>
+    <p>ربما كُتب الرابط بطريقة مختلفة قليلاً.</p>
+    <a class="club" href="/English/">نادي اللغة الإنجليزية</a>
+    <a class="home" href="/">الصفحة الرئيسية</a>
+  </div>
+</body>
+</html>
